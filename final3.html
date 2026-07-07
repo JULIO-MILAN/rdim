@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recolectora Integral de Desechos de México">
+    <title>Recolectora Integral</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* Tema Oscuro (Desktop) */
+            --bg-primary: #000000;
+            --bg-secondary: #1a1a1a;
+            --bg-card: rgba(255, 255, 255, 0.02);
+            --bg-card-hover: rgba(255, 255, 255, 0.04);
+            --text-primary: #ffffff;
+            --text-secondary: #86868b;
+            --text-muted: #6e6e73;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(74, 124, 35, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --gray-100: #f5f5f7;
+            --gray-200: #e8e8ed;
+            --gray-400: #86868b;
+            --gray-600: #6e6e73;
+            --gray-800: #1d1d1f;
+            --green: #2D5016;
+            --green-light: #4A7C23;
+            --green-glow: rgba(74, 124, 35, 0.15);
+        }
+
+        /* Tema Claro (Móvil) */
+        @media (max-width: 768px) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f5f5f7;
+                --bg-card: #ffffff;
+                --bg-card-hover: #f9f9fb;
+                --text-primary: #1d1d1f;
+                --text-secondary: #6e6e73;
+                --text-muted: #86868b;
+                --border-color: rgba(0, 0, 0, 0.08);
+                --border-hover: rgba(45, 138, 62, 0.3);
+                --shadow-color: rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        ::selection { background: var(--green-light); color: white; }
+
+        /* ============================================
+           LOADER
+           ============================================ */
+        .loader {
+            position: fixed; inset: 0;
+            background: var(--bg-primary);
+            z-index: 10000;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .loader-inner {
+            text-align: center;
+        }
+
+        .loader-recycle {
+            width: 60px; height: 60px;
+            margin: 0 auto 2rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-bar {
+            width: 120px; height: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .loader-bar {
+                background: rgba(0,0,0,0.1);
+            }
+        }
+
+        .loader-bar-fill {
+            height: 100%; width: 0%;
+            background: var(--green-light);
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           MENU FLOTANTE PREMIUM
+           ============================================ */
+        .menu-float-btn {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.875rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .menu-float-btn {
+                background: rgba(255, 255, 255, 0.9);
+                border-color: rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .menu-float-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            border-color: var(--green-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(74, 124, 35, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .menu-float-btn:hover {
+                background: rgba(255, 255, 255, 1);
+                border-color: var(--green-light);
+            }
+        }
+
+        .menu-float-btn span {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .menu-float-btn span {
+                color: var(--gray-800);
+            }
+        }
+
+        .menu-float-btn i {
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .menu-float-btn i {
+                color: var(--gray-800);
+            }
+        }
+
+        body.menu-open .menu-float-btn {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        @media (max-width: 768px) {
+            .menu-float-btn span {
+                display: none;
+            }
+            .menu-float-btn {
+                padding: 1rem;
+            }
+        }
+
+        /* ============================================
+           FULLSCREEN MENU
+           ============================================ */
+        .fullscreen-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(0, 0, 0, 0.97);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            clip-path: circle(0% at calc(100% - 4rem) 4rem);
+            transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .fullscreen-menu.active {
+            clip-path: circle(150% at calc(100% - 4rem) 4rem);
+        }
+
+        .menu-gradient-1 {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 124, 35, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            animation: floatGradient 20s ease-in-out infinite;
+        }
+
+        .menu-gradient-2 {
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(45, 80, 22, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            animation: floatGradient 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatGradient {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .menu-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+            z-index: 10001;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .fullscreen-menu.active .menu-close-btn {
+            opacity: 1;
+            pointer-events: all;
+            transition-delay: 0.5s;
+        }
+
+        .menu-close-btn:hover {
+            background: var(--green-light);
+            border-color: var(--green-light);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .menu-close-btn i {
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+
+        .menu-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 4rem;
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .menu-header {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fullscreen-menu.active .menu-header {
+            animation: fadeInUp 0.8s 0.3s forwards;
+        }
+
+        .menu-header-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-header-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--gray-400);
+        }
+
+        .menu-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .fullscreen-menu.active .menu-item:nth-child(1) { animation: slideInLeft 0.6s 0.4s forwards; }
+        .fullscreen-menu.active .menu-item:nth-child(2) { animation: slideInLeft 0.6s 0.5s forwards; }
+        .fullscreen-menu.active .menu-item:nth-child(3) { animation: slideInLeft 0.6s 0.6s forwards; }
+        .fullscreen-menu.active .menu-item:nth-child(4) { animation: slideInLeft 0.6s 0.7s forwards; }
+        .fullscreen-menu.active .menu-item:nth-child(5) { animation: slideInLeft 0.6s 0.8s forwards; }
+        .fullscreen-menu.active .menu-item:nth-child(6) { animation: slideInLeft 0.6s 0.9s forwards; }
+
+        .menu-item-link {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            text-decoration: none;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .menu-item-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green-light);
+            transition: width 0.4s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .menu-item-link:hover::before {
+            width: 100%;
+        }
+
+        .menu-item-link:hover {
+            padding-left: 20px;
+        }
+
+        .menu-item-num {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--green-light);
+            letter-spacing: 0.1em;
+            min-width: 40px;
+        }
+
+        .menu-item-text {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .menu-item-link:hover .menu-item-text {
+            transform: translateX(20px);
+        }
+
+        .menu-footer {
+            margin-top: auto;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fullscreen-menu.active .menu-footer {
+            animation: fadeInUp 0.8s 0.9s forwards;
+        }
+
+        .menu-footer-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .menu-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .menu-social a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .menu-social a:hover {
+            background: var(--green-light);
+            border-color: var(--green-light);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-content {
+                padding: 4rem 2rem;
+            }
+
+            .menu-header {
+                margin-bottom: 3rem;
+            }
+
+            .menu-item-link {
+                gap: 1.5rem;
+                padding: 1.25rem 0;
+            }
+
+            .menu-footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg-img {
+            position: absolute; inset: 0;
+            background: url('camion.jpg') center/cover;
+            filter: brightness(0.25) grayscale(50%);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg-img {
+                filter: brightness(0.4) grayscale(30%);
+            }
+        }
+
+        .hero-gradient {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.3) 0%, 
+                rgba(0,0,0,0.1) 40%, 
+                rgba(0,0,0,0.8) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(to bottom, 
+                    rgba(255,255,255,0.1) 0%, 
+                    rgba(255,255,255,0.05) 40%, 
+                    rgba(255,255,255,0.9) 100%);
+            }
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            padding: 0 2rem;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+        }
+
+        .hero-recycle-icon {
+            width: 120px; height: 120px;
+            margin: 0 auto 2rem;
+            opacity: 0;
+            filter: drop-shadow(0 0 40px rgba(74,124,35,0.3));
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                color: var(--gray-800);
+            }
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .hero-title .word span {
+            display: inline-block;
+            transform: translateY(110%);
+        }
+
+        .hero-title .accent {
+            color: var(--green-light);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: var(--gray-400);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.5;
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-sub {
+                color: var(--gray-600);
+            }
+        }
+
+        .hero-cta-group {
+            display: flex; gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+        }
+
+        .btn-apple {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-filled {
+            background: var(--green-light);
+            color: white;
+        }
+
+        .btn-filled:hover {
+            background: var(--green);
+            transform: scale(1.02);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .btn-ghost {
+                color: var(--gray-800);
+                border-color: rgba(0,0,0,0.2);
+            }
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .btn-ghost:hover {
+                border-color: var(--gray-800);
+                background: rgba(0,0,0,0.05);
+            }
+        }
+
+        .hero-scroll-cue {
+            position: absolute;
+            bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.5rem;
+            opacity: 0; z-index: 2;
+        }
+
+        .hero-scroll-cue span {
+            font-size: 0.6875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+        }
+
+        .scroll-arrow {
+            width: 20px; height: 20px;
+            border-right: 1.5px solid var(--gray-600);
+            border-bottom: 1.5px solid var(--gray-600);
+            transform: rotate(45deg);
+            animation: arrowBounce 2s infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(8px); }
+        }
+
+        /* ============================================
+           MARQUEE
+           ============================================ */
+        .marquee-section {
+            padding: 1.5rem 0;
+            background: var(--green);
+            overflow: hidden;
+        }
+
+        .marquee-row {
+            display: flex;
+            animation: marqueeScroll 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-word {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white);
+            padding: 0 2rem;
+            white-space: nowrap;
+        }
+
+        .marquee-dot {
+            color: rgba(255,255,255,0.4);
+            padding: 0;
+        }
+
+        @keyframes marqueeScroll {
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        .section-full {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-heading {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .section-heading .thin {
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           ABOUT
+           ============================================ */
+        .about-section {
+            background: var(--bg-primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--gray-800);
+        }
+
+        @media (max-width: 768px) {
+            .about-img-wrap {
+                background: var(--gray-200);
+            }
+        }
+
+        .about-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .about-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-big {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-desc {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ============================================
+           CÓMO TRABAJAMOS - TIMELINE
+           ============================================ */
+        .process-section {
+            background: var(--bg-primary);
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .process-header .section-heading {
+            margin-bottom: 1rem;
+        }
+
+        .process-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                var(--green-light) 10%, 
+                var(--green-light) 90%, 
+                transparent 100%);
+            transform: translateX(-50%);
+        }
+
+        .process-step {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-step:nth-child(even) .process-step-content {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .process-step:nth-child(even) .process-step-image {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .process-step-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: var(--green);
+            border: 3px solid var(--green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(74, 124, 35, 0.3);
+        }
+
+        .process-step-content {
+            padding: 2rem;
+        }
+
+        .process-step-title {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .process-step-desc {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .process-step-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            background: var(--gray-800);
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .process-step-image {
+                background: var(--gray-200);
+            }
+        }
+
+        .process-step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .process-step-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .process-step-image .img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gray-800) 0%, rgba(45, 80, 22, 0.2) 100%);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .process-step-image .img-placeholder {
+                background: linear-gradient(135deg, var(--gray-200) 0%, rgba(45, 138, 62, 0.1) 100%);
+            }
+        }
+
+        .process-step {
+            opacity: 0;
+        }
+
+        .process-step.animate-left {
+            transform: translateX(-80px);
+        }
+
+        .process-step.animate-right {
+            transform: translateX(80px);
+        }
+
+        .process-step-number {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        @media (max-width: 768px) {
+            .process-section {
+                padding: 6rem 1.5rem;
+            }
+
+            .process-header {
+                margin-bottom: 4rem;
+            }
+
+            .process-timeline::before {
+                left: 32px;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding-left: 80px;
+                margin-bottom: 4rem;
+            }
+
+            .process-step:nth-child(even) .process-step-content,
+            .process-step:nth-child(odd) .process-step-content {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .process-step:nth-child(even) .process-step-image,
+            .process-step:nth-child(odd) .process-step-image {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .process-step-number {
+                left: 32px;
+                top: 0;
+                transform: translate(-50%, 0);
+                width: 56px;
+                height: 56px;
+                font-size: 1.125rem;
+            }
+
+            .process-step-content {
+                padding: 0;
+            }
+        }
+
+        /* ============================================
+           SERVICES - MINIMALISTA PREMIUM
+           ============================================ */
+        .services-section-minimal {
+            background: var(--bg-primary);
+            padding: 10rem 2rem;
+            position: relative;
+        }
+
+        .services-header-minimal {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .services-grid-minimal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-minimal {
+            position: relative;
+            padding: 3rem 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            transition: all 0.5s cubic-bezier(0.25, 0, 0, 1);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .service-minimal-wide {
+            grid-column: span 2;
+        }
+
+        .service-minimal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--green-light) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .service-minimal:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .service-minimal:hover::before {
+            opacity: 1;
+        }
+
+        .service-minimal-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--green-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-minimal-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(74, 124, 35, 0.1);
+            border: 1px solid rgba(74, 124, 35, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--green-light);
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .service-minimal:hover .service-minimal-icon {
+            background: rgba(74, 124, 35, 0.2);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .service-minimal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .service-minimal-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid-minimal {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .service-minimal-wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-section-minimal {
+                padding: 6rem 1.5rem;
+            }
+            
+            .services-header-minimal {
+                margin-bottom: 4rem;
+            }
+            
+            .services-grid-minimal {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-minimal-wide {
+                grid-column: span 1;
+            }
+            
+            .service-minimal {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        .service-minimal.animate-in {
+            animation: minimalSlideUp 0.8s cubic-bezier(0.25, 0, 0, 1) forwards;
+        }
+
+        @keyframes minimalSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           COVERAGE
+           ============================================ */
+        .coverage-section {
+            background: var(--bg-primary);
+            padding: 8rem 0;
+        }
+
+        .coverage-header {
+            text-align: center;
+            padding: 0 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .coverage-track {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .coverage-track::-webkit-scrollbar { display: none; }
+
+        .cov-card {
+            flex: 0 0 340px;
+            min-height: 420px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            display: flex; flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .cov-card:hover {
+            background: var(--green);
+            border-color: var(--green);
+            transform: translateY(-10px);
+        }
+
+        .cov-card-num {
+            position: absolute;
+            top: 2rem; left: 2.5rem;
+            font-size: 0.6875rem;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .cov-card-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .cov-card:hover .cov-card-icon { opacity: 0.8; }
+
+        .cov-card-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .cov-card:hover .cov-card-name {
+            color: var(--white);
+        }
+
+        .cov-card-region {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .cov-card:hover .cov-card-region { color: rgba(255,255,255,0.8); }
+
+        /* ============================================
+           CONTACT
+           ============================================ */
+        .contact-section {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+        }
+
+        .contact-left h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 3rem;
+        }
+
+        .contact-left h2 em {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--green);
+        }
+
+        .c-detail {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .c-detail-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .c-detail-val {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--gray-800);
+        }
+
+        .c-detail-val a {
+            color: var(--gray-800);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .c-detail-val a:hover { color: var(--green); }
+
+        .contact-form {
+            display: flex; flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .f-group { position: relative; }
+
+        .f-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .f-group input,
+        .f-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: var(--white);
+            border: 1.5px solid var(--gray-200);
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--gray-800);
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .f-group input:focus,
+        .f-group textarea:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px var(--green-glow);
+        }
+
+        .f-group textarea {
+            resize: vertical; min-height: 120px;
+        }
+
+        .f-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .btn-submit {
+            padding: 1rem 2rem;
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn-submit:hover {
+            background: var(--green-light);
+            transform: scale(1.02);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex; gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--text-primary); }
+
+        /* ============================================
+           WHATSAPP
+           ============================================ */
+        .wa-float {
+            position: fixed;
+            bottom: 1.5rem; right: 1.5rem;
+            width: 56px; height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+            text-decoration: none;
+        }
+
+        .wa-float:hover { transform: scale(1.1); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .f-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cov-card {
+                flex: 0 0 280px;
+                min-height: 350px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-full {
+                padding: 6rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <svg class="loader-recycle" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#4A7C23">
+                    <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z"/>
+                    <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" transform="rotate(120 100 100)"/>
+                    <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" transform="rotate(240 100 100)"/>
+                </g>
+            </svg>
+            <div class="loader-bar">
+                <div class="loader-bar-fill" id="loaderFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Menú Flotante -->
+    <button class="menu-float-btn" id="menuFloatBtn">
+        <span>Menú</span>
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-gradient-1"></div>
+        <div class="menu-gradient-2"></div>
+
+        <button class="menu-close-btn" id="menuCloseBtn">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="menu-content">
+            <div class="menu-header">
+                <div class="menu-header-label">Navegación</div>
+                <div class="menu-header-title">06 Secciones</div>
+            </div>
+
+            <ul class="menu-items">
+                <li class="menu-item">
+                    <a href="#inicio" class="menu-item-link">
+                        <span class="menu-item-num">01</span>
+                        <span class="menu-item-text">Inicio</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#nosotros" class="menu-item-link">
+                        <span class="menu-item-num">02</span>
+                        <span class="menu-item-text">Nosotros</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#proceso" class="menu-item-link">
+                        <span class="menu-item-num">03</span>
+                        <span class="menu-item-text">Cómo Trabajamos</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#servicios" class="menu-item-link">
+                        <span class="menu-item-num">04</span>
+                        <span class="menu-item-text">Servicios</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#cobertura" class="menu-item-link">
+                        <span class="menu-item-num">05</span>
+                        <span class="menu-item-text">Cobertura</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#contacto" class="menu-item-link">
+                        <span class="menu-item-num">06</span>
+                        <span class="menu-item-text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="menu-footer">
+                <div class="menu-footer-text">© 2026 Recolectora Integral de Desechos de México</div>
+                <div class="menu-social">
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-img"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Soluciones Ambientales Certificadas</p>
+            
+            <svg class="hero-recycle-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#2D5016"/>
+                        <stop offset="100%" stop-color="#4A7C23"/>
+                    </linearGradient>
+                </defs>
+                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)"/>
+                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)" transform="rotate(120 100 100)"/>
+                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)" transform="rotate(240 100 100)"/>
+            </svg>
+
+            <h1 class="hero-title">
+                <span class="word"><span>Recolectora</span></span><br>
+                <span class="word"><span class="accent">Integral</span></span>
+            </h1>
+            
+            <p class="hero-sub">
+                Gestión responsable de residuos para empresas que construyen un futuro mejor.
+            </p>
+            
+            <div class="hero-cta-group">
+                <a href="#contacto" class="btn-apple btn-filled">Solicitar Cotización</a>
+                <a href="https://wa.me/527223650238" class="btn-apple btn-ghost" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-cue">
+            <span>Descubre más</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-row">
+            <span class="marquee-word">Recolección</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Reciclaje</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Gestión Integral</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Destrucción Fiscal</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">RPBI</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Recolección</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Reciclaje</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Gestión Integral</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Destrucción Fiscal</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">RPBI</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section-full about-section" id="nosotros">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-img-wrap">
+                    <img src="camion.jpg" alt="Recolectora Integral">
+                </div>
+                <div class="about-text">
+                    <div class="section-label">Nosotros</div>
+                    <h2 class="section-heading">
+                        El futuro es <br><span class="thin">responsabilidad nuestra.</span>
+                    </h2>
+                    <p>
+                        <strong>Recolectora Integral de Desechos de México</strong> es una empresa especializada en gestión de residuos con autorizaciones ambientales que nos permiten ofrecer servicios profesionales y certificados.
+                    </p>
+                    <p>
+                        Atendemos industrias, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
+                    </p>
+                    <div class="stats-row">
+                        <div>
+                            <div class="stat-big" data-target="15">0</div>
+                            <div class="stat-desc">Años de experiencia</div>
+                        </div>
+                        <div>
+                            <div class="stat-big" data-target="500">0</div>
+                            <div class="stat-desc">Clientes activos</div>
+                        </div>
+                        <div>
+                            <div class="stat-big" data-target="5">0</div>
+                            <div class="stat-desc">Estados cubiertos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO TRABAJAMOS -->
+    <section class="process-section" id="proceso">
+        <div class="section-inner">
+            <div class="process-header">
+                <div class="section-label">Nuestro Proceso</div>
+                <h2 class="section-heading">Cómo Trabajamos.</h2>
+                <p class="process-subtitle">Nuestro proceso en 4 pasos</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step animate-left" data-step="1">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Evaluación</h3>
+                        <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="evaluacion.jpg" alt="Evaluación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📋 Evaluación</div>
+                    </div>
+                    <div class="process-step-number">01</div>
+                </div>
+
+                <div class="process-step animate-right" data-step="2">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Plan Personalizado</h3>
+                        <p class="process-step-desc">Diseñamos un plan de gestión de residuos adaptado a sus necesidades y presupuesto.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="plan.jpg" alt="Plan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📊 Plan Personalizado</div>
+                    </div>
+                    <div class="process-step-number">02</div>
+                </div>
+
+                <div class="process-step animate-left" data-step="3">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Implementación</h3>
+                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado y flota moderna de vehículos.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="implementacion.jpg" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">🚛 Implementación</div>
+                    </div>
+                    <div class="process-step-number">03</div>
+                </div>
+
+                <div class="process-step animate-right" data-step="4">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Seguimiento</h3>
+                        <p class="process-step-desc">Monitoreamos continuamente el servicio y generamos reportes de cumplimiento ambiental.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="seguimiento.jpg" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📈 Seguimiento</div>
+                    </div>
+                    <div class="process-step-number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section-minimal" id="servicios">
+        <div class="section-inner">
+            <div class="services-header-minimal">
+                <div class="section-label">Servicios</div>
+                <h2 class="section-heading">
+                    Todo lo que necesitas.<br><span class="thin">En un solo lugar.</span>
+                </h2>
+            </div>
+
+            <div class="services-grid-minimal">
+                <div class="service-minimal" data-service="1">
+                    <div class="service-minimal-number">01</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Recolección de Basura</h3>
+                    <p class="service-minimal-desc">
+                        Servicio confiable con planes semanales o personalizados. 
+                        Cumplimiento puntual y normativa ambiental garantizada.
+                    </p>
+                </div>
+
+                <div class="service-minimal" data-service="2">
+                    <div class="service-minimal-number">02</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Residuos Peligrosos</h3>
+                    <p class="service-minimal-desc">
+                        Manejo especializado con protocolos certificados. 
+                        Cumplimiento NOM-052-SEMARNAT-2005.
+                    </p>
+                </div>
+
+                <div class="service-minimal" data-service="3">
+                    <div class="service-minimal-number">03</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-biohazard"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Recolección RPBI</h3>
+                    <p class="service-minimal-desc">
+                        Estándares de bioseguridad y disposición certificada. 
+                        Cumplimiento NOM-087-SEMARNAT-SSA1-2002.
+                    </p>
+                </div>
+
+                <div class="service-minimal" data-service="4">
+                    <div class="service-minimal-number">04</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-file-shred"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Destrucción Fiscal</h3>
+                    <p class="service-minimal-desc">
+                        Eliminación segura de documentos confidenciales 
+                        con constancias de validez legal.
+                    </p>
+                </div>
+
+                <div class="service-minimal service-minimal-wide" data-service="5">
+                    <div class="service-minimal-number">05</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Gestión Integral de Residuos</h3>
+                    <p class="service-minimal-desc">
+                        Soluciones completas desde la segregación hasta la disposición 
+                        final sustentable. Diagnóstico, implementación y monitoreo continuo.
+                    </p>
+                </div>
+
+                <div class="service-minimal" data-service="6">
+                    <div class="service-minimal-number">06</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Capacitación Ambiental</h3>
+                    <p class="service-minimal-desc">
+                        Formación empresarial sobre manejo de residuos 
+                        y cumplimiento normativo.
+                    </p>
+                </div>
+
+                <div class="service-minimal" data-service="7">
+                    <div class="service-minimal-number">07</div>
+                    <div class="service-minimal-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-minimal-title">Compra-Venta Reciclables</h3>
+                    <p class="service-minimal-desc">
+                        Economía circular y sustentabilidad. 
+                        Compramos cartón, papel, plásticos, metales y vidrio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVERAGE -->
+    <section class="coverage-section" id="cobertura">
+        <div class="coverage-header">
+            <div class="section-label">Cobertura</div>
+            <h2 class="section-heading">
+                Donde nos necesites.<br><span class="thin">Ahí estamos.</span>
+            </h2>
+        </div>
+        <div class="coverage-track">
+            <div class="cov-card">
+                <div class="cov-card-num">01</div>
+                <div class="cov-card-icon"><i class="fas fa-building"></i></div>
+                <div class="cov-card-name">CDMX</div>
+                <div class="cov-card-region">Ciudad de México</div>
+            </div>
+            <div class="cov-card">
+                <div class="cov-card-num">02</div>
+                <div class="cov-card-icon"><i class="fas fa-industry"></i></div>
+                <div class="cov-card-name">Edo. Méx</div>
+                <div class="cov-card-region">Zona Metropolitana</div>
+            </div>
+            <div class="cov-card">
+                <div class="cov-card-num">03</div>
+                <div class="cov-card-icon"><i class="fas fa-landmark"></i></div>
+                <div class="cov-card-name">Hidalgo</div>
+                <div class="cov-card-region">Todo el Estado</div>
+            </div>
+            <div class="cov-card">
+                <div class="cov-card-num">04</div>
+                <div class="cov-card-icon"><i class="fas fa-mountain"></i></div>
+                <div class="cov-card-name">Morelos</div>
+                <div class="cov-card-region">Cobertura Total</div>
+            </div>
+            <div class="cov-card">
+                <div class="cov-card-num">05</div>
+                <div class="cov-card-icon"><i class="fas fa-chess-rook"></i></div>
+                <div class="cov-card-name">Querétaro</div>
+                <div class="cov-card-region">Zona Industrial</div>
+            </div>
+            <div class="cov-card">
+                <div class="cov-card-num">06</div>
+                <div class="cov-card-icon"><i class="fas fa-globe-americas"></i></div>
+                <div class="cov-card-name">Nacional</div>
+                <div class="cov-card-region">Todo México</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-full contact-section" id="contacto">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <div class="section-label" style="color:var(--green);">Contacto</div>
+                    <h2>Hablemos de tu <em>próximo paso.</em></h2>
+                    
+                    <div class="c-detail">
+                        <div class="c-detail-label">Gerente de Desarrollo</div>
+                        <div class="c-detail-val">Lic. Karla Maturano Dotor</div>
+                    </div>
+                    <div class="c-detail">
+                        <div class="c-detail-label">Teléfonos</div>
+                        <div class="c-detail-val">
+                            <a href="tel:7223650238">722 365 0238</a> · <a href="tel:7222951943">722 295 1943</a>
+                        </div>
+                    </div>
+                    <div class="c-detail">
+                        <div class="c-detail-label">WhatsApp</div>
+                        <div class="c-detail-val">
+                            <a href="https://wa.me/527223650238" target="_blank">722 365 0238</a>
+                        </div>
+                    </div>
+                    <div class="c-detail">
+                        <div class="c-detail-label">Correo</div>
+                        <div class="c-detail-val">
+                            <a href="mailto:recolectoraintegraldedesechosd@gmail.com">recolectoraintegraldedesechosd@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="f-row">
+                        <div class="f-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="f-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" required>
+                        </div>
+                    </div>
+                    <div class="f-row">
+                        <div class="f-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="f-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" required>
+                        </div>
+                    </div>
+                    <div class="f-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">© 2026 Recolectora Integral de Desechos de México</div>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/527223650238" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // --- LOADER ---
+        const loaderFill = document.getElementById('loaderFill');
+        const loader = document.getElementById('loader');
+        let progress = 0;
+
+        const loadInterval = setInterval(() => {
+            progress += Math.random() * 15 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(loadInterval);
+                setTimeout(() => {
+                    gsap.to(loader, {
+                        opacity: 0, duration: 0.6,
+                        onComplete: () => {
+                            loader.style.display = 'none';
+                            animateHero();
+                        }
+                    });
+                }, 300);
+            }
+            loaderFill.style.width = progress + '%';
+        }, 150);
+
+        // --- HERO ANIMATION ---
+        function animateHero() {
+            const tl = gsap.timeline();
+            tl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+              .to('.hero-recycle-icon', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
+              .to('.hero-title .word span', {
+                  y: 0, duration: 1.2, stagger: 0.15, ease: 'power4.out'
+              }, '-=0.8')
+              .to('.hero-sub', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.5')
+              .to('.hero-cta-group', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.4')
+              .to('.hero-scroll-cue', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.2');
+        }
+
+        // --- SCROLL REVEALS ---
+        gsap.utils.toArray('.section-label, .section-heading, .about-img-wrap, .about-text p, .stats-row, .service-minimal, .cov-card, .c-detail, .contact-form').forEach(el => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, y: 0, duration: 0.9,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: el, start: 'top 88%', once: true
+                    }
+                }
+            );
+        });
+
+        // Stagger service cards
+        gsap.utils.toArray('.service-minimal').forEach((card, i) => {
+            gsap.to(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    once: true
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out',
+                onStart: () => {
+                    card.classList.add('animate-in');
+                }
+            });
+        });
+
+        // --- CÓMO TRABAJAMOS - ANIMACIONES ---
+        gsap.utils.toArray('.process-step').forEach((step, i) => {
+            const isLeft = step.classList.contains('animate-left');
+            const startX = isLeft ? -100 : 100;
+
+            gsap.fromTo(step,
+                { opacity: 0, x: startX },
+                {
+                    opacity: 1, x: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+
+            const number = step.querySelector('.process-step-number');
+            gsap.fromTo(number,
+                { opacity: 0, scale: 0, rotation: -180 },
+                {
+                    opacity: 1, scale: 1, rotation: 0,
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: 'back.out(1.7)',
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+
+            const title = step.querySelector('.process-step-title');
+            gsap.fromTo(title,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.8,
+                    delay: 0.4,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+
+            const desc = step.querySelector('.process-step-desc');
+            gsap.fromTo(desc,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.8,
+                    delay: 0.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+
+            const image = step.querySelector('.process-step-image');
+            gsap.fromTo(image,
+                { opacity: 0, scale: 0.8 },
+                {
+                    opacity: 1, scale: 1,
+                    duration: 1,
+                    delay: 0.2,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+        });
+
+        gsap.fromTo('.process-header .section-label',
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.process-header',
+                    start: 'top 80%',
+                    once: true
+                }
+            }
+        );
+
+        gsap.fromTo('.process-header .section-heading',
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1, y: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.process-header',
+                    start: 'top 80%',
+                    once: true
+                }
+            }
+        );
+
+        gsap.fromTo('.process-header .process-subtitle',
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.8,
+                delay: 0.4,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.process-header',
+                    start: 'top 80%',
+                    once: true
+                }
+            }
+        );
+
+        // --- COUNTERS ---
+        document.querySelectorAll('[data-target]').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            gsap.to(el, {
+                innerText: target, duration: 2, snap: { innerText: 1 },
+                scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+            });
+        });
+
+        // --- PARALLAX HERO BG ---
+        gsap.to('.hero-bg-img', {
+            y: 150, ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+
+        // --- SMOOTH SCROLL ---
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) {
+                    gsap.to(window, { duration: 1.2, scrollTo: { y: t, offsetY: 0 }, ease: 'power3.inOut' });
+                    const menu = document.getElementById('fullscreenMenu');
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+
+        // --- FULLSCREEN MENU ---
+        const menuFloatBtn = document.getElementById('menuFloatBtn');
+        const menuCloseBtn = document.getElementById('menuCloseBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+
+        menuFloatBtn.addEventListener('click', () => {
+            fullscreenMenu.classList.add('active');
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        menuCloseBtn.addEventListener('click', () => {
+            fullscreenMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        });
+
+        document.querySelectorAll('.menu-item-link').forEach(link => {
+            link.addEventListener('click', () => {
+                fullscreenMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // --- FORM ---
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            btn.textContent = 'Enviado ✓';
+            btn.style.background = '#25D366';
+            setTimeout(() => {
+                btn.textContent = 'Enviar Mensaje';
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
