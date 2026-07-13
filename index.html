@@ -1380,10 +1380,94 @@
             align-self: flex-start;
         }
 
-        .btn-submit:hover {
-            background: var(--green-light);
-            transform: scale(1.02);
-        }
+        /* BUSCA ESTO EN TU CSS: */
+.btn-submit:hover {
+    background: var(--green-light);
+    transform: scale(1.02);
+}
+
+/* PEGA ESTO JUSTO DEBAJO: */
+
+/* Estilos para el select */
+.f-group select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--gray-800);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.f-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 4px var(--green-glow);
+}
+
+/* Botón de envío */
+.btn-submit {
+    position: relative;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Mensaje de estado */
+.form-status {
+    display: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+.form-status.success {
+    background: rgba(74, 124, 35, 0.1);
+    border: 1px solid rgba(74, 124, 35, 0.3);
+    color: var(--green-light);
+}
+
+.form-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Honeypot - Campo oculto para detectar bots */
+.honeypot-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .btn-submit { width: 100%; }
+}
 
         /* ============================================
            FOOTER
@@ -1632,7 +1716,7 @@
         <div class="section-inner">
             <div class="about-grid">
                 <div class="about-img-wrap">
-                    <img src="camion.jpg" alt="Recolectora Integral">
+                    <img src="https://cdn.phototourl.com/free/2026-07-07-e70db498-9a24-43f0-951a-dbbb34dfe46b.png" alt="Recolectora Integral">
                 </div>
                 <div class="about-text">
                     <div class="section-label">Nosotros</div>
@@ -1680,7 +1764,7 @@
                         <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
                     </div>
                     <div class="process-step-image">
-                        <img src="evaluacion.jpg" alt="Evaluación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Evaluación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;">📋 Evaluación</div>
                     </div>
                     <div class="process-step-number">01</div>
@@ -1692,7 +1776,7 @@
                         <p class="process-step-desc">Diseñamos un plan de gestión de residuos adaptado a sus necesidades y presupuesto.</p>
                     </div>
                     <div class="process-step-image">
-                        <img src="plan.jpg" alt="Plan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://plus.unsplash.com/premium_photo-1661277697952-0cacde72c755?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;">📊 Plan Personalizado</div>
                     </div>
                     <div class="process-step-number">02</div>
@@ -1704,7 +1788,7 @@
                         <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado y flota moderna de vehículos.</p>
                     </div>
                     <div class="process-step-image">
-                        <img src="implementacion.jpg" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;">🚛 Implementación</div>
                     </div>
                     <div class="process-step-number">03</div>
@@ -1716,7 +1800,7 @@
                         <p class="process-step-desc">Monitoreamos continuamente el servicio y generamos reportes de cumplimiento ambiental.</p>
                     </div>
                     <div class="process-step-image">
-                        <img src="seguimiento.jpg" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://media.istockphoto.com/id/2214748175/photo/17th-day-of-the-month-writing-text-follow-up-on-calendar-date-save-the-date-day-of-the-year.jpg?s=2048x2048&w=is&k=20&c=rYS0Uwb6Pwp5skd8A76WKoOw_0rqfq5JeXVZ7YsFzJE=" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;">📈 Seguimiento</div>
                     </div>
                     <div class="process-step-number">04</div>
@@ -1877,10 +1961,10 @@
             <div class="contact-grid">
                 <div class="contact-left">
                     <div class="section-label" style="color:var(--green);">Contacto</div>
-                    <h2>Hablemos de tu <em>próximo paso.</em></h2>
+                    <h2>Hablemos de tu <em>próximo paso para </em><em>Cotizar.</em></h2>
                     
                     <div class="c-detail">
-                        <div class="c-detail-label">Gerente de Desarrollo</div>
+                        <div class="c-detail-label">Gerente de Desarrollo de Proyectos</div>
                         <div class="c-detail-val">Lic. Karla Maturano Dotor</div>
                     </div>
                     <div class="c-detail">
@@ -1902,33 +1986,61 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="f-row">
-                        <div class="f-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" required>
-                        </div>
-                        <div class="f-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" required>
-                        </div>
-                    </div>
-                    <div class="f-row">
-                        <div class="f-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="f-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" id="empresa" required>
-                        </div>
-                    </div>
-                    <div class="f-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
-                </form>
+                
+                <!-- Formulario con Honeypot -->
+<form class="contact-form" id="contactForm" netlify netlify-honeypot="bot-field">
+    <!-- Campo Honeypot (oculto para humanos, visible para bots) -->
+    <p class="honeypot-field" style="display: none;">
+        <label>No llenes este campo si eres humano: <input name="bot-field"></label>
+    </p>
+    
+    <div class="f-row">
+        <div class="f-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="f-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" required>
+        </div>
+    </div>
+    <div class="f-row">
+        <div class="f-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="f-group">
+            <label for="empresa">Empresa *</label>
+            <input type="text" id="empresa" name="empresa" required>
+        </div>
+    </div>
+    <div class="f-group">
+        <label for="servicio">Servicio de Interés *</label>
+        <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="Recolección de Basura">Recolección de Basura</option>
+            <option value="Residuos Peligrosos">Residuos Peligrosos</option>
+            <option value="Recolección RPBI">Recolección RPBI</option>
+            <option value="Destrucción Fiscal">Destrucción Fiscal</option>
+            <option value="Gestión Integral">Gestión Integral de Residuos</option>
+            <option value="Capacitación Ambiental">Capacitación Ambiental</option>
+            <option value="Compra-Venta Reciclables">Compra-Venta Reciclables</option>
+        </select>
+    </div>
+    <div class="f-group">
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos sobre tus necesidades..."></textarea>
+    </div>
+    
+    <!-- Campo oculto para timestamp (anti-spam adicional) -->
+    <input type="hidden" id="formTimestamp" name="timestamp">
+    
+    <button type="submit" class="btn-submit">
+        <span class="btn-text">Enviar Mensaje</span>
+        <span class="btn-loading" style="display:none;">Enviando...</span>
+    </button>
+    <div class="form-status" id="formStatus"></div>
+</form>
             </div>
         </div>
     </section>
@@ -2208,18 +2320,150 @@
             });
         });
 
-        // --- FORM ---
-        document.getElementById('contactForm').addEventListener('submit', e => {
-            e.preventDefault();
-            const btn = e.target.querySelector('.btn-submit');
-            btn.textContent = 'Enviado ✓';
-            btn.style.background = '#25D366';
-            setTimeout(() => {
-                btn.textContent = 'Enviar Mensaje';
-                btn.style.background = '';
-                e.target.reset();
-            }, 3000);
-        });
+        // --- FORMULARIO FUNCIONAL CON ANTI-SPAM ---
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const btn = this.querySelector('.btn-submit');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoading = btn.querySelector('.btn-loading');
+    const formStatus = document.getElementById('formStatus');
+    
+    // Capturar datos del formulario
+    const formData = {
+        nombre: document.getElementById('nombre').value.trim(),
+        telefono: document.getElementById('telefono').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        empresa: document.getElementById('empresa').value.trim(),
+        servicio: document.getElementById('servicio').value,
+        mensaje: document.getElementById('mensaje').value.trim(),
+        botField: document.querySelector('input[name="bot-field"]').value,
+        timestamp: document.getElementById('formTimestamp').value
+    };
+    
+    // ============================================
+    // VALIDACIÓN ANTI-SPAM: HONEYPOT
+    // ============================================
+    if (formData.botField) {
+        console.warn('Bot detectado - formulario descartado');
+        return; // Silenciosamente descartar (no mostrar error al bot)
+    }
+    
+    // ============================================
+    // VALIDACIÓN ANTI-SPAM: TIMESTAMP
+    // ============================================
+    const now = Date.now();
+    const formLoadTime = parseInt(formData.timestamp) || 0;
+    const timeToFill = now - formLoadTime;
+    
+    // Si el formulario se envió en menos de 3 segundos, probablemente es un bot
+    if (timeToFill < 3000) {
+        showFormStatus('Por favor espera unos segundos antes de enviar', 'error');
+        resetButton();
+        return;
+    }
+    
+    // ============================================
+    // VALIDACIONES NORMALES
+    // ============================================
+    if (!formData.nombre || !formData.telefono || !formData.email || !formData.empresa || !formData.servicio || !formData.mensaje) {
+        showFormStatus('Por favor completa todos los campos', 'error');
+        resetButton();
+        return;
+    }
+    
+    // Validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+        showFormStatus('Por favor ingresa un email válido', 'error');
+        resetButton();
+        return;
+    }
+    
+    // Validar teléfono (mínimo 10 dígitos)
+    const phoneRegex = /^\d{10,}$/;
+    if (!phoneRegex.test(formData.telefono.replace(/\D/g, ''))) {
+        showFormStatus('Por favor ingresa un teléfono válido (mínimo 10 dígitos)', 'error');
+        resetButton();
+        return;
+    }
+    
+    // Deshabilitar botón durante envío
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    
+    try {
+        // Enviar a WhatsApp
+        await sendToWhatsApp(formData);
+        
+        // Mostrar éxito
+        showFormStatus('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
+        
+        // Resetear formulario y timestamp
+        this.reset();
+        document.getElementById('formTimestamp').value = Date.now();
+        
+        // Scroll suave al mensaje de éxito
+        setTimeout(() => {
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+        
+    } catch (error) {
+        console.error('Error al enviar:', error);
+        showFormStatus('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+    } finally {
+        resetButton();
+    }
+    
+    function resetButton() {
+        btn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+    }
+    
+    function showFormStatus(message, type) {
+        formStatus.textContent = message;
+        formStatus.className = 'form-status ' + type;
+        formStatus.style.display = 'block';
+        
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+        }, 5000);
+    }
+});
+
+// Establecer timestamp cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('formTimestamp').value = Date.now();
+});
+
+// Función para enviar a WhatsApp
+async function sendToWhatsApp(data) {
+    const phoneNumber = '527223650238';
+    
+    const message = `🌿 *NUEVO MENSAJE - RIDM*
+
+*Nombre:* ${data.nombre}
+*Teléfono:* ${data.telefono}
+*Email:* ${data.email}
+*Empresa:* ${data.empresa}
+*Servicio de Interés:* ${data.servicio}
+
+*Mensaje:*
+${data.mensaje}
+
+---
+Enviado desde el formulario web`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappURL, '_blank');
+    
+    return Promise.resolve();
+    
+}
     </script>
 </body>
 </html>
