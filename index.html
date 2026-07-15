@@ -117,69 +117,55 @@
            MENU FLOTANTE PREMIUM
            ============================================ */
         .menu-float-btn {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            z-index: 9999;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 0.875rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid #4CAF50; /* Borde verde claro muy visible */
+    border-radius: 50px;
+    padding: 1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+    /* Resplandor verde para que destaque en fondo oscuro */
+    box-shadow: 0 0 25px rgba(76, 175, 80, 0.4), 0 8px 32px rgba(0, 0, 0, 0.6); 
+}
 
-        @media (max-width: 768px) {
-            .menu-float-btn {
-                background: rgba(255, 255, 255, 0.9);
-                border-color: rgba(0, 0, 0, 0.1);
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            }
-        }
+.menu-float-btn:hover {
+    background: #4CAF50; /* Fondo verde al pasar el mouse */
+    border-color: #4CAF50;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 35px rgba(76, 175, 80, 0.6), 0 12px 40px rgba(0, 0, 0, 0.8);
+}
 
-        .menu-float-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-            border-color: var(--green-light);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(74, 124, 35, 0.2);
-        }
+/* Asegurar que el texto e ícono se vean bien en ambos estados */
+.menu-float-btn span, 
+.menu-float-btn i {
+    color: #ffffff;
+    transition: color 0.3s;
+}
 
-        @media (max-width: 768px) {
-            .menu-float-btn:hover {
-                background: rgba(255, 255, 255, 1);
-                border-color: var(--green-light);
-            }
-        }
+.menu-float-btn:hover span, 
+.menu-float-btn:hover i {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
 
-        .menu-float-btn span {
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .menu-float-btn span {
-                color: var(--gray-800);
-            }
-        }
-
-        .menu-float-btn i {
-            font-size: 1rem;
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .menu-float-btn i {
-                color: var(--gray-800);
-            }
-        }
+/* Ajuste para móvil (solo ícono) */
+@media (max-width: 768px) {
+    .menu-float-btn {
+        padding: 1rem;
+        border-width: 2px;
+    }
+    .menu-float-btn span {
+        display: none;
+    }
+}
 
         body.menu-open .menu-float-btn {
             opacity: 0;
@@ -520,16 +506,85 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--green-light);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.0rem;
             opacity: 0;
         }
 
         .hero-recycle-icon {
-            width: 120px; height: 120px;
+            width: 10px; height: 120px;
             margin: 0 auto 2rem;
             opacity: 0;
             filter: drop-shadow(0 0 40px rgba(74,124,35,0.3));
         }
+
+        /* Contenedor del ícono del camión */
+.hero-icon-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    filter: drop-shadow(0 0 40px rgba(74, 124, 35, 0.3));
+}
+
+/* Camión principal */
+.hero-icon-container > i {
+    font-size: 5rem;
+    color: var(--green-light);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-icon-container:hover > i {
+    transform: scale(1.1) translateX(5px);
+}
+
+/* Badge de reciclaje (círculo pequeño con símbolo) */
+.recycle-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2D8A3E 0%, #4CAF50 100%);
+    border: 3px solid var(--bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(45, 138, 62, 0.4);
+}
+
+.recycle-badge i {
+    font-size: 1.25rem;
+    color: white;
+    animation: spinRecycle 8s linear infinite;
+}
+
+@keyframes spinRecycle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .hero-icon-container {
+        width: 110px;
+        height: 110px;
+    }
+    .hero-icon-container > i {
+        font-size: 4rem;
+    }
+    .recycle-badge {
+        width: 40px;
+        height: 40px;
+    }
+    .recycle-badge i {
+        font-size: 1rem;
+    }
+}
 
         .hero-title {
             font-size: clamp(3rem, 10vw, 8rem);
@@ -547,8 +602,9 @@
         }
 
         .hero-title .word {
-            display: inline-block;
-            overflow: hidden;
+    display: inline-block;
+    overflow: visible; /* Permite que la cursiva se vea completa */
+    padding: 0 8px; /* Da espacio para que no se pegue con otras palabras */
         }
 
         .hero-title .word span {
@@ -1027,154 +1083,344 @@
                 padding: 0;
             }
         }
+        .impact-stat {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(45, 138, 62, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+    border-left: 4px solid var(--green-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
 
-        /* ============================================
-           SERVICES - MINIMALISTA PREMIUM
-           ============================================ */
-        .services-section-minimal {
-            background: var(--bg-primary);
-            padding: 10rem 2rem;
-            position: relative;
-        }
+.impact-icon {
+    font-size: 2.5rem;
+    color: var(--green-light);
+    flex-shrink: 0;
+}
 
-        .services-header-minimal {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
+.impact-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
 
-        .services-grid-minimal {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.impact-text strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
 
-        .service-minimal {
-            position: relative;
-            padding: 3rem 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            transition: all 0.5s cubic-bezier(0.25, 0, 0, 1);
-            opacity: 0;
-            transform: translateY(40px);
-        }
+@media (max-width: 768px) {
+    .impact-stat {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    
+    .impact-icon {
+        font-size: 2rem;
+    }
+}
 
-        .service-minimal-wide {
-            grid-column: span 2;
-        }
+     /* ============================================
+   SERVICES - CATEGORÍAS + EXPANDIBLES
+   ============================================ */
+.services-section-minimal {
+    background: var(--bg-primary);
+    padding: 8rem 2rem;
+    position: relative;
+}
 
-        .service-minimal::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, var(--green-light) 50%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
+.services-header-minimal {
+    text-align: center;
+    margin-bottom: 4rem;
+}
 
-        .service-minimal:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px var(--shadow-color);
-        }
+.services-intro {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-        .service-minimal:hover::before {
-            opacity: 1;
-        }
+/* TABS DE CATEGORÍAS */
+.service-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
 
-        .service-minimal-number {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--green-light);
-            margin-bottom: 1.5rem;
-        }
+.service-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0, 0, 1);
+}
 
-        .service-minimal-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(74, 124, 35, 0.1);
-            border: 1px solid rgba(74, 124, 35, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            color: var(--green-light);
-            margin-bottom: 2rem;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+.service-tab i {
+    font-size: 1rem;
+}
 
-        .service-minimal:hover .service-minimal-icon {
-            background: rgba(74, 124, 35, 0.2);
-            transform: scale(1.1) rotate(-5deg);
-        }
+.service-tab:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
 
-        .service-minimal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
+.service-tab.active {
+    background: var(--green-light);
+    border-color: var(--green-light);
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 124, 35, 0.3);
+}
 
-        .service-minimal-desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
+/* GRID DE SERVICIOS */
+.services-grid-minimal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        @media (max-width: 1024px) {
-            .services-grid-minimal {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-            
-            .service-minimal-wide {
-                grid-column: span 2;
-            }
-        }
+.service-minimal {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: all 0.5s cubic-bezier(0.25, 0, 0, 1);
+    cursor: pointer;
+    overflow: hidden;
+}
 
-        @media (max-width: 768px) {
-            .services-section-minimal {
-                padding: 6rem 1.5rem;
-            }
-            
-            .services-header-minimal {
-                margin-bottom: 4rem;
-            }
-            
-            .services-grid-minimal {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .service-minimal-wide {
-                grid-column: span 1;
-            }
-            
-            .service-minimal {
-                padding: 2.5rem 2rem;
-            }
-        }
+.service-minimal-wide {
+    grid-column: span 2;
+}
 
-        .service-minimal.animate-in {
-            animation: minimalSlideUp 0.8s cubic-bezier(0.25, 0, 0, 1) forwards;
-        }
+.service-minimal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-light), var(--green));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
 
-        @keyframes minimalSlideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.service-minimal:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.service-minimal:hover::before {
+    transform: scaleX(1);
+}
+
+.service-minimal.hidden {
+    display: none;
+}
+
+.service-minimal.fade-in {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-minimal-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--green-light);
+    margin-bottom: 1rem;
+}
+
+.service-minimal-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(74, 124, 35, 0.1);
+    border: 1px solid rgba(74, 124, 35, 0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--green-light);
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-minimal:hover .service-minimal-icon {
+    background: var(--green-light);
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.service-minimal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.service-minimal-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* CONTENIDO EXPANDIDO */
+.service-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0, 0, 1), 
+                opacity 0.3s ease,
+                margin 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.service-minimal:hover .service-expanded,
+.service-minimal.expanded .service-expanded {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+.service-expanded ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-expanded li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+.service-expanded li:first-child {
+    border-top: none;
+}
+
+.service-expanded li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green-light);
+    font-weight: 700;
+}
+
+/* Indicador de "Ver más" */
+.service-minimal::after {
+    content: 'Ver más ↓';
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--green-light);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.service-minimal:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-minimal.expanded::after {
+    content: 'Ver menos ↑';
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .services-grid-minimal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .service-minimal-wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section-minimal {
+        padding: 5rem 1.5rem;
+    }
+    
+    .service-tabs {
+        gap: 0.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .service-tab {
+        padding: 0.6rem 1rem;
+        font-size: 0.8125rem;
+    }
+    
+    .service-tab span {
+        display: none; /* En móvil solo muestra íconos */
+    }
+    
+    .service-tab i {
+        font-size: 1.25rem;
+    }
+    
+    .services-grid-minimal {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .service-minimal-wide {
+        grid-column: span 1;
+    }
+    
+    .service-minimal {
+        padding: 1.5rem;
+    }
+    
+    /* En móvil, expandir al tocar (no hover) */
+    .service-minimal.expanded .service-expanded {
+        max-height: 300px;
+        opacity: 1;
+        margin-top: 1.5rem;
+    }
+}
 
         /* ============================================
            COVERAGE
@@ -1655,19 +1901,18 @@
         <div class="hero-bg-img"></div>
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Soluciones Ambientales Certificadas</p>
-            
-            <svg class="hero-recycle-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#2D5016"/>
-                        <stop offset="100%" stop-color="#4A7C23"/>
-                    </linearGradient>
-                </defs>
-                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)"/>
-                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)" transform="rotate(120 100 100)"/>
-                <path d="M100 20 L130 65 L115 65 L115 90 L85 90 L85 65 L70 65 Z" fill="url(#rg)" transform="rotate(240 100 100)"/>
-            </svg>
+            <p class="hero-eyebrow">Soluciones Integrales en Gestion de Residuos</p>
+    
+            <!-- Reemplaza el SVG del ícono de reciclaje por este camión -->
+    
+<!-- Ícono de camión profesional con Font Awesome -->
+<div class="hero-icon-container">
+    <i class="fas fa-truck-moving"></i>
+    <div class="recycle-badge">
+        <i class="fas fa-recycle"></i>
+    </div>
+</div>
+</svg>
 
             <h1 class="hero-title">
                 <span class="word"><span>Recolectora</span></span><br>
@@ -1685,10 +1930,7 @@
                 </a>
             </div>
         </div>
-        <div class="hero-scroll-cue">
-            <span>Descubre más</span>
-            <div class="scroll-arrow"></div>
-        </div>
+    
     </section>
 
     <!-- MARQUEE -->
@@ -1702,12 +1944,22 @@
             <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Recolección</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">Reciclaje</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Reciclaje Industrial</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Gestión Integral</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Destrucción Fiscal</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">RPBI</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
+
+            <span class="marquee-word"> Recolección de Residuos de Aparatos Eléctricos y Electrónicos RAEE</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word"> Recolección de Residuos Orgánicos</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Recolección de R. de jardinería y poda</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">R. de concreto</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Desazolves de drenajes y fosas sépticas, hasta la limpieza profunda de cisternas y tanques</span><span class="marquee-word marquee-dot">●</span>
+            
+            <span class="marquee-word">Demoliciones y Desmantelamientos de naves industriales, bodegas, restaurantes, empresas etc</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Consultoría y Gestoria ambiental Alta permisos/ Planes de Manejo Integrales.-Evita MULTAS Y SANSIONES</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Organización de RECICLATONES</span><span class="marquee-word marquee-dot">●</span>
         </div>
     </div>
 
@@ -1724,25 +1976,17 @@
                         El futuro es <br><span class="thin">responsabilidad nuestra.</span>
                     </h2>
                     <p>
-                        <strong>Recolectora Integral de Desechos de México</strong> es una empresa especializada en gestión de residuos con autorizaciones ambientales que nos permiten ofrecer servicios profesionales y certificados.
-                    </p>
+                        <strong>En Recolectora Integral de Desechos de México</strong> Nuestro compromiso es brindar soluciones integrales, eficientes, seguras y ambientalmente responsables que generan valor para la operación de nuestros clientes, garantizando el cumplimiento normativo y contribuyendo al cuidado del medio ambiente.
                     <p>
                         Atendemos industrias, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
                     </p>
-                    <div class="stats-row">
-                        <div>
-                            <div class="stat-big" data-target="15">0</div>
-                            <div class="stat-desc">Años de experiencia</div>
-                        </div>
-                        <div>
-                            <div class="stat-big" data-target="500">0</div>
-                            <div class="stat-desc">Clientes activos</div>
-                        </div>
-                        <div>
-                            <div class="stat-big" data-target="5">0</div>
-                            <div class="stat-desc">Estados cubiertos</div>
-                        </div>
-                    </div>
+                    <div class="impact-stat">
+    <div class="impact-icon"><i class="fas fa-exclamation-circle"></i></div>
+    <div class="impact-text">
+        <strong>Solo el 10% de los residuos en México se reciclan correctamente.</strong><br>
+        <span>Nosotros trabajamos para cambiar esa estadística.</span>
+    </div>
+</div>
                 </div>
             </div>
         </div>
@@ -1760,7 +2004,7 @@
             <div class="process-timeline">
                 <div class="process-step animate-left" data-step="1">
                     <div class="process-step-content">
-                        <h3 class="process-step-title">Evaluación</h3>
+                        <h3 class="process-step-title">Valoración</h3>
                         <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
                     </div>
                     <div class="process-step-image">
@@ -1785,7 +2029,7 @@
                 <div class="process-step animate-left" data-step="3">
                     <div class="process-step-content">
                         <h3 class="process-step-title">Implementación</h3>
-                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado y flota moderna de vehículos.</p>
+                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado con vehículos modernos y autorizados.</p>
                     </div>
                     <div class="process-step-image">
                         <img src="https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1810,102 +2054,283 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="services-section-minimal" id="servicios">
-        <div class="section-inner">
-            <div class="services-header-minimal">
-                <div class="section-label">Servicios</div>
-                <h2 class="section-heading">
-                    Todo lo que necesitas.<br><span class="thin">En un solo lugar.</span>
-                </h2>
-            </div>
-
-            <div class="services-grid-minimal">
-                <div class="service-minimal" data-service="1">
-                    <div class="service-minimal-number">01</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-truck-loading"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Recolección de Basura</h3>
-                    <p class="service-minimal-desc">
-                        Servicio confiable con planes semanales o personalizados. 
-                        Cumplimiento puntual y normativa ambiental garantizada.
-                    </p>
-                </div>
-
-                <div class="service-minimal" data-service="2">
-                    <div class="service-minimal-number">02</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Residuos Peligrosos</h3>
-                    <p class="service-minimal-desc">
-                        Manejo especializado con protocolos certificados. 
-                        Cumplimiento NOM-052-SEMARNAT-2005.
-                    </p>
-                </div>
-
-                <div class="service-minimal" data-service="3">
-                    <div class="service-minimal-number">03</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-biohazard"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Recolección RPBI</h3>
-                    <p class="service-minimal-desc">
-                        Estándares de bioseguridad y disposición certificada. 
-                        Cumplimiento NOM-087-SEMARNAT-SSA1-2002.
-                    </p>
-                </div>
-
-                <div class="service-minimal" data-service="4">
-                    <div class="service-minimal-number">04</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-file-shred"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Destrucción Fiscal</h3>
-                    <p class="service-minimal-desc">
-                        Eliminación segura de documentos confidenciales 
-                        con constancias de validez legal.
-                    </p>
-                </div>
-
-                <div class="service-minimal service-minimal-wide" data-service="5">
-                    <div class="service-minimal-number">05</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Gestión Integral de Residuos</h3>
-                    <p class="service-minimal-desc">
-                        Soluciones completas desde la segregación hasta la disposición 
-                        final sustentable. Diagnóstico, implementación y monitoreo continuo.
-                    </p>
-                </div>
-
-                <div class="service-minimal" data-service="6">
-                    <div class="service-minimal-number">06</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Capacitación Ambiental</h3>
-                    <p class="service-minimal-desc">
-                        Formación empresarial sobre manejo de residuos 
-                        y cumplimiento normativo.
-                    </p>
-                </div>
-
-                <div class="service-minimal" data-service="7">
-                    <div class="service-minimal-number">07</div>
-                    <div class="service-minimal-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 class="service-minimal-title">Compra-Venta Reciclables</h3>
-                    <p class="service-minimal-desc">
-                        Economía circular y sustentabilidad. 
-                        Compramos cartón, papel, plásticos, metales y vidrio.
-                    </p>
-                </div>
-            </div>
+    <!-- SERVICES - SISTEMA DE CATEGORÍAS -->
+<section class="services-section-minimal" id="servicios">
+    <div class="section-inner">
+        <div class="services-header-minimal">
+            <div class="section-label">Servicios</div>
+            <h2 class="section-heading">
+                Soluciones que <span class="thin">transforman.</span>
+            </h2>
+            <p class="services-intro">
+                Gestión integral de residuos para empresas, industrias y gobierno.
+            </p>
         </div>
-    </section>
+
+        <!-- Tabs de Categorías -->
+        <div class="service-tabs">
+            <button class="service-tab active" data-category="all">
+                <i class="fas fa-th-large"></i>
+                <span>Todos</span>
+            </button>
+            <button class="service-tab" data-category="recoleccion">
+                <i class="fas fa-truck"></i>
+                <span>Recolección</span>
+            </button>
+            <button class="service-tab" data-category="especializados">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Especializados</span>
+            </button>
+            <button class="service-tab" data-category="proyectos">
+                <i class="fas fa-hard-hat"></i>
+                <span>Proyectos</span>
+            </button>
+            <button class="service-tab" data-category="gestion">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Gestión</span>
+            </button>
+            <button class="service-tab" data-category="circular">
+                <i class="fas fa-recycle"></i>
+                <span>Economía Circular</span>
+            </button>
+        </div>
+
+        <!-- Grid de Servicios -->
+        <div class="services-grid-minimal" id="servicesGrid">
+            
+            <!-- CATEGORÍA: RECOLECCIÓN -->
+            <div class="service-minimal" data-category="recoleccion" data-service="1">
+                <div class="service-minimal-number">01</div>
+                <div class="service-minimal-icon"><i class="fas fa-trash-alt"></i></div>
+                <h3 class="service-minimal-title">Recolección de Basura</h3>
+                <p class="service-minimal-desc">Recolección de residuos sólidos urbanos con planes semanales o personalizados.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Contenedores adecuados</li>
+                        <li>Recolección programada</li>
+                        <li>Disposición final correcta</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="2">
+                <div class="service-minimal-number">02</div>
+                <div class="service-minimal-icon"><i class="fas fa-apple-alt"></i></div>
+                <h3 class="service-minimal-title">Residuos Orgánicos</h3>
+                <p class="service-minimal-desc">Recolección especializada de residuos orgánicos para compostaje y valorización.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Restos de alimentos</li>
+                        <li>Residuos de cocina industrial</li>
+                        <li>Transformación en composta</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="3">
+                <div class="service-minimal-number">03</div>
+                <div class="service-minimal-icon"><i class="fas fa-oil-can"></i></div>
+                <h3 class="service-minimal-title">Aceite Vegetal Usado</h3>
+                <p class="service-minimal-desc">Recolección certificada de aceite vegetal usado para biodiesel.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Restaurantes y comedores</li>
+                        <li>Industria alimentaria</li>
+                        <li>Transformación en biodiesel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="4">
+                <div class="service-minimal-number">04</div>
+                <div class="service-minimal-icon"><i class="fas fa-laptop"></i></div>
+                <h3 class="service-minimal-title">RAEE</h3>
+                <p class="service-minimal-desc">Residuos de Aparatos Eléctricos y Electrónicos con manejo certificado.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Computadoras y equipos</li>
+                        <li>Celulares y tablets</li>
+                        <li>Desmantelamiento seguro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="5">
+                <div class="service-minimal-number">05</div>
+                <div class="service-minimal-icon"><i class="fas fa-leaf"></i></div>
+                <h3 class="service-minimal-title">Jardinería y Poda</h3>
+                <p class="service-minimal-desc">Recolección de residuos verdes, poda y mantenimiento de áreas verdes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Ramas y hojas</li>
+                        <li>Césped y maleza</li>
+                        <li>Triturado y compostaje</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="6">
+                <div class="service-minimal-number">06</div>
+                <div class="service-minimal-icon"><i class="fas fa-cubes"></i></div>
+                <h3 class="service-minimal-title">Residuos de Concreto</h3>
+                <p class="service-minimal-desc">Recolección y disposición de escombro y residuos de construcción.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Escombro de obra</li>
+                        <li>Concreto y ladrillo</li>
+                        <li>Triturado para reuso</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA: ESPECIALIZADOS -->
+            <div class="service-minimal" data-category="especializados" data-service="7">
+                <div class="service-minimal-number">07</div>
+                <div class="service-minimal-icon"><i class="fas fa-radiation"></i></div>
+                <h3 class="service-minimal-title">Residuos Peligrosos</h3>
+                <p class="service-minimal-desc">Manejo especializado con protocolos certificados. NOM-052-SEMARNAT-2005.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Solventes y pinturas</li>
+                        <li>Aceites industriales</li>
+                        <li>Químicos y reactivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="8">
+                <div class="service-minimal-number">08</div>
+                <div class="service-minimal-icon"><i class="fas fa-biohazard"></i></div>
+                <h3 class="service-minimal-title">RPBI</h3>
+                <p class="service-minimal-desc">Residuos Peligrosos Biológico-Infecciosos. NOM-087-SEMARNAT-SSA1-2002.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Hospitales y clínicas</li>
+                        <li>Laboratorios</li>
+                        <li>Tratamiento y disposición final</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="9">
+                <div class="service-minimal-number">09</div>
+                <div class="service-minimal-icon"><i class="fas fa-file-shred"></i></div>
+                <h3 class="service-minimal-title">Destrucción Fiscal</h3>
+                <p class="service-minimal-desc">Eliminación segura de documentos confidenciales con certificado.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Documentos fiscales y contables</li>
+                        <li>Certificado de destrucción</li>
+                        <li>Cumplimiento SAT</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA: PROYECTOS -->
+            <div class="service-minimal" data-category="proyectos" data-service="10">
+                <div class="service-minimal-number">10</div>
+                <div class="service-minimal-icon"><i class="fas fa-water"></i></div>
+                <h3 class="service-minimal-title">Desazolves y Limpieza</h3>
+                <p class="service-minimal-desc">Desazolve de drenajes, fosas sépticas y limpieza profunda de cisternas.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Drenajes industriales</li>
+                        <li>Fosas sépticas</li>
+                        <li>Cisternas y tanques</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="11">
+                <div class="service-minimal-number">11</div>
+                <div class="service-minimal-icon"><i class="fas fa-hammer"></i></div>
+                <h3 class="service-minimal-title">Demoliciones</h3>
+                <p class="service-minimal-desc">Desmantelamiento de naves industriales, bodegas y empresas.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Naves industriales</li>
+                        <li>Bodegas y restaurantes</li>
+                        <li>Manejo de escombro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA: GESTIÓN -->
+            <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="12">
+                <div class="service-minimal-number">12</div>
+                <div class="service-minimal-icon"><i class="fas fa-tasks"></i></div>
+                <h3 class="service-minimal-title">Gestión Integral</h3>
+                <p class="service-minimal-desc">Solución completa: diagnóstico, plan personalizado, monitoreo y reportes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Diagnóstico inicial</li>
+                        <li>Plan personalizado</li>
+                        <li>Monitoreo y reportes</li>
+                        <li>Cumplimiento normativo total</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestion" data-service="13">
+                <div class="service-minimal-number">13</div>
+                <div class="service-minimal-icon"><i class="fas fa-file-contract"></i></div>
+                <h3 class="service-minimal-title">Consultoría Ambiental</h3>
+                <p class="service-minimal-desc">Gestoría y alta de permisos. Evita multas y sanciones.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Planes de Manejo Integrales</li>
+                        <li>Trámites ante SEMARNAT</li>
+                        <li>Asesoría normativa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestion" data-service="14">
+                <div class="service-minimal-number">14</div>
+                <div class="service-minimal-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="service-minimal-title">Capacitación</h3>
+                <p class="service-minimal-desc">Formación empresarial sobre manejo de residuos y normatividad.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Separación de residuos</li>
+                        <li>Normatividad vigente</li>
+                        <li>Certificaciones</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA: ECONOMÍA CIRCULAR -->
+            <div class="service-minimal" data-category="circular" data-service="15">
+                <div class="service-minimal-number">15</div>
+                <div class="service-minimal-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3 class="service-minimal-title">Compra-Venta Reciclables</h3>
+                <p class="service-minimal-desc">Adquisición de materiales para economía circular.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Cartón y papel</li>
+                        <li>Plásticos (PET, HDPE)</li>
+                        <li>Metales y vidrio</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="circular" data-service="16">
+                <div class="service-minimal-number">16</div>
+                <div class="service-minimal-icon"><i class="fas fa-users"></i></div>
+                <h3 class="service-minimal-title">Reciclatones</h3>
+                <p class="service-minimal-desc">Organización de eventos de recolección masiva de reciclables.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Eventos corporativos</li>
+                        <li>Colonias y municipios</li>
+                        <li>Logística completa</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- COVERAGE -->
     <section class="coverage-section" id="cobertura">
@@ -2093,7 +2518,7 @@
         function animateHero() {
             const tl = gsap.timeline();
             tl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
-              .to('.hero-recycle-icon', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
+           .to('.hero-icon-container', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
               .to('.hero-title .word span', {
                   y: 0, duration: 1.2, stagger: 0.15, ease: 'power4.out'
               }, '-=0.8')
@@ -2463,6 +2888,39 @@ Enviado desde el formulario web`;
     
     return Promise.resolve();
     
+}
+// --- SISTEMA DE FILTROS DE SERVICIOS ---
+const tabs = document.querySelectorAll('.service-tab');
+const services = document.querySelectorAll('.service-minimal');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Remover active de todos los tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const category = tab.dataset.category;
+        
+        // Filtrar servicios
+        services.forEach(service => {
+            if (category === 'all' || service.dataset.category === category) {
+                service.classList.remove('hidden');
+                service.classList.add('fade-in');
+            } else {
+                service.classList.add('hidden');
+                service.classList.remove('fade-in');
+            }
+        });
+    });
+});
+
+// Expandir en móvil al hacer click (ya que hover no funciona)
+if (window.innerWidth <= 768) {
+    services.forEach(service => {
+        service.addEventListener('click', () => {
+            service.classList.toggle('expanded');
+        });
+    });
 }
     </script>
 </body>
