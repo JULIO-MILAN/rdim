@@ -1125,7 +1125,7 @@
     }
 }
 
-     /* ============================================
+/* ============================================
    SERVICES - CATEGORÍAS + EXPANDIBLES
    ============================================ */
 .services-section-minimal {
@@ -1422,6 +1422,439 @@
     }
 }
 
+/* ============================================
+   MATERIALES - EDITORIAL CON SCROLL INTERNO
+   ============================================ */
+.materials-editorial {
+    position: relative;
+    padding: 6rem 0;
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+.editorial-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* LADO IZQUIERDO: STICKY */
+.editorial-sticky {
+    position: sticky;
+    top: 120px;
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.sticky-content {
+    max-width: 500px;
+}
+
+.editorial-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin: 1.5rem 0;
+}
+
+.editorial-title-accent {
+    color: var(--green-light);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.editorial-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+/* Contador */
+.editorial-counter {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.counter-display {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.counter-current {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--green-light);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    transition: all 0.4s ease;
+}
+
+.counter-total {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.counter-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Info del material activo */
+.active-material-info {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(76, 175, 80, 0.05);
+    border-left: 3px solid var(--green-light);
+    border-radius: 0 12px 12px 0;
+    transition: all 0.4s ease;
+}
+
+.active-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--green-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.active-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    transition: all 0.4s ease;
+}
+
+.active-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    transition: all 0.4s ease;
+}
+
+/* CTA */
+.editorial-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1.5px solid var(--green-light);
+    color: var(--green-light);
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+}
+
+.editorial-cta:hover {
+    background: var(--green-light);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.editorial-cta i {
+    transition: transform 0.3s;
+}
+
+.editorial-cta:hover i {
+    transform: translateX(5px);
+}
+
+/* LADO DERECHO: VENTANA CON SCROLL INTERNO */
+.editorial-window {
+    position: relative;
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.window-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green-light);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.indicator-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Contenedor con scroll */
+.materials-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--green-light) var(--border-color);
+}
+
+.materials-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.materials-scroll-container::-webkit-scrollbar-track {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.materials-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--green-light);
+    border-radius: 3px;
+}
+
+.materials-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #2D8A3E;
+}
+
+/* Entradas de materiales */
+.material-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.material-entry:first-child {
+    border-top: 1px solid var(--border-color);
+}
+
+.material-entry::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    right: -1rem;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.material-entry:hover::before,
+.material-entry.active::before {
+    opacity: 1;
+}
+
+.material-entry:hover,
+.material-entry.active {
+    padding-left: 0.5rem;
+}
+
+.entry-number {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: -0.02em;
+    transition: all 0.4s ease;
+}
+
+.material-entry:hover .entry-number,
+.material-entry.active .entry-number {
+    color: var(--green-light);
+    font-weight: 600;
+}
+
+.entry-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.entry-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    transition: color 0.3s;
+}
+
+.material-entry:hover .entry-title,
+.material-entry.active .entry-title {
+    color: var(--green-light);
+}
+
+.entry-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.entry-line {
+    width: 40px;
+    height: 1px;
+    background: var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.material-entry:hover .entry-line,
+.material-entry.active .entry-line {
+    width: 60px;
+    background: var(--green-light);
+}
+
+/* ============================================
+   TEMA CLARO (MÓVIL)
+   ============================================ */
+@media (max-width: 1024px) {
+    .editorial-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .editorial-sticky {
+        position: relative;
+        top: 0;
+        height: auto;
+    }
+    
+    .editorial-window {
+        height: 600px;
+    }
+    
+    .sticky-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .materials-editorial {
+        padding: 4rem 0;
+    }
+    
+    .editorial-container {
+        padding: 0 1.5rem;
+    }
+    
+    .editorial-title {
+        font-size: 2.5rem;
+    }
+    
+    .counter-current {
+        font-size: 3rem;
+    }
+    
+    .editorial-window {
+        height: 500px;
+    }
+    
+    .window-header {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .material-entry {
+        grid-template-columns: 40px 1fr;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+    
+    .material-entry:hover,
+    .material-entry.active {
+        padding-left: 0;
+    }
+    
+    .entry-number {
+        font-size: 1rem;
+    }
+    
+    .entry-title {
+        font-size: 1.125rem;
+    }
+    
+    .entry-line {
+        display: none;
+    }
+    
+    .active-material-info {
+        padding: 1.5rem;
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+.material-entry {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.material-entry.animate-in {
+    animation: entrySlideIn 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+@keyframes entrySlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
         /* ============================================
            COVERAGE
            ============================================ */
@@ -1505,6 +1938,113 @@
             letter-spacing: 0.05em;
             transition: color 0.3s;
         }
+
+        /* ============================================
+   INDICADOR DE SCROLL HORIZONTAL - COVERAGE
+   ============================================ */
+.scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.scroll-hint-arrows {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.scroll-hint-arrows i {
+    font-size: 1.25rem;
+    color: var(--green-light);
+    animation: bounceHorizontal 2s ease-in-out infinite;
+}
+
+.scroll-hint-arrows i:first-child {
+    animation-delay: 0s;
+}
+
+.scroll-hint-arrows i:last-child {
+    animation-delay: 0.3s;
+}
+
+@keyframes bounceHorizontal {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(8px);
+        opacity: 1;
+    }
+}
+
+.scroll-hint-arrows i:first-child {
+    animation-name: bounceLeft;
+}
+
+@keyframes bounceLeft {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(-8px);
+        opacity: 1;
+    }
+}
+
+.scroll-hint-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--green-light);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Ocultar en móvil muy pequeño */
+@media (max-width: 480px) {
+    .scroll-hint-text {
+        display: none;
+    }
+    
+    .scroll-hint-arrows i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tema claro (móvil) */
+@media (max-width: 768px) {
+    .scroll-hint-arrows {
+        color: var(--text-primary);
+    }
+    
+    .dot {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .dot.active {
+        background: #2D8A3E;
+    }
+}
+
 
         .cov-card:hover .cov-card-region { color: rgba(255,255,255,0.8); }
 
@@ -2004,7 +2544,7 @@
             <div class="process-timeline">
                 <div class="process-step animate-left" data-step="1">
                     <div class="process-step-content">
-                        <h3 class="process-step-title">Valoración</h3>
+                        <h3 class="process-step-title">Evaluación</h3>
                         <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
                     </div>
                     <div class="process-step-image">
@@ -2029,7 +2569,7 @@
                 <div class="process-step animate-left" data-step="3">
                     <div class="process-step-content">
                         <h3 class="process-step-title">Implementación</h3>
-                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado con vehículos modernos y autorizados.</p>
+                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado y flota moderna de vehículos.</p>
                     </div>
                     <div class="process-step-image">
                         <img src="https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -2053,8 +2593,7 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <!-- SERVICES - SISTEMA DE CATEGORÍAS -->
+<!-- SERVICES - SISTEMA DE CATEGORÍAS -->
 <section class="services-section-minimal" id="servicios">
     <div class="section-inner">
         <div class="services-header-minimal">
@@ -2332,14 +2871,210 @@
     </div>
 </section>
 
+<!-- MATERIALES - EDITORIAL CON SCROLL INTERNO -->
+<section class="materials-editorial" id="materiales">
+    
+    <div class="editorial-container">
+        
+        <!-- LADO IZQUIERDO: STICKY -->
+        <div class="editorial-sticky">
+            <div class="sticky-content">
+                <div class="section-label">Economía Circular</div>
+                
+                <h2 class="editorial-title">
+                    Aceptamos y<br>
+                    <span class="editorial-title-accent">Reciclamos.</span>
+                </h2>
+                
+                <p class="editorial-description">
+                    Transformamos residuos en recursos. Cada material tiene una segunda vida.
+                </p>
+
+                <!-- Contador dinámico -->
+                <div class="editorial-counter">
+                    <div class="counter-display">
+                        <span class="counter-current" id="counterCurrent">01</span>
+                        <span class="counter-total">/ 13</span>
+                    </div>
+                    <div class="counter-label">Materiales activos</div>
+                </div>
+
+                <!-- Info dinámica del material activo -->
+                <div class="active-material-info" id="activeMaterialInfo">
+                    <div class="active-icon" id="activeIcon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="active-name" id="activeName">Papel y Cartón</h3>
+                    <p class="active-desc" id="activeDesc">Papel, cartón corrugado, cartulinas y archivos.</p>
+                </div>
+
+                <!-- CTA -->
+                <a href="#contacto" class="editorial-cta">
+                    Solicitar Recolección
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- LADO DERECHO: VENTANA CON SCROLL INTERNO -->
+        <div class="editorial-window">
+            <div class="window-header">
+                <span class="window-title">Materiales que recibimos</span>
+                <div class="window-indicator">
+                    <span class="indicator-dot"></span>
+                    <span class="indicator-text">Desliza</span>
+                </div>
+            </div>
+            
+            <div class="materials-scroll-container" id="materialsScroll">
+                
+                <div class="material-entry" data-index="1" data-icon="fa-box-open" data-name="Papel y Cartón" data-desc="Papel, cartón corrugado, cartulinas y archivos.">
+                    <div class="entry-number">01</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Papel y Cartón</h3>
+                        <p class="entry-subtitle">Papel, cartón corrugado, cartulinas y archivos.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="2" data-icon="fa-wine-bottle" data-name="Plásticos" data-desc="PET, PEAD/HDPE, PP y otros plásticos reciclables.">
+                    <div class="entry-number">02</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Plásticos</h3>
+                        <p class="entry-subtitle">PET, PEAD/HDPE, PP y otros plásticos reciclables.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="3" data-icon="fa-cog" data-name="Metales" data-desc="Aluminio, chatarra ferrosa y no ferrosa, cobre.">
+                    <div class="entry-number">03</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Metales</h3>
+                        <p class="entry-subtitle">Aluminio, chatarra ferrosa y no ferrosa, cobre.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="4" data-icon="fa-glass-whiskey" data-name="Vidrio" data-desc="Vidrio transparente y de color, envases y frascos.">
+                    <div class="entry-number">04</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Vidrio</h3>
+                        <p class="entry-subtitle">Vidrio transparente y de color, envases y frascos.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="5" data-icon="fa-microchip" data-name="Electrónicos" data-desc="RAEE, baterías, acumuladores y equipos electrónicos.">
+                    <div class="entry-number">05</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Electrónicos (RAEE)</h3>
+                        <p class="entry-subtitle">RAEE, baterías, acumuladores y equipos electrónicos.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="6" data-icon="fa-battery-full" data-name="Baterías" data-desc="Baterías de auto, industriales y de dispositivos.">
+                    <div class="entry-number">06</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Baterías y Acumuladores</h3>
+                        <p class="entry-subtitle">Baterías de auto, industriales y de dispositivos.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="7" data-icon="fa-oil-can" data-name="Aceite Vegetal" data-desc="Aceite de cocina industrial y doméstico para biodiesel.">
+                    <div class="entry-number">07</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Aceite Vegetal Usado</h3>
+                        <p class="entry-subtitle">Aceite de cocina industrial y doméstico para biodiesel.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="8" data-icon="fa-pallet" data-name="Tarimas" data-desc="Tarimas de madera y plástico para reutilización.">
+                    <div class="entry-number">08</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Tarimas de Madera</h3>
+                        <p class="entry-subtitle">Tarimas de madera y plástico para reutilización.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="9" data-icon="fa-circle-notch" data-name="Llantas" data-desc="Llantas de auto, camión y motocicleta fuera de uso.">
+                    <div class="entry-number">09</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Llantas Fuera de Uso</h3>
+                        <p class="entry-subtitle">Llantas de auto, camión y motocicleta fuera de uso.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="10" data-icon="fa-box" data-name="Tetra Pak" data-desc="Envases de leche, jugos y productos líquidos.">
+                    <div class="entry-number">10</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Tetra Pak</h3>
+                        <p class="entry-subtitle">Envases de leche, jugos y productos líquidos.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="11" data-icon="fa-tshirt" data-name="Textiles" data-desc="Ropa en buen estado y residuos textiles industriales.">
+                    <div class="entry-number">11</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Textiles y Ropa</h3>
+                        <p class="entry-subtitle">Ropa en buen estado y residuos textiles industriales.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="12" data-icon="fa-hammer" data-name="Construcción" data-desc="Concreto, escombro y materiales de obra.">
+                    <div class="entry-number">12</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Residuos de Construcción</h3>
+                        <p class="entry-subtitle">Concreto, escombro y materiales de obra.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+                <div class="material-entry" data-index="13" data-icon="fa-recycle" data-name="Más materiales" data-desc="Consulta disponibilidad de otros materiales reciclables.">
+                    <div class="entry-number">13</div>
+                    <div class="entry-content">
+                        <h3 class="entry-title">Y muchos más...</h3>
+                        <p class="entry-subtitle">Consulta disponibilidad de otros materiales reciclables.</p>
+                    </div>
+                    <div class="entry-line"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
     <!-- COVERAGE -->
     <section class="coverage-section" id="cobertura">
-        <div class="coverage-header">
-            <div class="section-label">Cobertura</div>
-            <h2 class="section-heading">
-                Donde nos necesites.<br><span class="thin">Ahí estamos.</span>
-            </h2>
+      <div class="coverage-header">
+        <div class="section-label">Cobertura</div>
+        <h2 class="section-heading">
+            Donde nos necesites.<br><span class="thin">Ahí estamos.</span>
+        </h2>
+        
+        <!-- Indicador de Scroll Horizontal -->
+        <div class="scroll-hint">
+            <div class="scroll-hint-arrows">
+                <i class="fas fa-chevron-left"></i>
+                <span class="scroll-hint-text">Desliza para ver más</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="scroll-hint-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
+    </div>
         <div class="coverage-track">
             <div class="cov-card">
                 <div class="cov-card-num">01</div>
@@ -2745,6 +3480,97 @@
             });
         });
 
+        // --- MATERIALES EDITORIAL: SCROLL INTERNO INTERACTIVO ---
+
+const materialEntries = document.querySelectorAll('.material-entry');
+const counterCurrent = document.getElementById('counterCurrent');
+const activeIcon = document.getElementById('activeIcon');
+const activeName = document.getElementById('activeName');
+const activeDesc = document.getElementById('activeDesc');
+const scrollContainer = document.getElementById('materialsScroll');
+
+// 1. Animación de entrada escalonada
+const entryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('animate-in');
+            }, index * 60);
+            entryObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, root: scrollContainer });
+
+materialEntries.forEach(entry => entryObserver.observe(entry));
+
+// 2. Actualizar lado izquierdo al hacer hover/scroll
+function updateActiveMaterial(entry) {
+    const index = entry.dataset.index;
+    const icon = entry.dataset.icon;
+    const name = entry.dataset.name;
+    const desc = entry.dataset.desc;
+    
+    // Actualizar contador
+    counterCurrent.textContent = index.padStart(2, '0');
+    
+    // Actualizar info del material activo
+    activeIcon.innerHTML = `<i class="fas ${icon}"></i>`;
+    activeName.textContent = name;
+    activeDesc.textContent = desc;
+    
+    // Marcar entry como activa
+    materialEntries.forEach(e => e.classList.remove('active'));
+    entry.classList.add('active');
+}
+
+// Hover en desktop
+materialEntries.forEach(entry => {
+    entry.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 1024) {
+            updateActiveMaterial(entry);
+        }
+    });
+    
+    // Click en móvil
+    entry.addEventListener('click', () => {
+        updateActiveMaterial(entry);
+    });
+});
+
+// 3. Detectar qué material está visible en el scroll
+let scrollTimeout;
+scrollContainer.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        const entries = Array.from(materialEntries);
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const containerMiddle = containerRect.top + containerRect.height / 2;
+        
+        let closestEntry = null;
+        let closestDistance = Infinity;
+        
+        entries.forEach(entry => {
+            const entryRect = entry.getBoundingClientRect();
+            const entryMiddle = entryRect.top + entryRect.height / 2;
+            const distance = Math.abs(entryMiddle - containerMiddle);
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestEntry = entry;
+            }
+        });
+        
+        if (closestEntry) {
+            updateActiveMaterial(closestEntry);
+        }
+    }, 100);
+});
+
+// 4. Inicializar con el primer material
+if (materialEntries.length > 0) {
+    updateActiveMaterial(materialEntries[0]);
+}
+
         // --- FORMULARIO FUNCIONAL CON ANTI-SPAM ---
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -2889,6 +3715,7 @@ Enviado desde el formulario web`;
     return Promise.resolve();
     
 }
+
 // --- SISTEMA DE FILTROS DE SERVICIOS ---
 const tabs = document.querySelectorAll('.service-tab');
 const services = document.querySelectorAll('.service-minimal');
@@ -2919,6 +3746,27 @@ if (window.innerWidth <= 768) {
     services.forEach(service => {
         service.addEventListener('click', () => {
             service.classList.toggle('expanded');
+        });
+    });
+}
+
+// --- COVERAGE SCROLL INDICATOR ---
+const coverageTrack = document.querySelector('.coverage-track');
+const dots = document.querySelectorAll('.scroll-hint-dots .dot');
+
+if (coverageTrack && dots.length > 0) {
+    let currentDot = 0;
+    
+    coverageTrack.addEventListener('scroll', () => {
+        const scrollProgress = coverageTrack.scrollLeft / (coverageTrack.scrollWidth - coverageTrack.clientWidth);
+        const dotIndex = Math.min(Math.floor(scrollProgress * dots.length), dots.length - 1);
+        
+        dots.forEach((dot, index) => {
+            if (index <= dotIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
         });
     });
 }
