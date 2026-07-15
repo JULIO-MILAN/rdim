@@ -181,277 +181,187 @@
                 padding: 1rem;
             }
         }
+/* ============================================
+   DRAWER MENU LATERAL
+   ============================================ */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
 
-        /* ============================================
-           FULLSCREEN MENU
-           ============================================ */
-        .fullscreen-menu {
-            position: fixed;
-            inset: 0;
-            z-index: 9998;
-            background: rgba(0, 0, 0, 0.97);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            clip-path: circle(0% at calc(100% - 4rem) 4rem);
-            transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+.drawer-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
 
-        .fullscreen-menu.active {
-            clip-path: circle(150% at calc(100% - 4rem) 4rem);
-        }
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 450px;
+    height: 100vh;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--border-color);
+    z-index: 9999;
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 3rem;
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
 
-        .menu-gradient-1 {
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(74, 124, 35, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            animation: floatGradient 20s ease-in-out infinite;
-        }
+.drawer.active {
+    right: 0;
+}
 
-        .menu-gradient-2 {
-            position: absolute;
-            bottom: -30%;
-            left: -15%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(45, 80, 22, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            animation: floatGradient 25s ease-in-out infinite reverse;
-        }
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
 
-        @keyframes floatGradient {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 30px) scale(1.1); }
-        }
+.drawer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: var(--text-primary);
+}
 
-        .menu-close-btn {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 56px;
-            height: 56px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-            z-index: 10001;
-            opacity: 0;
-            pointer-events: none;
-        }
+.drawer-logo span {
+    color: var(--green-light);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+}
 
-        .fullscreen-menu.active .menu-close-btn {
-            opacity: 1;
-            pointer-events: all;
-            transition-delay: 0.5s;
-        }
+.drawer-close {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
 
-        .menu-close-btn:hover {
-            background: var(--green-light);
-            border-color: var(--green-light);
-            transform: rotate(90deg) scale(1.1);
-        }
+.drawer-close:hover {
+    transform: rotate(90deg);
+    color: var(--green-light);
+    background: rgba(76, 175, 80, 0.1);
+}
 
-        .menu-close-btn i {
-            font-size: 1.25rem;
-            color: var(--white);
-        }
+.drawer-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-        .menu-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 6rem 4rem;
-            position: relative;
-            z-index: 5;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
 
-        .menu-header {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+.drawer-link:hover {
+    color: var(--text-primary);
+    padding-left: 1rem;
+    border-bottom-color: var(--green-light);
+}
 
-        .fullscreen-menu.active .menu-header {
-            animation: fadeInUp 0.8s 0.3s forwards;
-        }
+.drawer-num {
+    font-size: 0.875rem;
+    color: var(--green-light);
+    font-family: monospace;
+    font-weight: 700;
+    min-width: 30px;
+}
 
-        .menu-header-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--green-light);
-            margin-bottom: 0.5rem;
-        }
+.drawer-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
 
-        .menu-header-title {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--gray-400);
-        }
+.drawer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
 
-        .menu-items {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+.drawer-socials a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s;
+}
 
-        .menu-item {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
+.drawer-socials a:hover {
+    background: var(--green-light);
+    border-color: var(--green-light);
+    color: white;
+    transform: translateY(-3px);
+}
 
-        .fullscreen-menu.active .menu-item:nth-child(1) { animation: slideInLeft 0.6s 0.4s forwards; }
-        .fullscreen-menu.active .menu-item:nth-child(2) { animation: slideInLeft 0.6s 0.5s forwards; }
-        .fullscreen-menu.active .menu-item:nth-child(3) { animation: slideInLeft 0.6s 0.6s forwards; }
-        .fullscreen-menu.active .menu-item:nth-child(4) { animation: slideInLeft 0.6s 0.7s forwards; }
-        .fullscreen-menu.active .menu-item:nth-child(5) { animation: slideInLeft 0.6s 0.8s forwards; }
-        .fullscreen-menu.active .menu-item:nth-child(6) { animation: slideInLeft 0.6s 0.9s forwards; }
+.drawer-contact-info {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
 
-        .menu-item-link {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            text-decoration: none;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-        }
+.drawer-contact-info p {
+    margin: 0;
+}
 
-        .menu-item-link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background: var(--green-light);
-            transition: width 0.4s cubic-bezier(0.25, 0, 0, 1);
-        }
-
-        .menu-item-link:hover::before {
-            width: 100%;
-        }
-
-        .menu-item-link:hover {
-            padding-left: 20px;
-        }
-
-        .menu-item-num {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--green-light);
-            letter-spacing: 0.1em;
-            min-width: 40px;
-        }
-
-        .menu-item-text {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1);
-        }
-
-        .menu-item-link:hover .menu-item-text {
-            transform: translateX(20px);
-        }
-
-        .menu-footer {
-            margin-top: auto;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .fullscreen-menu.active .menu-footer {
-            animation: fadeInUp 0.8s 0.9s forwards;
-        }
-
-        .menu-footer-text {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-        }
-
-        .menu-social {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .menu-social a {
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .menu-social a:hover {
-            background: var(--green-light);
-            border-color: var(--green-light);
-            transform: translateY(-3px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-content {
-                padding: 4rem 2rem;
-            }
-
-            .menu-header {
-                margin-bottom: 3rem;
-            }
-
-            .menu-item-link {
-                gap: 1.5rem;
-                padding: 1.25rem 0;
-            }
-
-            .menu-footer {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-        }
+/* Responsive Drawer */
+@media (max-width: 768px) {
+    .drawer {
+        max-width: 100%;
+        padding: 3rem 2rem;
+    }
+    
+    .drawer-link {
+        font-size: 1.125rem;
+    }
+    
+    .menu-float-btn span {
+        display: none;
+    }
+    
+    .menu-float-btn {
+        padding: 1rem;
+    }
+}
 
         /* ============================================
            HERO
@@ -1854,6 +1764,441 @@
     }
 }
 
+/* ============================================
+   SOSTENIBILIDAD ACTIVA - RECICLAJE ARTÍSTICO
+   ============================================ */
+.sustainability-section {
+    background: var(--bg-secondary);
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sustainability-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sustainability-intro {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Galería de Arte */
+.art-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+}
+
+.art-item {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.art-item:hover {
+    transform: translateY(-10px);
+}
+
+.art-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.art-item:hover img {
+    transform: scale(1.1);
+}
+
+.art-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.art-item:hover .art-overlay {
+    opacity: 1;
+}
+
+.art-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.art-info p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+}
+
+/* CTA Sostenibilidad */
+.sustainability-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(76, 175, 80, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    border-radius: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sustainability-cta p {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.btn-sustainability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    background: var(--green-light);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0, 0, 1);
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
+}
+
+.btn-sustainability:hover {
+    background: var(--green);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(76, 175, 80, 0.4);
+}
+
+.btn-sustainability i {
+    transition: transform 0.3s;
+}
+
+.btn-sustainability:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sustainability-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .sustainability-header {
+        margin-bottom: 3rem;
+    }
+    
+    .sustainability-intro {
+        font-size: 1rem;
+    }
+    
+    .art-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .art-item {
+        aspect-ratio: 16/9;
+    }
+    
+    .art-overlay {
+        opacity: 1;
+    }
+    
+    .sustainability-cta {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .sustainability-cta p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animaciones de entrada */
+.art-item {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.art-item.animate-in {
+    animation: artReveal 0.8s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+@keyframes artReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TIENDA SUSTENTABLE - ECOShop
+   ============================================ */
+.ecoshop-section {
+    background: var(--bg-primary);
+    padding: 8rem 2rem;
+    position: relative;
+}
+
+.ecoshop-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ecoshop-intro {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Tabs de categorías */
+.shop-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.shop-tab {
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shop-tab:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.shop-tab.active {
+    background: var(--green-light);
+    border-color: var(--green-light);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Grid de productos */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-light);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    height: 200px;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(45, 138, 62, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--green-light);
+    transition: all 0.4s;
+}
+
+.product-card:hover .product-image {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(45, 138, 62, 0.1) 100%);
+}
+
+.product-info {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--green-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.product-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.btn-cotizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: transparent;
+    border: 1.5px solid var(--green-light);
+    color: var(--green-light);
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-cotizar:hover {
+    background: var(--green-light);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-cotizar i {
+    transition: transform 0.3s;
+}
+
+.btn-cotizar:hover i {
+    transform: translateX(5px);
+}
+
+/* Nota informativa */
+.ecoshop-note {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(76, 175, 80, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ecoshop-note i {
+    font-size: 1.5rem;
+    color: var(--green-light);
+    flex-shrink: 0;
+}
+
+.ecoshop-note p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ecoshop-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        flex-direction: row;
+    }
+    
+    .product-image {
+        width: 120px;
+        height: auto;
+        font-size: 2.5rem;
+    }
+    
+    .product-info {
+        padding: 1.5rem;
+    }
+    
+    .product-title {
+        font-size: 1.125rem;
+    }
+    
+    .ecoshop-note {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animaciones */
+.product-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.product-card.animate-in {
+    animation: productReveal 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+@keyframes productReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
         /* ============================================
            COVERAGE
@@ -2345,6 +2690,394 @@
                 padding: 6rem 1.5rem;
             }
         }
+
+        /* ============================================
+   COMPACTACIÓN GLOBAL - DESDE "NOSOTROS" HACIA ABAJO
+   ============================================ */
+
+/* 1. Padding general de todas las secciones */
+.section-full,
+.services-section-minimal,
+.coverage-section,
+.contact-section,
+.process-section,
+.sustainability-section,
+.ecoshop-section {
+    padding: 4rem 2rem !important;
+}
+
+@media (max-width: 768px) {
+    .section-full,
+    .services-section-minimal,
+    .coverage-section,
+    .contact-section,
+    .process-section,
+    .sustainability-section,
+    .ecoshop-section {
+        padding: 3rem 1.5rem !important;
+    }
+}
+
+/* 2. Títulos de sección más compactos */
+.section-heading {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+.section-label {
+    margin-bottom: 0.75rem !important;
+}
+
+/* 3. Descripciones/intros más pequeñas */
+.services-intro,
+.process-subtitle,
+.materials-intro,
+.sustainability-intro,
+.ecoshop-intro {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 2rem !important;
+}
+
+/* 4. NOSOTROS - Compacto */
+.about-grid {
+    gap: 3rem !important;
+}
+
+.about-text h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem) !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.about-text p {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+}
+
+.about-img-wrap {
+    max-height: 320px !important;
+    aspect-ratio: 16/10 !important;
+}
+
+.impact-stat {
+    margin-top: 1.5rem !important;
+    padding: 1.25rem !important;
+}
+
+.impact-text strong {
+    font-size: 1rem !important;
+}
+
+.impact-text {
+    font-size: 0.875rem !important;
+}
+
+/* 5. PROCESO (Cómo Trabajamos) - Compacto */
+.process-header {
+    margin-bottom: 2.5rem !important;
+}
+
+.process-step {
+    gap: 2rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.process-step-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.process-step-desc {
+    font-size: 0.875rem !important;
+}
+
+.process-step-number {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1rem !important;
+}
+
+/* 6. SERVICIOS - Compacto */
+.services-header-minimal {
+    margin-bottom: 2.5rem !important;
+}
+
+.services-grid-minimal {
+    gap: 1.25rem !important;
+}
+
+.service-minimal {
+    padding: 1.5rem !important;
+}
+
+.service-minimal-icon {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.service-minimal-title {
+    font-size: 1.125rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.service-minimal-desc {
+    font-size: 0.875rem !important;
+}
+
+.service-tabs {
+    margin-bottom: 2rem !important;
+    gap: 0.5rem !important;
+}
+
+.service-tab {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8125rem !important;
+}
+
+/* 7. MATERIALES - Compacto */
+.editorial-title {
+    font-size: clamp(2rem, 4vw, 2.75rem) !important;
+    margin: 0.75rem 0 !important;
+}
+
+.editorial-description {
+    font-size: 0.9375rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.editorial-counter {
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.counter-current {
+    font-size: 2.5rem !important;
+}
+
+.active-material-info {
+    margin-bottom: 1.5rem !important;
+    padding: 1.25rem !important;
+}
+
+.active-name {
+    font-size: 1.125rem !important;
+}
+
+.active-desc {
+    font-size: 0.8125rem !important;
+}
+
+.editorial-window {
+    height: 400px !important;
+}
+
+.material-entry {
+    padding: 1.25rem 0 !important;
+}
+
+.entry-title {
+    font-size: 1.125rem !important;
+}
+
+.entry-subtitle {
+    font-size: 0.8125rem !important;
+}
+
+/* 8. COBERTURA - Compacto */
+.coverage-header {
+    margin-bottom: 2rem !important;
+}
+
+.cov-card {
+    min-height: 280px !important;
+    padding: 1.75rem !important;
+}
+
+.cov-card-name {
+    font-size: 1.75rem !important;
+}
+
+/* 9. CONTACTO - Compacto */
+.contact-grid {
+    gap: 2.5rem !important;
+}
+
+.contact-left h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.c-detail {
+    padding: 1rem 0 !important;
+}
+
+/* 10. HERO - NO TOCAR (se mantiene igual) */
+
+/* ============================================
+   SOSTENIBILIDAD CREATIVA - EXACTAMENTE COMO LA CAPTURA
+   ============================================ */
+.sustainability-section {
+    background: var(--bg-primary) !important;
+    padding: 4rem 2rem !important;
+}
+
+.sustainability-header {
+    text-align: left !important;
+    margin-bottom: 2.5rem !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 2rem !important;
+    max-width: 1400px !important;
+    margin: 0 auto 2.5rem auto !important;
+}
+
+.sustainability-header .section-label {
+    text-align: left !important;
+    display: block !important;
+    margin-bottom: 1rem !important;
+}
+
+.sustainability-header .section-heading {
+    text-align: left !important;
+    font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.1 !important;
+}
+
+/* Título con parte en itálica */
+.sustainability-header .section-heading .thin {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    color: var(--text-secondary) !important;
+}
+
+.sustainability-intro {
+    text-align: left !important;
+    max-width: 600px !important;
+    margin: 0 !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Galería: 4 imágenes en fila, pequeñas y cuadradas */
+.art-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+}
+
+.art-item {
+    position: relative !important;
+    aspect-ratio: 1/1 !important; /* Cuadradas */
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    transition: transform 0.4s ease !important;
+}
+
+.art-item:hover {
+    transform: translateY(-5px) !important;
+}
+
+.art-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s ease !important;
+}
+
+.art-item:hover img {
+    transform: scale(1.08) !important;
+}
+
+.art-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%) !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 1rem !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.art-item:hover .art-overlay {
+    opacity: 1 !important;
+}
+
+.art-info h3 {
+    font-size: 0.9375rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.art-info p {
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Ocultar CTA grande para mantenerlo compacto */
+.sustainability-cta {
+    display: none !important;
+}
+
+/* Responsive Sostenibilidad */
+@media (max-width: 1024px) {
+    .art-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sustainability-section {
+        padding: 3rem 1.5rem !important;
+    }
+    
+    .sustainability-header {
+        padding: 0 !important;
+    }
+    
+    .sustainability-header .section-heading {
+        font-size: 2rem !important;
+    }
+    
+    .sustainability-intro {
+        font-size: 0.875rem !important;
+    }
+    
+    .art-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 0 !important;
+        gap: 0.75rem !important;
+    }
+}
+
+/* Animaciones de entrada */
+.art-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.art-item.animate-in {
+    animation: artReveal 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+@keyframes artReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 </head>
 <body>
@@ -2366,75 +3099,73 @@
     </div>
 
     <!-- Botón Menú Flotante -->
-    <button class="menu-float-btn" id="menuFloatBtn">
-        <span>Menú</span>
-        <i class="fas fa-bars"></i>
-    </button>
+<button class="menu-float-btn" id="menuFloatBtn">
+    <span>Menú</span>
+    <i class="fas fa-bars"></i>
+</button>
 
-    <!-- Fullscreen Menu -->
-    <div class="fullscreen-menu" id="fullscreenMenu">
-        <div class="menu-gradient-1"></div>
-        <div class="menu-gradient-2"></div>
-
-        <button class="menu-close-btn" id="menuCloseBtn">
+<!-- Drawer Lateral -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+    <div class="drawer-header">
+        <div class="drawer-logo">RIDM <span>Integral</span></div>
+        <button class="drawer-close" id="drawerClose">
             <i class="fas fa-times"></i>
         </button>
-
-        <div class="menu-content">
-            <div class="menu-header">
-                <div class="menu-header-label">Navegación</div>
-                <div class="menu-header-title">06 Secciones</div>
-            </div>
-
-            <ul class="menu-items">
-                <li class="menu-item">
-                    <a href="#inicio" class="menu-item-link">
-                        <span class="menu-item-num">01</span>
-                        <span class="menu-item-text">Inicio</span>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#nosotros" class="menu-item-link">
-                        <span class="menu-item-num">02</span>
-                        <span class="menu-item-text">Nosotros</span>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#proceso" class="menu-item-link">
-                        <span class="menu-item-num">03</span>
-                        <span class="menu-item-text">Cómo Trabajamos</span>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#servicios" class="menu-item-link">
-                        <span class="menu-item-num">04</span>
-                        <span class="menu-item-text">Servicios</span>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#cobertura" class="menu-item-link">
-                        <span class="menu-item-num">05</span>
-                        <span class="menu-item-text">Cobertura</span>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#contacto" class="menu-item-link">
-                        <span class="menu-item-num">06</span>
-                        <span class="menu-item-text">Contacto</span>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="menu-footer">
-                <div class="menu-footer-text">© 2026 Recolectora Integral de Desechos de México</div>
-                <div class="menu-social">
-                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+    </div>
+    
+    <nav class="drawer-nav">
+        <a href="#inicio" class="drawer-link">
+            <span class="drawer-num">01</span>
+            <span class="drawer-text">Inicio</span>
+        </a>
+        <a href="#nosotros" class="drawer-link">
+            <span class="drawer-num">02</span>
+            <span class="drawer-text">Nosotros</span>
+        </a>
+        <a href="#proceso" class="drawer-link">
+            <span class="drawer-num">03</span>
+            <span class="drawer-text">Cómo Trabajamos</span>
+        </a>
+        <a href="#servicios" class="drawer-link">
+            <span class="drawer-num">04</span>
+            <span class="drawer-text">Servicios</span>
+        </a>
+        <a href="#materiales" class="drawer-link">
+            <span class="drawer-num">05</span>
+            <span class="drawer-text">Materiales</span>
+        </a>
+        <a href="#sostenibilidad" class="drawer-link">
+            <span class="drawer-num">06</span>
+            <span class="drawer-text">Sostenibilidad Activa</span>
+        </a>
+        <a href="#ecoshop" class="drawer-link">
+            <span class="drawer-num">07</span>
+            <span class="drawer-text">Tienda Sustentable</span>
+        </a>
+        <a href="#cobertura" class="drawer-link">
+            <span class="drawer-num">08</span>
+            <span class="drawer-text">Cobertura</span>
+        </a>
+        <a href="#contacto" class="drawer-link">
+            <span class="drawer-num">09</span>
+            <span class="drawer-text">Contacto</span>
+        </a>
+    </nav>
+    
+    <div class="drawer-footer">
+        <div class="drawer-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="drawer-contact-info">
+            <p>Lic. Karla Maturano Dotor</p>
+            <p>722 365 0238</p>
+            <p>recolectoraintegraldedesechosd@gmail.com</p>
         </div>
     </div>
+</aside>
 
     <!-- HERO -->
     <section class="hero" id="inicio">
@@ -2508,7 +3239,7 @@
         <div class="section-inner">
             <div class="about-grid">
                 <div class="about-img-wrap">
-                    <img src="https://cdn.phototourl.com/free/2026-07-07-e70db498-9a24-43f0-951a-dbbb34dfe46b.png" alt="Recolectora Integral">
+                    <img src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recolectora Integral">
                 </div>
                 <div class="about-text">
                     <div class="section-label">Nosotros</div>
@@ -3050,6 +3781,217 @@
     </div>
 </section>
 
+<!-- SOSTENIBILIDAD CREATIVA -->
+<section class="sustainability-section" id="sostenibilidad">
+    <div class="sustainability-header">
+        <div class="section-label">Sostenibilidad Creativa</div>
+        <h2 class="section-heading">
+            Reciclaje con <span class="thin">Impacto Artístico.</span>
+        </h2>
+        <p class="sustainability-intro">
+            Como parte de nuestro compromiso, materiales que no pueden reciclarse convencionalmente son transformados en obras de arte por artistas comprometidos con el medio ambiente. Fomentamos la economía circular y demostramos que la creatividad cuida el planeta.
+        </p>
+    </div>
+
+    <div class="art-gallery">
+        <div class="art-item">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1471&auto=format&fit=crop" alt="Arte 1">
+            <div class="art-overlay">
+                <div class="art-info">
+                    <h3>Escultura Metálica</h3>
+                    <p>Chatarra transformada</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="art-item">
+            <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1480&auto=format&fit=crop" alt="Arte 2">
+            <div class="art-overlay">
+                <div class="art-info">
+                    <h3>Instalación Plástica</h3>
+                    <p>Plásticos reciclados</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="art-item">
+            <img src="https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?q=80&w=1434&auto=format&fit=crop" alt="Arte 3">
+            <div class="art-overlay">
+                <div class="art-info">
+                    <h3>Mural Reciclado</h3>
+                    <p>Expresión urbana</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="art-item">
+            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1287&auto=format&fit=crop" alt="Arte 4">
+            <div class="art-overlay">
+                <div class="art-info">
+                    <h3>Arte Textil</h3>
+                    <p>Fibras recicladas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIENDA SUSTENTABLE - ECOShop -->
+<section class="ecoshop-section" id="ecoshop">
+    <div class="section-inner">
+        <div class="ecoshop-header">
+            <div class="section-label">Tienda Sustentable</div>
+            <h2 class="section-heading">
+                ECOShop <span class="thin">by RIDM.</span>
+            </h2>
+            <p class="ecoshop-intro">
+                Venta de artículos sustentables e insumos certificados para el manejo de residuos. Nuestros productos cumplen con la NOM-087-ECOL-SSA1-2002.
+            </p>
+        </div>
+
+        <div class="shop-categories">
+            <button class="shop-tab active" data-category="all">Todos</button>
+            <button class="shop-tab" data-category="rpbi">Insumos RPBI</button>
+            <button class="shop-tab" data-category="sustentable">Artículos Sustentables</button>
+        </div>
+
+        <div class="shop-grid">
+            <!-- Producto 1 -->
+            <div class="product-card" data-category="rpbi">
+                <div class="product-image">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Insumo RPBI</div>
+                    <h3 class="product-title">Bolsa Roja para Residuos Sólidos</h3>
+                    <p class="product-desc">Bolsa roja para residuos sólidos biológico-infecciosos. Cumple NOM-087.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Roja RPBI')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card" data-category="rpbi">
+                <div class="product-image">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Insumo RPBI</div>
+                    <h3 class="product-title">Contenedor Hermético Rojo</h3>
+                    <p class="product-desc">Para residuos líquidos patológicos. Seguridad y cumplimiento garantizado.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Hermético Rojo')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card" data-category="rpbi">
+                <div class="product-image">
+                    <i class="fas fa-prescription-bottle"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Insumo RPBI</div>
+                    <h3 class="product-title">Bolsa Amarilla Patológica</h3>
+                    <p class="product-desc">Para residuos patológicos sólidos. Material resistente y certificado.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Amarilla RPBI')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card" data-category="rpbi">
+                <div class="product-image">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Insumo RPBI</div>
+                    <h3 class="product-title">Contenedor Hermético Amarillo</h3>
+                    <p class="product-desc">Para líquidos patológicos. Cumplimiento total con normatividad.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Hermético Amarillo')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product-card" data-category="sustentable">
+                <div class="product-image">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Sustentable</div>
+                    <h3 class="product-title">Termo Reutilizable</h3>
+                    <p class="product-desc">Reduce el uso de plásticos de un solo uso. Acero inoxidable de alta calidad.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Termo Reutilizable')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card" data-category="sustentable">
+                <div class="product-image">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Sustentable</div>
+                    <h3 class="product-title">Bolsa Reutilizable</h3>
+                    <p class="product-desc">Bolsa ecológica para compras. Material biodegradable y resistente.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Reutilizable')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="product-card" data-category="sustentable">
+                <div class="product-image">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Sustentable</div>
+                    <h3 class="product-title">Kit Cubiertos Biodegradables</h3>
+                    <p class="product-desc">Cubiertos de bambú o material compostable. Perfectos para eventos.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Kit Cubiertos Biodegradables')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="product-card" data-category="sustentable">
+                <div class="product-image">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Sustentable</div>
+                    <h3 class="product-title">Productos Biodegradables</h3>
+                    <p class="product-desc">Línea completa de productos que se degradan naturalmente.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Productos Biodegradables')">
+                        Solicitar Cotización
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ecoshop-note">
+            <i class="fas fa-info-circle"></i>
+            <p>Todos nuestros insumos RPBI están fabricados para cumplir con los requisitos que nos marca la NOM-087-ECOL-SSA1-2002.</p>
+        </div>
+    </div>
+</section>
+
 
 
     <!-- COVERAGE -->
@@ -3455,30 +4397,39 @@
             });
         });
 
-        // --- FULLSCREEN MENU ---
-        const menuFloatBtn = document.getElementById('menuFloatBtn');
-        const menuCloseBtn = document.getElementById('menuCloseBtn');
-        const fullscreenMenu = document.getElementById('fullscreenMenu');
+// --- DRAWER MENU ---
+const menuBtn = document.getElementById('menuFloatBtn');
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const drawerClose = document.getElementById('drawerClose');
 
-        menuFloatBtn.addEventListener('click', () => {
-            fullscreenMenu.classList.add('active');
-            document.body.classList.add('menu-open');
-            document.body.style.overflow = 'hidden';
-        });
+function openDrawer() {
+    drawer.classList.add('active');
+    drawerOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-        menuCloseBtn.addEventListener('click', () => {
-            fullscreenMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            document.body.style.overflow = '';
-        });
+function closeDrawer() {
+    drawer.classList.remove('active');
+    drawerOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
-        document.querySelectorAll('.menu-item-link').forEach(link => {
-            link.addEventListener('click', () => {
-                fullscreenMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                document.body.style.overflow = '';
-            });
-        });
+menuBtn.addEventListener('click', openDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+
+// Cerrar al hacer click en un enlace
+document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+});
+
+// Cerrar con tecla Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        closeDrawer();
+    }
+});
 
         // --- MATERIALES EDITORIAL: SCROLL INTERNO INTERACTIVO ---
 
@@ -3570,6 +4521,71 @@ scrollContainer.addEventListener('scroll', () => {
 if (materialEntries.length > 0) {
     updateActiveMaterial(materialEntries[0]);
 }
+// --- SOSTENIBILIDAD: ANIMACIONES ---
+const artItems = document.querySelectorAll('.art-item');
+const artObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('animate-in');
+            }, index * 100);
+            artObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+
+
+artItems.forEach(item => artObserver.observe(item));
+// --- ECOShop: FILTROS Y COTIZACIÓN ---
+
+// Filtros de categorías
+const shopTabs = document.querySelectorAll('.shop-tab');
+const productCards = document.querySelectorAll('.product-card');
+
+shopTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        shopTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const category = tab.dataset.category;
+        
+        productCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'flex';
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, 50);
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('animate-in');
+            }
+        });
+    });
+});
+
+// Función para cotizar producto
+function cotizarProducto(nombreProducto) {
+    const mensaje = `Hola, me interesa cotizar el siguiente producto de la ECOShop by RIDM:\n\n*${nombreProducto}*\n\n¿Podrían enviarme información sobre precios y disponibilidad?`;
+    const url = `https://wa.me/527223650238?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+}
+
+// Animación de entrada
+const productObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('animate-in');
+            }, index * 80);
+            productObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+productCards.forEach(card => productObserver.observe(card));
+
+
 
         // --- FORMULARIO FUNCIONAL CON ANTI-SPAM ---
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -3772,4 +4788,4 @@ if (coverageTrack && dots.length > 0) {
 }
     </script>
 </body>
-</html>
+</html>ser
