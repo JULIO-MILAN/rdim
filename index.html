@@ -752,6 +752,7 @@
             color: var(--text-primary);
             font-weight: 600;
         }
+        
 
         .stats-row {
             display: grid;
@@ -779,262 +780,676 @@
         }
 
         /* ============================================
-           CÓMO TRABAJAMOS - TIMELINE
-           ============================================ */
-        .process-section {
-            background: var(--bg-primary);
-            padding: 8rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
+   IMPACT STAT - VERSIÓN LIMPIA Y PROFESIONAL
+   ============================================ */
+.impact-stat {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(45, 138, 62, 0.06); /* Verde RIDM muy sutil */
+    border: 1px solid rgba(45, 138, 62, 0.15); /* Borde fino y suave, no grueso */
+    border-radius: 16px;
+    margin-top: 2.5rem;
+    transition: all 0.3s ease;
+}
 
-        .process-header {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
+.impact-stat:hover {
+    background: rgba(45, 138, 62, 0.1);
+    transform: translateY(-3px);
+}
 
-        .process-header .section-heading {
-            margin-bottom: 1rem;
-        }
-
-        .process-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
-        .process-timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                var(--green-light) 10%, 
-                var(--green-light) 90%, 
-                transparent 100%);
-            transform: translateX(-50%);
-        }
-
-        .process-step {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 6rem;
-            align-items: center;
-        }
-
-        .process-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .process-step:nth-child(even) .process-step-content {
-            grid-column: 2;
-            grid-row: 1;
-        }
-
-        .process-step:nth-child(even) .process-step-image {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .process-step-number {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            background: var(--green);
-            border: 3px solid var(--green-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--white);
-            z-index: 10;
-            box-shadow: 0 0 30px rgba(74, 124, 35, 0.3);
-        }
-
-        .process-step-content {
-            padding: 2rem;
-        }
-
-        .process-step-title {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .process-step-desc {
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
-        .process-step-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 16/10;
-            background: var(--gray-800);
-            border: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .process-step-image {
-                background: var(--gray-200);
-            }
-        }
-
-        .process-step-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
-        }
-
-        .process-step-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .process-step-image .img-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--gray-800) 0%, rgba(45, 80, 22, 0.2) 100%);
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .process-step-image .img-placeholder {
-                background: linear-gradient(135deg, var(--gray-200) 0%, rgba(45, 138, 62, 0.1) 100%);
-            }
-        }
-
-        .process-step {
-            opacity: 0;
-        }
-
-        .process-step.animate-left {
-            transform: translateX(-80px);
-        }
-
-        .process-step.animate-right {
-            transform: translateX(80px);
-        }
-
-        .process-step-number {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0);
-        }
-
-        @media (max-width: 768px) {
-            .process-section {
-                padding: 6rem 1.5rem;
-            }
-
-            .process-header {
-                margin-bottom: 4rem;
-            }
-
-            .process-timeline::before {
-                left: 32px;
-            }
-
-            .process-step {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding-left: 80px;
-                margin-bottom: 4rem;
-            }
-
-            .process-step:nth-child(even) .process-step-content,
-            .process-step:nth-child(odd) .process-step-content {
-                grid-column: 1;
-                grid-row: 2;
-            }
-
-            .process-step:nth-child(even) .process-step-image,
-            .process-step:nth-child(odd) .process-step-image {
-                grid-column: 1;
-                grid-row: 1;
-            }
-
-            .process-step-number {
-                left: 32px;
-                top: 0;
-                transform: translate(-50%, 0);
-                width: 56px;
-                height: 56px;
-                font-size: 1.125rem;
-            }
-
-            .process-step-content {
-                padding: 0;
-            }
-        }
-        .impact-stat {
-    margin-top: 3rem;
-    padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(45, 138, 62, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
-    border-left: 4px solid var(--green-light);
-    border-radius: 12px;
+.impact-stat .impact-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: rgba(45, 138, 62, 0.15);
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    color: #2D8A3E; /* Verde Principal del Documento Maestro */
+    font-size: 1.5rem;
 }
 
-.impact-icon {
-    font-size: 2.5rem;
+.impact-stat .impact-text {
+    flex: 1;
+}
+
+.impact-stat .impact-text strong {
+    display: block;
+    font-size: 1.35rem; /* Letra más grande y clara */
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.impact-stat .highlight-number {
+    color: #2D8A3E; /* Verde RIDM */
+    font-size: 1.6rem; /* Número aún más destacado */
+    font-weight: 800;
+}
+
+.impact-stat .impact-text span {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .impact-stat {
+        padding: 1.5rem;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .impact-stat .impact-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+    
+    .impact-stat .impact-text strong {
+        font-size: 1.15rem;
+    }
+    
+    .impact-stat .highlight-number {
+        font-size: 1.35rem;
+    }
+    
+    .impact-stat .impact-text span {
+        font-size: 0.95rem;
+    }
+}
+
+
+  /* ============================================
+   SECCIÓN: POR QUÉ RIDM - COMPACTA MEJORADA
+   ============================================ */
+.why-ridm-compact {
+    padding: 3rem 2rem;
+    background: var(--bg-primary);
+}
+
+.why-compact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.why-compact-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.why-compact-title .highlight {
     color: var(--green-light);
-    flex-shrink: 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
 }
 
-.impact-text {
+/* Grid de Valores (3 columnas) */
+.why-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.value-card-compact {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.value-card-compact:hover {
+    border-color: rgba(76, 175, 80, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Imagen grande en cards */
+.value-image-large {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, rgba(45, 138, 62, 0.2) 0%, rgba(76, 175, 80, 0.1) 100%);
+}
+
+.value-img-large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.value-card-compact:hover .value-img-large {
+    transform: scale(1.08);
+}
+
+/* Placeholder mejorado para imágenes */
+.value-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(76, 175, 80, 0.5);
+    gap: 0.75rem;
+}
+
+.value-placeholder i {
+    font-size: 3rem;
+    opacity: 0.4;
+}
+
+.value-placeholder span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.value-content-compact {
+    padding: 1.25rem;
+}
+
+.value-icon-small {
+    width: 36px;
+    height: 36px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--green-light);
+    margin-bottom: 0.75rem;
+}
+
+.value-content-compact h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.value-content-compact p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Barra de Autorizaciones */
+.compliance-bar-compact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.25rem;
+    background: rgba(76, 175, 80, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.compliance-item-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--green-light);
+}
+
+.compliance-item-compact i {
+    font-size: 1rem;
+}
+
+/* Fila: Mascota + Clientes - BALANCE OPTIMO */
+.mascot-clients-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Clientes ocupan 2/3 del espacio */
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Mascota - IMAGEN GRANDE SIN ESPACIO DESPERDICIADO */
+.mascot-compact {
+    text-align: center;
+    padding: 1.5rem; /* Reducido de 2rem */
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alineado arriba */
+    align-items: center;
+    height: 100%;
+}
+
+.mascot-image-xl {
+    width: 100%;
+    max-width: 100%; /* Ocupa TODO el ancho disponible */
+    height: 380px; /* AUMENTADO: era 200px */
+    margin: 0 0 1rem 0; /* Sin margen lateral, solo abajo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* Sin fondo para aprovechar espacio */
+    border: none; /* ELIMINADO borde punteado */
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mascot-img-xl {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene proporción pero llena el espacio */
+    object-position: center;
+    filter: drop-shadow(0 8px 16px rgba(76, 175, 80, 0.3));
+    animation: mascotFloat 4s ease-in-out infinite;
+}
+
+/* Placeholder optimizado - sin bordes */
+.mascot-placeholder-xl {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: rgba(76, 175, 80, 0.6);
+    background: linear-gradient(135deg, rgba(45, 138, 62, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+    border-radius: 16px;
+}
+
+.mascot-placeholder-xl i {
+    font-size: 6rem; /* Icono más grande */
+    opacity: 0.5;
+}
+
+.mascot-placeholder-xl span {
     font-size: 1.125rem;
-    line-height: 1.6;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.mascot-text-compact {
+    margin-top: auto; /* Empuja el texto hacia abajo */
+}
+
+.mascot-text-compact h4 {
+    font-size: 1.5rem; /* Más grande */
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.mascot-text-compact p {
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
-.impact-text strong {
-    color: var(--text-primary);
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+/* Ajuste del grid para balance */
+.mascot-clients-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 33% - 67% */
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .mascot-image-xl {
+        height: 300px; /* Un poco más pequeña en tablet */
+    }
 }
 
 @media (max-width: 768px) {
-    .impact-stat {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
+    .mascot-clients-row {
+        grid-template-columns: 1fr;
     }
     
-    .impact-icon {
-        font-size: 2rem;
+    .mascot-image-xl {
+        height: 280px;
+    }
+}       
+
+/* Clientes - AHORA MÁS GRANDES */
+.clients-compact {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.clients-header-compact h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.clients-logos-xl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 1.25rem;
+    flex: 1;
+    align-content: center;
+}
+
+.client-logo-item-xl {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+    min-height: 160px; /* AUMENTADO: ahora más grandes */
+    position: relative;
+}
+
+.client-logo-img-xl {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: all 0.3s;
+    filter: grayscale(100%);
+}
+
+.client-logo-item-xl:hover {
+    border-color: var(--green-light);
+    background: rgba(76, 175, 80, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.2);
+}
+
+.client-logo-item-xl:hover .client-logo-img-xl {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .mascot-clients-row {
+        grid-template-columns: 1fr; /* Una columna en tablet/móvil */
+    }
+    
+    .mascot-image-xl {
+        max-width: 220px;
+        height: 220px;
     }
 }
 
+@media (max-width: 768px) {
+    .clients-logos-xl {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .client-logo-item-xl {
+        min-height: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients-logos-xl {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .client-logo-item-xl {
+        min-height: 110px;
+    }
+}
+
+
+/* ============================================
+   CÓMO TRABAJAMOS - TIMELINE COMPACTO
+   ============================================ */
+.process-section {
+    background: var(--bg-primary);
+    padding: 5rem 2rem; /* Reducido de 8rem */
+    position: relative;
+    overflow: hidden;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 3.5rem; /* Reducido de 6rem */
+}
+
+.process-header .section-heading {
+    margin-bottom: 1rem;
+}
+
+.process-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 900px; /* Reducido de 1000px */
+    margin: 0 auto;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        var(--green-light) 10%, 
+        var(--green-light) 90%, 
+        transparent 100%);
+    transform: translateX(-50%);
+}
+
+.process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem; /* Reducido de 4rem */
+    margin-bottom: 3.5rem; /* Reducido de 6rem */
+    align-items: center;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.process-step:nth-child(even) .process-step-content {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.process-step:nth-child(even) .process-step-image {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Números más compactos */
+.process-step-number {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px; /* Reducido de 64px */
+    height: 52px; /* Reducido de 64px */
+    background: var(--green);
+    border: 3px solid var(--green-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem; /* Reducido de 1.25rem */
+    font-weight: 700;
+    color: var(--white);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(74, 124, 35, 0.3);
+}
+
+.process-step-content {
+    padding: 1.25rem; /* Reducido de 2rem */
+}
+
+.process-step-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* Reducido de 2.5rem */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem; /* Reducido de 1rem */
+    color: var(--text-primary);
+}
+
+.process-step-desc {
+    font-size: 0.9375rem; /* Reducido de 1.0625rem */
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* IMÁGENES MÁS PEQUEÑAS */
+.process-step-image {
+    position: relative;
+    border-radius: 16px; /* Reducido de 20px */
+    overflow: hidden;
+    aspect-ratio: 4/3; /* Cambiado de 16/10 para ser más compacto */
+    background: var(--gray-800);
+    border: 1px solid var(--border-color);
+    max-width: 380px; /* NUEVO: limita el ancho máximo */
+    margin: 0 auto; /* Centra la imagen */
+}
+
+@media (max-width: 768px) {
+    .process-step-image {
+        background: var(--gray-200);
+    }
+}
+
+.process-step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.process-step-image:hover img {
+    transform: scale(1.05);
+}
+
+.process-step-image .img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gray-800) 0%, rgba(45, 80, 22, 0.2) 100%);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .process-step-image .img-placeholder {
+        background: linear-gradient(135deg, var(--gray-200) 0%, rgba(45, 138, 62, 0.1) 100%);
+    }
+}
+
+/* Animaciones */
+.process-step {
+    opacity: 0;
+}
+
+.process-step.animate-left {
+    transform: translateX(-60px); /* Reducido de 80px */
+}
+
+.process-step.animate-right {
+    transform: translateX(60px); /* Reducido de 80px */
+}
+
+.process-step-number {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+/* ============================================
+   RESPONSIVE COMPACTO
+   ============================================ */
+@media (max-width: 768px) {
+    .process-section {
+        padding: 3.5rem 1.5rem; /* Reducido de 6rem */
+    }
+
+    .process-header {
+        margin-bottom: 2.5rem; /* Reducido de 4rem */
+    }
+
+    .process-timeline::before {
+        left: 28px; /* Reducido de 32px */
+    }
+
+    .process-step {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Reducido de 2rem */
+        padding-left: 70px; /* Reducido de 80px */
+        margin-bottom: 2.5rem; /* Reducido de 4rem */
+    }
+
+    .process-step:nth-child(even) .process-step-content,
+    .process-step:nth-child(odd) .process-step-content {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .process-step:nth-child(even) .process-step-image,
+    .process-step:nth-child(odd) .process-step-image {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .process-step-number {
+        left: 28px; /* Reducido de 32px */
+        top: 0;
+        transform: translate(-50%, 0);
+        width: 48px; /* Reducido de 56px */
+        height: 48px; /* Reducido de 56px */
+        font-size: 1rem; /* Reducido de 1.125rem */
+    }
+
+    .process-step-content {
+        padding: 0;
+    }
+    
+    .process-step-image {
+        max-width: 100%; /* En móvil ocupa todo el ancho */
+    }
+}
 /* ============================================
    SERVICES - CATEGORÍAS + EXPANDIBLES
    ============================================ */
@@ -1333,13 +1748,33 @@
 }
 
 /* ============================================
-   MATERIALES - EDITORIAL CON SCROLL INTERNO
+   MATERIALES - EDITORIAL CON IMÁGENES REALES
    ============================================ */
 .materials-editorial {
     position: relative;
     padding: 6rem 0;
     background: var(--bg-primary);
     min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Marca de agua RIDM */
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(15rem, 25vw, 30rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--green-light);
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
 }
 
 .editorial-container {
@@ -1350,6 +1785,8 @@
     padding: 0 2rem;
     gap: 4rem;
     align-items: start;
+    position: relative;
+    z-index: 1;
 }
 
 /* LADO IZQUIERDO: STICKY */
@@ -1426,45 +1863,116 @@
     text-transform: uppercase;
 }
 
-/* Info del material activo */
-.active-material-info {
+/* ============================================
+   NUEVO: CONTENEDOR DE IMAGEN DEL MATERIAL
+   ============================================ */
+.active-material-image {
     margin-bottom: 3rem;
-    padding: 2rem;
-    background: rgba(76, 175, 80, 0.05);
-    border-left: 3px solid var(--green-light);
-    border-radius: 0 12px 12px 0;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     transition: all 0.4s ease;
 }
 
-.active-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--green-light);
-    border-radius: 12px;
+.image-wrapper:hover {
+    border-color: rgba(76, 175, 80, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.material-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.image-wrapper:hover .material-img {
+    transform: scale(1.05);
+}
+
+/* Overlay que aparece al hover */
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: white;
-    margin-bottom: 1rem;
-    transition: all 0.4s ease;
+    align-items: flex-end;
+    padding: 2rem;
 }
 
-.active-name {
+.image-wrapper:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    width: 100%;
+}
+
+.overlay-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    color: white;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
-    transition: all 0.4s ease;
 }
 
-.active-desc {
+.overlay-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+}
+
+.overlay-link:hover {
+    color: white;
+    gap: 0.75rem;
+}
+
+.overlay-link i {
+    transition: transform 0.3s;
+}
+
+.overlay-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Caption debajo de la imagen */
+.image-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(76, 175, 80, 0.05);
+    border-left: 3px solid var(--green-light);
+    border-radius: 0 8px 8px 0;
+}
+
+.caption-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.caption-text {
     font-size: 0.9375rem;
     color: var(--text-secondary);
-    font-weight: 300;
-    line-height: 1.6;
-    transition: all 0.4s ease;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 /* CTA */
@@ -1714,11 +2222,6 @@
         height: 500px;
     }
     
-    .window-header {
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-    }
-    
     .material-entry {
         grid-template-columns: 40px 1fr;
         gap: 1rem;
@@ -1742,8 +2245,31 @@
         display: none;
     }
     
-    .active-material-info {
-        padding: 1.5rem;
+    .image-wrapper {
+        aspect-ratio: 4/3;
+    }
+    
+    .watermark {
+        opacity: 0.04;
+        color: #2D8A3E;
+        font-size: clamp(8rem, 40vw, 15rem);
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+.material-entry {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.material-entry.animate-in {
+    animation: entrySlideIn 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
+}
+
+@keyframes entrySlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -1953,6 +2479,7 @@
         transform: translateY(0);
     }
 }
+
 
 /* ============================================
    TIENDA SUSTENTABLE - ECOShop
@@ -2690,6 +3217,59 @@
                 padding: 6rem 1.5rem;
             }
         }
+        
+/* ============================================
+   AGREGA ESTO AL FINAL DE TU CSS ACTUAL
+   ============================================ */
+
+/* Solo cambiamos lo necesario para las imágenes */
+.product-image {
+    position: relative;
+    overflow: hidden; /* Mantiene tu gradiente de fondo */
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el espacio */
+    transition: transform 0.6s cubic-bezier(0.25, 0, 0, 1);
+}
+
+/* Mantiene tu hover effect pero aplicado a la imagen */
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+/* Overlay opcional para unificar el tono (puedes quitarlo si no te gusta) */
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.1) 0%, 
+        transparent 50%, 
+        rgba(0,0,0,0.2) 100%);
+        pointer-events: none;
+        opacity: 0.3; /* Ajusta la intensidad (0 = sin overlay, 1 = muy oscuro) */
+    }
+
+    /* Ajuste para el tag flotante (opcional - más elegante) */
+    .product-tag {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Responsive - Mantiene tu layout original */
+    @media (max-width: 768px) {
+        .product-image {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+        
+        .product-img {
+            border-radius: 12px;
+        }
+    }   
 
         /* ============================================
    COMPACTACIÓN GLOBAL - DESDE "NOSOTROS" HACIA ABAJO
@@ -3078,6 +3658,63 @@
         transform: translateY(0);
     }
 }
+/* ============================================
+   NORMALIZACIÓN DE ESPACIADO (VERTICAL RHYTHM)
+   ============================================ */
+
+/* 1. Unificar el padding de TODAS las secciones principales */
+.about-section,
+.why-ridm-compact,
+.services-section-minimal,
+.process-section {
+    padding: 6rem 2rem !important; /* Espacio uniforme arriba y abajo */
+}
+
+/* 2. Ajustar la clase .section-full para que no empuje demasiado */
+.section-full {
+    min-height: auto; /* Quitamos el 100vh forzado que estira todo */
+    padding: 6rem 2rem;
+}
+
+/* 3. Asegurar que la sección "Por Qué Elegirnos" tenga el padding correcto */
+.why-ridm-compact {
+    padding: 6rem 2rem;
+    background: var(--bg-primary);
+}
+
+/* 4. Reducir márgenes inferiores de los últimos elementos de cada sección 
+   para que no se sumen al padding y creen huecos extra */
+.impact-stat {
+    margin-bottom: 0; /* Ya tiene margin-top, no necesitamos margen abajo */
+}
+
+.mascot-clients-row {
+    margin-bottom: 0;
+}
+
+.services-header-minimal {
+    margin-bottom: 3rem; /* Reducido de 4rem para acercar más al contenido */
+}
+
+.process-header {
+    margin-bottom: 3rem; /* Reducido de 3.5rem */
+}
+
+/* 5. Ajustes específicos para móvil (más compacto pero limpio) */
+@media (max-width: 768px) {
+    .about-section,
+    .why-ridm-compact,
+    .services-section-minimal,
+    .process-section,
+    .section-full {
+        padding: 4rem 1.5rem !important; /* 4rem en móvil es suficiente */
+    }
+    
+    .services-header-minimal,
+    .process-header {
+        margin-bottom: 2.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -3123,13 +3760,13 @@
             <span class="drawer-num">02</span>
             <span class="drawer-text">Nosotros</span>
         </a>
+               <a href="#servicios" class="drawer-link">
+            <span class="drawer-num">04</span>
+            <span class="drawer-text">Servicios</span>
+        </a>
         <a href="#proceso" class="drawer-link">
             <span class="drawer-num">03</span>
             <span class="drawer-text">Cómo Trabajamos</span>
-        </a>
-        <a href="#servicios" class="drawer-link">
-            <span class="drawer-num">04</span>
-            <span class="drawer-text">Servicios</span>
         </a>
         <a href="#materiales" class="drawer-link">
             <span class="drawer-num">05</span>
@@ -3239,7 +3876,7 @@
         <div class="section-inner">
             <div class="about-grid">
                 <div class="about-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recolectora Integral">
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-3cfcd2ce-9d4d-471b-b4bf-81efab07b59d.png" alt="Recolectora Integral">
                 </div>
                 <div class="about-text">
                     <div class="section-label">Nosotros</div>
@@ -3251,10 +3888,12 @@
                     <p>
                         Atendemos industrias, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
                     </p>
-                    <div class="impact-stat">
-    <div class="impact-icon"><i class="fas fa-exclamation-circle"></i></div>
+<div class="impact-stat">
+    <div class="impact-icon">
+        <i class="fas fa-exclamation-circle"></i>
+    </div>
     <div class="impact-text">
-        <strong>Solo el 10% de los residuos en México se reciclan correctamente.</strong><br>
+        <strong>Solo el 10% de los residuos en México se reciclan correctamente.</strong>
         <span>Nosotros trabajamos para cambiar esa estadística.</span>
     </div>
 </div>
@@ -3262,69 +3901,167 @@
             </div>
         </div>
     </section>
+<!-- SECCIÓN: POR QUÉ RIDM - COMPACTA CON IMÁGENES GRANDES -->
+<section class="why-ridm-compact" id="por-que-ridm">
+    
+    <div class="section-inner">
+        
+        <!-- Header -->
+        <div class="why-compact-header">
+            <div class="section-label">Por Qué Elegirnos</div>
+            <h2 class="why-compact-title">
+                No solo recolectamos,<br>
+                <span class="highlight">creamos impacto.</span>
+            </h2>
+        </div>
 
-    <!-- CÓMO TRABAJAMOS -->
-    <section class="process-section" id="proceso">
-        <div class="section-inner">
-            <div class="process-header">
-                <div class="section-label">Nuestro Proceso</div>
-                <h2 class="section-heading">Cómo Trabajamos.</h2>
-                <p class="process-subtitle">Nuestro proceso en 4 pasos</p>
+        <!-- Grid de Valores (3 columnas con imágenes grandes) -->
+        <div class="why-values-grid">
+            
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-a98f4dd6-7281-4c7a-8373-094c19518132.png" alt="Trazabilidad" class="value-img-large">
+                </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h4>Trazabilidad Total</h4>
+                    <p>GPS + reportes digitales del manejo de tus residuos.</p>
+                </div>
             </div>
 
-            <div class="process-timeline">
-                <div class="process-step animate-left" data-step="1">
-                    <div class="process-step-content">
-                        <h3 class="process-step-title">Evaluación</h3>
-                        <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
-                    </div>
-                    <div class="process-step-image">
-                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Evaluación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;">📋 Evaluación</div>
-                    </div>
-                    <div class="process-step-number">01</div>
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://columnaocho.com/loginwp/wp-content/uploads/2019/08/SemarnatLogo.png" alt="Cumplimiento" class="value-img-large">
                 </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Cumplimiento Normativo</h4>
+                    <p>NOM-052, NOM-087, SEMARNAT. Sin multas ni sanciones.</p>
+                </div>
+            </div>
 
-                <div class="process-step animate-right" data-step="2">
-                    <div class="process-step-content">
-                        <h3 class="process-step-title">Plan Personalizado</h3>
-                        <p class="process-step-desc">Diseñamos un plan de gestión de residuos adaptado a sus necesidades y presupuesto.</p>
-                    </div>
-                    <div class="process-step-image">
-                        <img src="https://plus.unsplash.com/premium_photo-1661277697952-0cacde72c755?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;">📊 Plan Personalizado</div>
-                    </div>
-                    <div class="process-step-number">02</div>
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://static.vecteezy.com/system/resources/previews/007/820/606/non_2x/certificate-icon-logo-design-template-vector.jpg" alt="Personal" class="value-img-large">
                 </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Personal Certificado</h4>
+                    <p>Equipo altamente calificado a tu servicio.</p>
+                </div>
+            </div>
 
-                <div class="process-step animate-left" data-step="3">
-                    <div class="process-step-content">
-                        <h3 class="process-step-title">Implementación</h3>
-                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado y flota moderna de vehículos.</p>
-                    </div>
-                    <div class="process-step-image">
-                        <img src="https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;">🚛 Implementación</div>
-                    </div>
-                    <div class="process-step-number">03</div>
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://ieec.edu.ar/wp-content/uploads/Tilde-Buenas-Pr%C3%A1cticas-300x202.jpg"  alt="Reconocimiento" class="value-img-large">
                 </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Reconocimiento Ambiental</h4>
+                    <p>Certificado de buenas prácticas para tu empresa.</p>
+                </div>
+            </div>
 
-                <div class="process-step animate-right" data-step="4">
-                    <div class="process-step-content">
-                        <h3 class="process-step-title">Seguimiento</h3>
-                        <p class="process-step-desc">Monitoreamos continuamente el servicio y generamos reportes de cumplimiento ambiental.</p>
-                    </div>
-                    <div class="process-step-image">
-                        <img src="https://media.istockphoto.com/id/2214748175/photo/17th-day-of-the-month-writing-text-follow-up-on-calendar-date-save-the-date-day-of-the-year.jpg?s=2048x2048&w=is&k=20&c=rYS0Uwb6Pwp5skd8A76WKoOw_0rqfq5JeXVZ7YsFzJE=" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;">📈 Seguimiento</div>
-                    </div>
-                    <div class="process-step-number">04</div>
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDrbEwkjYH-T_skTDo92N_OVyOjtHn6iydzkBc2fAl_Fjn6tViwhKry2MY&s=10" alt="Capacitación" class="value-img-large">
                 </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4>Capacitación </h4>
+                    <p>Asesoría  para correcta segregación.</p>
+                </div>
+            </div>
+
+            <div class="value-card-compact">
+                <div class="value-image-large">
+                    <img src="https://itequia.com/wp-content/uploads/2023/07/documentos-organizacion-adultos-jovenes-1024x683.jpg" alt="Manifiestos" class="value-img-large">
+                </div>
+                <div class="value-content-compact">
+                    <div class="value-icon-small">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h4>Manifiestos Ambientales</h4>
+                    <p>Documentación completa y legal.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Autorizaciones (Barra compacta) -->
+        <div class="compliance-bar-compact">
+            <div class="compliance-item-compact">
+                <i class="fas fa-certificate"></i>
+                <span>SEMARNAT</span>
+            </div>
+            <div class="compliance-item-compact">
+                <i class="fas fa-check-double"></i>
+                <span>NOM-052</span>
+            </div>
+            <div class="compliance-item-compact">
+                <i class="fas fa-biohazard"></i>
+                <span>NOM-087</span>
+            </div>
+            <div class="compliance-item-compact">
+                <i class="fas fa-file-signature"></i>
+                <span>Manifiestos</span>
             </div>
         </div>
-    </section>
 
-<!-- SERVICES - SISTEMA DE CATEGORÍAS -->
+ <!-- Mascota + Clientes (Misma fila - BALANCEADOS) -->
+<div class="mascot-clients-row">
+    
+    <!-- Mascota (Columna izquierda) -->
+    <div class="mascot-compact">
+        <div class="mascot-image-xl">
+            <img src="https://cdn.phototourl.com/free/2026-07-19-9030588f-35dd-4ca4-b6bb-33ea2b884338.png" alt="Logo RIDM" class="mascot-img-xl">
+        </div>
+        <div class="mascot-text-compact">
+            <h4>Nuestra Mascota</h4>
+            <p>El corazón verde de RIDM</p>
+        </div>
+    </div>
+
+    <!-- Clientes (Columna derecha) -->
+    <div class="clients-compact">
+        <div class="clients-header-compact">
+            <h4>Clientes que Confían</h4>
+        </div>
+        <div class="clients-logos-xl">
+            <div class="client-logo-item-xl">
+                <img src="https://dplnews.com/wp-content/uploads/2021/08/dplnews_mercado-libre_mc80821.jpg" alt="Cliente 1" class="client-logo-img-xl">
+            </div>
+            <div class="client-logo-item-xl">
+                <img src="https://thumbs.dreamstime.com/b/logotipo-de-coca-cola-en-la-pantalla-de-ordenador-80980608.jpg" alt="Cliente 2" class="client-logo-img-xl">
+            </div>
+            <div class="client-logo-item-xl">
+                <img src="https://marketing4ecommerce.mx/wp-content/uploads/2018/08/Suburbia749x428.jpg" alt="Cliente 3" class="client-logo-img-xl">
+            </div>
+            <div class="client-logo-item-xl">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWicGxnFNfganP0jOxOIbht0uz_H3QF9UeFR7dQRdxcqsEEhWm7nLhxDUa&s=10" alt="Cliente 4" class="client-logo-img-xl">
+            </div>
+            <div class="client-logo-item-xl">
+                <img src="https://i.blogs.es/fdaa5f/walmart-min/1366_2000.jpg" alt="Cliente 5" class="client-logo-img-xl">
+            </div>
+            <div class="client-logo-item-xl">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG0_JYkeO4Phxjbbl0EX7gpGrclwRU6lhq3DHQ0m1bCA&s=10" alt="Cliente 6" class="client-logo-img-xl">
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+    <!-- SERVICES - SISTEMA DE CATEGORÍAS -->
 <section class="services-section-minimal" id="servicios">
     <div class="section-inner">
         <div class="services-header-minimal">
@@ -3338,32 +4075,37 @@
         </div>
 
         <!-- Tabs de Categorías -->
-        <div class="service-tabs">
-            <button class="service-tab active" data-category="all">
-                <i class="fas fa-th-large"></i>
-                <span>Todos</span>
-            </button>
-            <button class="service-tab" data-category="recoleccion">
-                <i class="fas fa-truck"></i>
-                <span>Recolección</span>
-            </button>
-            <button class="service-tab" data-category="especializados">
-                <i class="fas fa-exclamation-triangle"></i>
-                <span>Especializados</span>
-            </button>
-            <button class="service-tab" data-category="proyectos">
-                <i class="fas fa-hard-hat"></i>
-                <span>Proyectos</span>
-            </button>
-            <button class="service-tab" data-category="gestion">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Gestión</span>
-            </button>
-            <button class="service-tab" data-category="circular">
-                <i class="fas fa-recycle"></i>
-                <span>Economía Circular</span>
-            </button>
-        </div>
+     <!-- Tabs de Categorías (Especializados primero) -->
+<div class="service-tabs">
+    <button class="service-tab active" data-category="especializados">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Especializados</span>
+    </button>
+    <button class="service-tab" data-category="recoleccion">
+        <i class="fas fa-truck"></i>
+        <span>Recolección</span>
+    </button>
+    <button class="service-tab" data-category="proyectos">
+        <i class="fas fa-hard-hat"></i>
+        <span>Proyectos</span>
+    </button>
+    <button class="service-tab" data-category="logistica">
+        <i class="fas fa-truck-moving"></i>
+        <span>Logística</span>
+    </button>
+    <button class="service-tab" data-category="gestion">
+        <i class="fas fa-clipboard-list"></i>
+        <span>Gestión</span>
+    </button>
+    <button class="service-tab" data-category="circular">
+        <i class="fas fa-recycle"></i>
+        <span>Economía Circular</span>
+    </button>
+    <button class="service-tab" data-category="all">
+        <i class="fas fa-th-large"></i>
+        <span>Todos</span>
+    </button>
+</div>
 
         <!-- Grid de Servicios -->
         <div class="services-grid-minimal" id="servicesGrid">
@@ -3484,7 +4226,7 @@
 
             <div class="service-minimal" data-category="especializados" data-service="9">
                 <div class="service-minimal-number">09</div>
-                <div class="service-minimal-icon"><i class="fas fa-file-shred"></i></div>
+                <div class="service-minimal-icon"><i class="fas fa-user-secret"></i></div>
                 <h3 class="service-minimal-title">Destrucción Fiscal</h3>
                 <p class="service-minimal-desc">Eliminación segura de documentos confidenciales con certificado.</p>
                 <div class="service-expanded">
@@ -3524,6 +4266,22 @@
                     </ul>
                 </div>
             </div>
+                        <!-- CATEGORÍA: LOGÍSTICA -->
+<div class="service-minimal" data-category="logistica">
+    <div class="service-minimal-number">17</div>
+    <div class="service-minimal-icon"><i class="fas fa-truck-moving"></i></div>
+    <h3 class="service-minimal-title">Fletes y Transporte</h3>
+    <p class="service-minimal-desc">
+        Fletes económicos locales y foráneos, incluyendo personal operativo para carga y descarga.
+    </p>
+    <div class="service-expanded">
+        <ul>
+            <li>Transporte local y foráneo</li>
+            <li>Personal operativo incluido (carga y descarga)</li>
+            <li>Flota disponible para diversos volúmenes y necesidades</li>
+        </ul>
+    </div>
+</div>
 
             <!-- CATEGORÍA: GESTIÓN -->
             <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="12">
@@ -3602,8 +4360,72 @@
     </div>
 </section>
 
-<!-- MATERIALES - EDITORIAL CON SCROLL INTERNO -->
+    <!-- CÓMO TRABAJAMOS -->
+    <section class="process-section" id="proceso">
+        <div class="section-inner">
+            <div class="process-header">
+                <div class="section-label">Nuestro Proceso</div>
+                <h2 class="section-heading">Cómo Trabajamos.</h2>
+                <p class="process-subtitle">Nuestro proceso en 4 pasos</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step animate-left" data-step="1">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Valoración</h3>
+                        <p class="process-step-desc">Analizamos las necesidades específicas de su empresa y el tipo de residuos que genera.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Evaluación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📋 Evaluación</div>
+                    </div>
+                    <div class="process-step-number">01</div>
+                </div>
+
+                <div class="process-step animate-right" data-step="2">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Plan Personalizado</h3>
+                        <p class="process-step-desc">Diseñamos un plan de gestión de residuos adaptado a sus necesidades y presupuesto.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1661277697952-0cacde72c755?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📊 Plan Personalizado</div>
+                    </div>
+                    <div class="process-step-number">02</div>
+                </div>
+
+                <div class="process-step animate-left" data-step="3">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Implementación</h3>
+                        <p class="process-step-desc">Ejecutamos el plan con nuestro equipo certificado con vehiculos seguros y autorizados.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Implementación" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">🚛 Implementación</div>
+                    </div>
+                    <div class="process-step-number">03</div>
+                </div>
+
+                <div class="process-step animate-right" data-step="4">
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">Seguimiento</h3>
+                        <p class="process-step-desc">Monitoreamos continuamente el servicio y generamos reportes de cumplimiento ambiental.</p>
+                    </div>
+                    <div class="process-step-image">
+                        <img src="https://media.istockphoto.com/id/2214748175/photo/17th-day-of-the-month-writing-text-follow-up-on-calendar-date-save-the-date-day-of-the-year.jpg?s=2048x2048&w=is&k=20&c=rYS0Uwb6Pwp5skd8A76WKoOw_0rqfq5JeXVZ7YsFzJE=" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder" style="display:none;">📈 Seguimiento</div>
+                    </div>
+                    <div class="process-step-number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- MATERIALES - EDITORIAL CON IMÁGENES REALES -->
 <section class="materials-editorial" id="materiales">
+    <!-- Marca de agua RIDM -->
+    <div class="watermark" aria-hidden="true">RIDM</div>
     
     <div class="editorial-container">
         
@@ -3630,13 +4452,26 @@
                     <div class="counter-label">Materiales activos</div>
                 </div>
 
-                <!-- Info dinámica del material activo -->
-                <div class="active-material-info" id="activeMaterialInfo">
-                    <div class="active-icon" id="activeIcon">
-                        <i class="fas fa-box-open"></i>
+                <!-- IMAGEN DEL MATERIAL ACTIVO (Reemplaza al emoticono) -->
+                <div class="active-material-image" id="activeMaterialImage">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1605307691175-cd938765300c?w=600&h=400&fit=crop" 
+                             alt="Papel y Cartón" 
+                             class="material-img" 
+                             id="materialImg">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3 class="overlay-title" id="overlayTitle">Papel y Cartón</h3>
+                                <a href="#contacto" class="overlay-link">
+                                    Solicitar Recolección <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="active-name" id="activeName">Papel y Cartón</h3>
-                    <p class="active-desc" id="activeDesc">Papel, cartón corrugado, cartulinas y archivos.</p>
+                    <div class="image-caption">
+                        <span class="caption-label">Material:</span>
+                        <span class="caption-text" id="captionText">Papel, cartón corrugado, cartulinas y archivos.</span>
+                    </div>
                 </div>
 
                 <!-- CTA -->
@@ -3659,7 +4494,12 @@
             
             <div class="materials-scroll-container" id="materialsScroll">
                 
-                <div class="material-entry" data-index="1" data-icon="fa-box-open" data-name="Papel y Cartón" data-desc="Papel, cartón corrugado, cartulinas y archivos.">
+                <div class="material-entry" 
+                     data-index="1" 
+                     data-icon="fa-box-open" 
+                     data-name="Papel y Cartón" 
+                     data-desc="Papel, cartón corrugado, cartulinas y archivos."
+                     data-image="https://images.unsplash.com/photo-1513672494107-cd9d848a383e?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                     <div class="entry-number">01</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Papel y Cartón</h3>
@@ -3668,7 +4508,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="2" data-icon="fa-wine-bottle" data-name="Plásticos" data-desc="PET, PEAD/HDPE, PP y otros plásticos reciclables.">
+                <div class="material-entry" 
+                     data-index="2" 
+                     data-icon="fa-wine-bottle" 
+                     data-name="Plásticos" 
+                     data-desc="PET, PEAD/HDPE, PP y otros plásticos reciclables."
+                     data-image="https://images.unsplash.com/photo-1571727153934-b9e0059b7ab2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                     <div class="entry-number">02</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Plásticos</h3>
@@ -3677,7 +4522,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="3" data-icon="fa-cog" data-name="Metales" data-desc="Aluminio, chatarra ferrosa y no ferrosa, cobre.">
+                <div class="material-entry" 
+                     data-index="3" 
+                     data-icon="fa-cog" 
+                     data-name="Metales" 
+                     data-desc="Aluminio, chatarra ferrosa y no ferrosa, cobre."
+                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9Yz27OszDLXDAwMYB8r61gh-Qjg9J-4rS2lTMcXGYlvaUyymPqvTCSxL&s=10">
                     <div class="entry-number">03</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Metales</h3>
@@ -3686,7 +4536,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="4" data-icon="fa-glass-whiskey" data-name="Vidrio" data-desc="Vidrio transparente y de color, envases y frascos.">
+                <div class="material-entry" 
+                     data-index="4" 
+                     data-icon="fa-glass-whiskey" 
+                     data-name="Vidrio" 
+                     data-desc="Vidrio transparente y de color, envases y frascos."
+                     data-image="https://www.fundacionaquae.org/wp-content/uploads/2015/01/botellas-de-vidrio.jpg">
                     <div class="entry-number">04</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Vidrio</h3>
@@ -3695,7 +4550,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="5" data-icon="fa-microchip" data-name="Electrónicos" data-desc="RAEE, baterías, acumuladores y equipos electrónicos.">
+                <div class="material-entry" 
+                     data-index="5" 
+                     data-icon="fa-microchip" 
+                     data-name="Electrónicos" 
+                     data-desc="RAEE, baterías, acumuladores y equipos electrónicos."
+                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFVeos_VgDCAudDH8BTf2TcmL1pPF-jfrbypKikMCPhnTS8AijN0vQ6h0&s=10">
                     <div class="entry-number">05</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Electrónicos (RAEE)</h3>
@@ -3704,7 +4564,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="6" data-icon="fa-battery-full" data-name="Baterías" data-desc="Baterías de auto, industriales y de dispositivos.">
+                <div class="material-entry" 
+                     data-index="6" 
+                     data-icon="fa-battery-full" 
+                     data-name="Baterías" 
+                     data-desc="Baterías de auto, industriales y de dispositivos."
+                     data-image="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop">
                     <div class="entry-number">06</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Baterías y Acumuladores</h3>
@@ -3713,7 +4578,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="7" data-icon="fa-oil-can" data-name="Aceite Vegetal" data-desc="Aceite de cocina industrial y doméstico para biodiesel.">
+                <div class="material-entry" 
+                     data-index="7" 
+                     data-icon="fa-oil-can" 
+                     data-name="Aceite Vegetal" 
+                     data-desc="Aceite de cocina industrial y doméstico para biodiesel."
+                     data-image="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&h=400&fit=crop">
                     <div class="entry-number">07</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Aceite Vegetal Usado</h3>
@@ -3722,7 +4592,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="8" data-icon="fa-pallet" data-name="Tarimas" data-desc="Tarimas de madera y plástico para reutilización.">
+                <div class="material-entry" 
+                     data-index="8" 
+                     data-icon="fa-pallet" 
+                     data-name="Tarimas" 
+                     data-desc="Tarimas de madera y plástico para reutilización."
+                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThytpCBTMdnSuAPjwiZJQnYn_GElKRAUSu7ndir0cYt2fHUQ9LQcvzh-U&s=10">
                     <div class="entry-number">08</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Tarimas de Madera</h3>
@@ -3731,7 +4606,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="9" data-icon="fa-circle-notch" data-name="Llantas" data-desc="Llantas de auto, camión y motocicleta fuera de uso.">
+                <div class="material-entry" 
+                     data-index="9" 
+                     data-icon="fa-circle-notch" 
+                     data-name="Llantas" 
+                     data-desc="Llantas de auto, camión y motocicleta fuera de uso."
+                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4mwTYmVgzeEGVzgPCc7eES6GOvxkVdrKTdECPpaCJSK-_eq5FPBN7cM&s=10">
                     <div class="entry-number">09</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Llantas Fuera de Uso</h3>
@@ -3740,7 +4620,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="10" data-icon="fa-box" data-name="Tetra Pak" data-desc="Envases de leche, jugos y productos líquidos.">
+                <div class="material-entry" 
+                     data-index="10" 
+                     data-icon="fa-box" 
+                     data-name="Tetra Pak" 
+                     data-desc="Envases de leche, jugos y productos líquidos."
+                     data-image="https://www.revistalimpiezas.es/wp-content/uploads/sites/4/2021/04/plasticos-botellas-envases.jpg">
                     <div class="entry-number">10</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Tetra Pak</h3>
@@ -3749,7 +4634,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="11" data-icon="fa-tshirt" data-name="Textiles" data-desc="Ropa en buen estado y residuos textiles industriales.">
+                <div class="material-entry" 
+                     data-index="11" 
+                     data-icon="fa-tshirt" 
+                     data-name="Textiles" 
+                     data-desc="Ropa en buen estado y residuos textiles industriales."
+                     data-image="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=400&fit=crop">
                     <div class="entry-number">11</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Textiles y Ropa</h3>
@@ -3758,7 +4648,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="12" data-icon="fa-hammer" data-name="Construcción" data-desc="Concreto, escombro y materiales de obra.">
+                <div class="material-entry" 
+                     data-index="12" 
+                     data-icon="fa-hammer" 
+                     data-name="Construcción" 
+                     data-desc="Concreto, escombro y materiales de obra."
+                     data-image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop">
                     <div class="entry-number">12</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Residuos de Construcción</h3>
@@ -3767,7 +4662,12 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" data-index="13" data-icon="fa-recycle" data-name="Más materiales" data-desc="Consulta disponibilidad de otros materiales reciclables.">
+                <div class="material-entry" 
+                     data-index="13" 
+                     data-icon="fa-recycle" 
+                     data-name="Más materiales" 
+                     data-desc="Consulta disponibilidad de otros materiales reciclables."
+                     data-image="https://cdn.phototourl.com/free/2026-07-19-b50f6631-ed50-4596-8151-8639a541f36b.png">
                     <div class="entry-number">13</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Y muchos más...</h3>
@@ -3795,7 +4695,7 @@
 
     <div class="art-gallery">
         <div class="art-item">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1471&auto=format&fit=crop" alt="Arte 1">
+            <img src="https://www.pipapaper.com/wp-content/uploads/2024/04/arte-con-materiales-reciclados-2.jpg" alt="Arte 1">
             <div class="art-overlay">
                 <div class="art-info">
                     <h3>Escultura Metálica</h3>
@@ -3805,7 +4705,7 @@
         </div>
         
         <div class="art-item">
-            <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1480&auto=format&fit=crop" alt="Arte 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj64p8BOYX7iGah9_6v9tjE-WbhvAWxP-xTPjZ2OkYyF0NSsPECzwJHgY&s=10" alt="Arte 2">
             <div class="art-overlay">
                 <div class="art-info">
                     <h3>Instalación Plástica</h3>
@@ -3815,7 +4715,7 @@
         </div>
         
         <div class="art-item">
-            <img src="https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?q=80&w=1434&auto=format&fit=crop" alt="Arte 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckHa6b0irYL67ClISdCZJFmtNtCqV5J9DfMK-kdBklrxr0dv22eQIWYw&s=10" alt="Arte 3">
             <div class="art-overlay">
                 <div class="art-info">
                     <h3>Mural Reciclado</h3>
@@ -3825,7 +4725,7 @@
         </div>
         
         <div class="art-item">
-            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1287&auto=format&fit=crop" alt="Arte 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WBtqPuiIfS1W4BU1wD3bn1J-U1zwgRGzpfTZB3nAKGSVXwyKcIp5muE&s=10" alt="Arte 4">
             <div class="art-overlay">
                 <div class="art-info">
                     <h3>Arte Textil</h3>
@@ -3845,7 +4745,7 @@
                 ECOShop <span class="thin">by RIDM.</span>
             </h2>
             <p class="ecoshop-intro">
-                Venta de artículos sustentables e insumos certificados para el manejo de residuos. Nuestros productos cumplen con la NOM-087-ECOL-SSA1-2002.
+                Venta de artículos sustentables e insumos certificados para el manejo de residuos.
             </p>
         </div>
 
@@ -3859,7 +4759,10 @@
             <!-- Producto 1 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <i class="fas fa-shopping-bag"></i>
+                    <img src="https://thumbs.dreamstime.com/b/bolsas-rojas-de-riesgo-biol%C3%B3gico-en-la-acera-residuos-m%C3%A9dicos-peligro-contaminaci%C3%B3n-peligroso-por-propagaci%C3%B3n-virus-infecci%C3%B3n-385651607.jpg" 
+                         alt="Bolsa Roja para Residuos Sólidos" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
@@ -3875,7 +4778,10 @@
             <!-- Producto 2 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <i class="fas fa-box"></i>
+                    <img src="https://inplastic.mx/wp-content/uploads/2023/05/rpbi.jpeg" 
+                         alt="Contenedor Hermético Rojo" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
@@ -3891,7 +4797,10 @@
             <!-- Producto 3 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <i class="fas fa-prescription-bottle"></i>
+                    <img src="https://contenur.mx/wp-content/uploads/2025/04/Bolsas-amarillas-RPBI-para-uso-clinicos.webp" 
+                         alt="Bolsa Amarilla Patológica" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
@@ -3907,7 +4816,10 @@
             <!-- Producto 4 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <i class="fas fa-flask"></i>
+                    <img src="https://buckscontainers.com/wp-content/uploads/2024/02/60-lts-hp-cestos-y-contenedores-rpbi-medica-amarillo.jpg" 
+                         alt="Contenedor Hermético Amarillo" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
@@ -3923,7 +4835,10 @@
             <!-- Producto 5 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <i class="fas fa-mug-hot"></i>
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-f3e58e98-36b4-404d-a4db-9d1ce2387110.png" 
+                         alt="Termo Reutilizable" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Sustentable</div>
@@ -3939,7 +4854,10 @@
             <!-- Producto 6 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <i class="fas fa-shopping-basket"></i>
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-47b57358-6c3c-4565-b17e-642d025c19e3.png" 
+                         alt="Bolsa Reutilizable" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Sustentable</div>
@@ -3955,7 +4873,10 @@
             <!-- Producto 7 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <i class="fas fa-utensils"></i>
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_613060-CBT113088024895_062026-O.webp" 
+                         alt="Kit Cubiertos Biodegradables" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Sustentable</div>
@@ -3971,7 +4892,10 @@
             <!-- Producto 8 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <i class="fas fa-seedling"></i>
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-e1773c52-f81b-4551-ae93-7e639faa2a6f.png" 
+                         alt="Productos Biodegradables" 
+                         class="product-img">
+                    <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Sustentable</div>
@@ -3991,8 +4915,6 @@
         </div>
     </div>
 </section>
-
-
 
     <!-- COVERAGE -->
     <section class="coverage-section" id="cobertura">
@@ -4431,13 +5353,13 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-        // --- MATERIALES EDITORIAL: SCROLL INTERNO INTERACTIVO ---
+// --- MATERIALES EDITORIAL: SCROLL INTERNO CON IMÁGENES ---
 
 const materialEntries = document.querySelectorAll('.material-entry');
 const counterCurrent = document.getElementById('counterCurrent');
-const activeIcon = document.getElementById('activeIcon');
-const activeName = document.getElementById('activeName');
-const activeDesc = document.getElementById('activeDesc');
+const materialImg = document.getElementById('materialImg');
+const overlayTitle = document.getElementById('overlayTitle');
+const captionText = document.getElementById('captionText');
 const scrollContainer = document.getElementById('materialsScroll');
 
 // 1. Animación de entrada escalonada
@@ -4454,20 +5376,35 @@ const entryObserver = new IntersectionObserver((entries) => {
 
 materialEntries.forEach(entry => entryObserver.observe(entry));
 
-// 2. Actualizar lado izquierdo al hacer hover/scroll
-function updateActiveMaterial(entry) {
+// 2. Actualizar imagen e info al hacer hover/scroll
+function updateMaterialDisplay(entry) {
     const index = entry.dataset.index;
-    const icon = entry.dataset.icon;
     const name = entry.dataset.name;
     const desc = entry.dataset.desc;
+    const image = entry.dataset.image;
     
     // Actualizar contador
     counterCurrent.textContent = index.padStart(2, '0');
     
-    // Actualizar info del material activo
-    activeIcon.innerHTML = `<i class="fas ${icon}"></i>`;
-    activeName.textContent = name;
-    activeDesc.textContent = desc;
+    // Actualizar imagen con efecto fade
+    if (image && materialImg) {
+        materialImg.style.opacity = '0';
+        setTimeout(() => {
+            materialImg.src = image;
+            materialImg.alt = name;
+            materialImg.style.opacity = '1';
+        }, 200);
+    }
+    
+    // Actualizar overlay title
+    if (overlayTitle) {
+        overlayTitle.textContent = name;
+    }
+    
+    // Actualizar caption
+    if (captionText) {
+        captionText.textContent = desc;
+    }
     
     // Marcar entry como activa
     materialEntries.forEach(e => e.classList.remove('active'));
@@ -4478,13 +5415,13 @@ function updateActiveMaterial(entry) {
 materialEntries.forEach(entry => {
     entry.addEventListener('mouseenter', () => {
         if (window.innerWidth > 1024) {
-            updateActiveMaterial(entry);
+            updateMaterialDisplay(entry);
         }
     });
     
     // Click en móvil
     entry.addEventListener('click', () => {
-        updateActiveMaterial(entry);
+        updateMaterialDisplay(entry);
     });
 });
 
@@ -4512,14 +5449,14 @@ scrollContainer.addEventListener('scroll', () => {
         });
         
         if (closestEntry) {
-            updateActiveMaterial(closestEntry);
+            updateMaterialDisplay(closestEntry);
         }
     }, 100);
 });
 
 // 4. Inicializar con el primer material
 if (materialEntries.length > 0) {
-    updateActiveMaterial(materialEntries[0]);
+    updateMaterialDisplay(materialEntries[0]);
 }
 // --- SOSTENIBILIDAD: ANIMACIONES ---
 const artItems = document.querySelectorAll('.art-item');
@@ -4533,10 +5470,8 @@ const artObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.1 });
-
-
-
 artItems.forEach(item => artObserver.observe(item));
+
 // --- ECOShop: FILTROS Y COTIZACIÓN ---
 
 // Filtros de categorías
@@ -4585,7 +5520,58 @@ const productObserver = new IntersectionObserver((entries) => {
 
 productCards.forEach(card => productObserver.observe(card));
 
+// --- SISTEMA DE FILTROS DE SERVICIOS ---
+const tabs = document.querySelectorAll('.service-tab');
+const services = document.querySelectorAll('.service-minimal');
 
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const category = tab.dataset.category;
+        
+        services.forEach(service => {
+            if (category === 'all' || service.dataset.category === category) {
+                service.classList.remove('hidden');
+                service.classList.remove('fade-in');
+                void service.offsetWidth; 
+                service.classList.add('fade-in');
+            } else {
+                service.classList.add('hidden');
+                service.classList.remove('fade-in');
+                service.classList.remove('expanded');
+            }
+        });
+    });
+});
+
+// Expandir en móvil al hacer click
+if (window.innerWidth <= 768) {
+    services.forEach(service => {
+        service.addEventListener('click', (e) => {
+            if(e.target.tagName !== 'A') {
+                services.forEach(s => { if (s !== service) s.classList.remove('expanded'); });
+                service.classList.toggle('expanded');
+            }
+        });
+    });
+}
+
+const activeTabOnLoad = document.querySelector('.service-tab.active');
+if (activeTabOnLoad) {
+    activeTabOnLoad.click();
+}
+
+
+// Expandir en móvil al hacer click (ya que hover no funciona)
+if (window.innerWidth <= 768) {
+    services.forEach(service => {
+        service.addEventListener('click', () => {
+            service.classList.toggle('expanded');
+        });
+    });
+}
 
         // --- FORMULARIO FUNCIONAL CON ANTI-SPAM ---
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -4732,39 +5718,8 @@ Enviado desde el formulario web`;
     
 }
 
-// --- SISTEMA DE FILTROS DE SERVICIOS ---
-const tabs = document.querySelectorAll('.service-tab');
-const services = document.querySelectorAll('.service-minimal');
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        // Remover active de todos los tabs
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        const category = tab.dataset.category;
-        
-        // Filtrar servicios
-        services.forEach(service => {
-            if (category === 'all' || service.dataset.category === category) {
-                service.classList.remove('hidden');
-                service.classList.add('fade-in');
-            } else {
-                service.classList.add('hidden');
-                service.classList.remove('fade-in');
-            }
-        });
-    });
-});
 
-// Expandir en móvil al hacer click (ya que hover no funciona)
-if (window.innerWidth <= 768) {
-    services.forEach(service => {
-        service.addEventListener('click', () => {
-            service.classList.toggle('expanded');
-        });
-    });
-}
 
 // --- COVERAGE SCROLL INDICATOR ---
 const coverageTrack = document.querySelector('.coverage-track');
@@ -4786,6 +5741,8 @@ if (coverageTrack && dots.length > 0) {
         });
     });
 }
+
+
     </script>
 </body>
-</html>ser
+</html>
