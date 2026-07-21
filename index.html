@@ -628,156 +628,80 @@
             50% { transform: rotate(45deg) translateY(8px); }
         }
 
-        /* ============================================
-           MARQUEE
-           ============================================ */
-        .marquee-section {
-            padding: 1.5rem 0;
-            background: var(--green);
-            overflow: hidden;
-        }
+/* ============================================
+   MARQUEE - CARRUSEL
+   ============================================ */
+.marquee-section {
+    padding: 2rem 0; /* Aumentado de 1.5rem */
+    background: var(--green);
+    overflow: hidden;
+    margin: 2rem 0; /* NUEVO: separación arriba y abajo */
+}
 
-        .marquee-row {
-            display: flex;
-            animation: marqueeScroll 25s linear infinite;
-            width: max-content;
-        }
+.marquee-row {
+    display: flex;
+    animation: marqueeScroll 25s linear infinite;
+    width: max-content;
+}
 
-        .marquee-word {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--white);
-            padding: 0 2rem;
-            white-space: nowrap;
-        }
+.marquee-word {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0 2rem;
+    white-space: nowrap;
+}
 
-        .marquee-dot {
-            color: rgba(255,255,255,0.4);
-            padding: 0;
-        }
+.marquee-dot {
+    color: rgba(255,255,255,0.4);
+    padding: 0;
+}
 
-        @keyframes marqueeScroll {
-            to { transform: translateX(-50%); }
-        }
+@keyframes marqueeScroll {
+    to { transform: translateX(-50%); }
+}
 
-        /* ============================================
-           SECTIONS
-           ============================================ */
-        .section-full {
-            min-height: 100vh;
-            display: flex; align-items: center;
-            padding: 8rem 2rem;
-            position: relative;
-        }
+/* ============================================
+   SECTIONS - SIN ALTURA FORZADA
+   ============================================ */
+.section-full {
+    min-height: auto; /* CAMBIADO: de 100vh a auto */
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem; /* Reducido de 8rem */
+    position: relative;
+}
 
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
+.section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
 
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--green-light);
-            margin-bottom: 1.5rem;
-        }
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 1.5rem;
+}
 
-        .section-heading {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.03em;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
+.section-heading {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
 
-        .section-heading .thin {
-            font-weight: 300;
-            color: var(--text-secondary);
-        }
-
-        /* ============================================
-           ABOUT
-           ============================================ */
-        .about-section {
-            background: var(--bg-primary);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .about-img-wrap {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--gray-800);
-        }
-
-        @media (max-width: 768px) {
-            .about-img-wrap {
-                background: var(--gray-200);
-            }
-        }
-
-        .about-img-wrap img {
-            width: 100%; height: 100%;
-            object-fit: contain;
-            padding: 2rem;
-            transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
-        }
-
-        .about-img-wrap:hover img {
-            transform: scale(1.03);
-        }
-
-        .about-text p {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .about-text p strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .stat-big {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1;
-            letter-spacing: -0.03em;
-        }
-
-        .stat-desc {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
+.section-heading .thin {
+    font-weight: 300;
+    color: var(--text-secondary);
+}
 
         /* ============================================
    IMPACT STAT - VERSIÓN LIMPIA Y PROFESIONAL
