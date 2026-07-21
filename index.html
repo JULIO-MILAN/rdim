@@ -790,7 +790,7 @@
     background: rgba(45, 138, 62, 0.06); /* Verde RIDM muy sutil */
     border: 1px solid rgba(45, 138, 62, 0.15); /* Borde fino y suave, no grueso */
     border-radius: 16px;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     transition: all 0.3s ease;
 }
 
@@ -845,7 +845,7 @@
     .impact-stat {
         padding: 1.5rem;
         gap: 1rem;
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
     
     .impact-stat .impact-icon {
@@ -1754,8 +1754,8 @@
     position: relative;
     padding: 6rem 0;
     background: var(--bg-primary);
-    min-height: auto;
-    overflow: visible;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Marca de agua RIDM */
@@ -1793,11 +1793,11 @@
 .editorial-sticky {
     position: sticky;
     top: 120px;
-    height: auto;
-    max-height: calc(100vh - 120px);
+    height: calc(100vh - 120px);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
+
 .sticky-content {
     max-width: 500px;
 }
@@ -2008,9 +2008,7 @@
 /* LADO DERECHO: VENTANA CON SCROLL INTERNO */
 .editorial-window {
     position: relative;
-    height: auto;
-    max-height: calc(100vh - 120px);
-    min-height: 500px;
+    height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
 }
@@ -2194,10 +2192,8 @@
         height: auto;
     }
     
-      .editorial-window {
-        height: auto;
-        max-height: 600px;
-        min-height: 400px;
+    .editorial-window {
+        height: 600px;
     }
     
     .sticky-content {
@@ -2222,10 +2218,8 @@
         font-size: 3rem;
     }
     
-      .editorial-window {
-        height: auto;
-        max-height: 500px;
-        min-height: 350px;
+    .editorial-window {
+        height: 500px;
     }
     
     .material-entry {
@@ -3347,7 +3341,7 @@
 }
 
 .impact-stat {
-    margin-top: 3rem !important;
+    margin-top: 1.5rem !important;
     padding: 1.25rem !important;
 }
 
@@ -4272,6 +4266,7 @@
             </div>
                         <!-- CATEGORÍA: LOGÍSTICA -->
 <div class="service-minimal" data-category="logistica">
+    <div class="service-minimal-number">17</div>
     <div class="service-minimal-icon"><i class="fas fa-truck-moving"></i></div>
     <h3 class="service-minimal-title">Fletes y Transporte</h3>
     <p class="service-minimal-desc">
@@ -4944,37 +4939,37 @@
     </div>
         <div class="coverage-track">
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">01</div>
                 <div class="cov-card-icon"><i class="fas fa-building"></i></div>
                 <div class="cov-card-name">CDMX</div>
                 <div class="cov-card-region">Ciudad de México</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">02</div>
                 <div class="cov-card-icon"><i class="fas fa-industry"></i></div>
                 <div class="cov-card-name">Edo. Méx</div>
                 <div class="cov-card-region">Zona Metropolitana</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">03</div>
                 <div class="cov-card-icon"><i class="fas fa-landmark"></i></div>
                 <div class="cov-card-name">Hidalgo</div>
                 <div class="cov-card-region">Todo el Estado</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">04</div>
                 <div class="cov-card-icon"><i class="fas fa-mountain"></i></div>
                 <div class="cov-card-name">Morelos</div>
                 <div class="cov-card-region">Cobertura Total</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">05</div>
                 <div class="cov-card-icon"><i class="fas fa-chess-rook"></i></div>
                 <div class="cov-card-name">Querétaro</div>
                 <div class="cov-card-region">Zona Industrial</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num"></div>
+                <div class="cov-card-num">06</div>
                 <div class="cov-card-icon"><i class="fas fa-globe-americas"></i></div>
                 <div class="cov-card-name">Nacional</div>
                 <div class="cov-card-region">Todo México</div>
