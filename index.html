@@ -3723,6 +3723,96 @@
         margin-bottom: 2.5rem;
     }
 }
+        /* ============================================
+   FIX: MARQUEE - HP/WINDOWS SCALING
+   ============================================ */
+
+/* Contenedor del marquee con padding seguro */
+.marquee-section {
+    padding: 2rem 0 !important;
+    background: var(--green);
+    overflow: hidden;
+    margin: 2rem 0 !important;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ajuste para el row del marquee */
+.marquee-row {
+    display: flex;
+    animation: marqueeScroll 25s linear infinite;
+    width: max-content;
+    padding: 0 2rem; /* Espacio lateral para que no se corte */
+    box-sizing: border-box;
+}
+
+/* Las palabras del marquee */
+.marquee-word {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0 2rem;
+    white-space: nowrap;
+    flex-shrink: 0; /* Evita que se encojan */
+}
+
+.marquee-dot {
+    color: rgba(255,255,255,0.4);
+    padding: 0;
+    flex-shrink: 0;
+}
+
+@keyframes marqueeScroll {
+    to { transform: translateX(-50%); }
+}
+
+/* FIX ESPECÍFICO PARA HP/WINDOWS CON ESCALA */
+@media screen and (min-resolution: 120dpi) {
+    .marquee-section {
+        padding: 1.5rem 0 !important;
+        margin: 1.5rem 0 !important;
+    }
+    
+    .marquee-row {
+        padding: 0 3rem; /* Más espacio en HP */
+    }
+    
+    .marquee-word {
+        padding: 0 2.5rem;
+    }
+}
+
+/* Para zoom alto en cualquier navegador */
+@media screen and (zoom: 125%) {
+    .marquee-section {
+        padding: 1.5rem 0 !important;
+    }
+}
+
+@media screen and (zoom: 150%) {
+    .marquee-section {
+        padding: 1rem 0 !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .marquee-word {
+        font-size: 0.75rem; /* Texto más pequeño con zoom alto */
+        padding: 0 1.5rem;
+    }
+}
+
+/* Asegurar que no se superponga con elementos flotantes */
+.wa-float {
+    z-index: 9999 !important;
+}
+
+#menuBtn, .menu-float {
+    z-index: 9998 !important;
+}
 
     </style>
 </head>
