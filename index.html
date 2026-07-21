@@ -3715,6 +3715,50 @@
         margin-bottom: 2.5rem;
     }
 }
+        /* ============================================
+   FIX: BUG DE ESCALA EN PANTALLAS HP / WINDOWS
+   ============================================ */
+
+/* 1. Quitamos el 100vh y el overflow hidden que corta el contenido */
+.materials-editorial {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 6rem 2rem !important;
+}
+
+/* 2. Hacemos el sticky flexible para que no se rompa con el zoom/escala */
+.editorial-sticky {
+    position: sticky;
+    top: 100px;
+    height: auto !important;
+    max-height: none !important;
+    align-items: flex-start;
+}
+
+/* 3. La ventana de la derecha: le damos un máximo pero no fijo */
+.editorial-window {
+    height: auto !important;
+    max-height: 75vh !important; /* Límite suave en lugar de fijo */
+    min-height: 500px !important;
+}
+
+/* 4. Ajuste para cuando la escala de Windows es 125% o 150% */
+@media (min-resolution: 120dpi) {
+    .editorial-container {
+        grid-template-columns: 1fr !important; /* Apila en una columna si hay zoom de Windows */
+        gap: 2rem;
+    }
+    
+    .editorial-sticky {
+        position: relative !important;
+        top: 0 !important;
+    }
+    
+    .editorial-window {
+        max-height: 600px !important;
+    }
+}
     </style>
 </head>
 <body>
