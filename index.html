@@ -663,45 +663,44 @@
     to { transform: translateX(-50%); }
 }
 
-/* ============================================
-   SECTIONS - SIN ALTURA FORZADA
-   ============================================ */
-.section-full {
-    min-height: auto; /* CAMBIADO: de 100vh a auto */
-    display: flex;
-    align-items: center;
-    padding: 6rem 2rem; /* Reducido de 8rem */
-    position: relative;
-}
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        .section-full {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 8rem 2rem;
+            position: relative;
+        }
 
-.section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-.section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--green-light);
-    margin-bottom: 1.5rem;
-}
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-bottom: 1.5rem;
+        }
 
-.section-heading {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-}
+        .section-heading {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
 
-.section-heading .thin {
-    font-weight: 300;
-    color: var(--text-secondary);
-}
+        .section-heading .thin {
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
 
         /* ============================================
    IMPACT STAT - VERSIÓN LIMPIA Y PROFESIONAL
