@@ -628,21 +628,26 @@
             50% { transform: rotate(45deg) translateY(8px); }
         }
 /* ============================================
-   MARQUEE - CARRUSEL
+   MARQUEE - CARRUSEL (SOLO ESTO)
    ============================================ */
 .marquee-section {
-    padding: 2rem 0;
+    padding: 2rem 0 !important;
     background: var(--green);
     overflow: hidden;
-    margin: 3rem 0; /* Separa de botones flotantes */
+    margin: 4rem 0 !important; /* Espacio exclusivo del carrusel */
     position: relative;
-    z-index: 1;
+    z-index: 10; /* Por encima de elementos flotantes */
+    width: 100%;
+    box-sizing: border-box;
+    display: block; /* Asegura que no sea flex ni inline */
 }
 
 .marquee-row {
     display: flex;
     animation: marqueeScroll 25s linear infinite;
     width: max-content;
+    padding: 0 3rem; /* Espacio lateral para que no se corte */
+    box-sizing: border-box;
 }
 
 .marquee-word {
@@ -653,15 +658,35 @@
     color: var(--white);
     padding: 0 2rem;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .marquee-dot {
     color: rgba(255,255,255,0.4);
     padding: 0;
+    flex-shrink: 0;
 }
 
 @keyframes marqueeScroll {
     to { transform: translateX(-50%); }
+}
+
+/* FIX ESPECÍFICO HP/WINDOWS - Solo afecta al marquee */
+@media screen and (min-resolution: 120dpi) {
+    .marquee-section {
+        margin: 3rem 0 !important;
+        padding: 1.5rem 0 !important;
+    }
+    
+    .marquee-row {
+        padding: 0 4rem; /* Más espacio en HP */
+    }
+}
+
+/* Asegurar que el botón de WhatsApp esté siempre encima */
+.wa-float {
+    z-index: 9999 !important;
+    position: fixed !important;
 }
 
         /* ============================================
