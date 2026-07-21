@@ -628,40 +628,39 @@
             50% { transform: rotate(45deg) translateY(8px); }
         }
 
-/* ============================================
-   MARQUEE - CARRUSEL
-   ============================================ */
-.marquee-section {
-    padding: 2rem 0; /* Aumentado de 1.5rem */
-    background: var(--green);
-    overflow: hidden;
-    margin: 2rem 0; /* NUEVO: separación arriba y abajo */
-}
+        /* ============================================
+           MARQUEE
+           ============================================ */
+        .marquee-section {
+            padding: 1.5rem 0;
+            background: var(--green);
+            overflow: hidden;
+        }
 
-.marquee-row {
-    display: flex;
-    animation: marqueeScroll 25s linear infinite;
-    width: max-content;
-}
+        .marquee-row {
+            display: flex;
+            animation: marqueeScroll 25s linear infinite;
+            width: max-content;
+        }
 
-.marquee-word {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--white);
-    padding: 0 2rem;
-    white-space: nowrap;
-}
+        .marquee-word {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white);
+            padding: 0 2rem;
+            white-space: nowrap;
+        }
 
-.marquee-dot {
-    color: rgba(255,255,255,0.4);
-    padding: 0;
-}
+        .marquee-dot {
+            color: rgba(255,255,255,0.4);
+            padding: 0;
+        }
 
-@keyframes marqueeScroll {
-    to { transform: translateX(-50%); }
-}
+        @keyframes marqueeScroll {
+            to { transform: translateX(-50%); }
+        }
 
         /* ============================================
            SECTIONS
@@ -703,6 +702,84 @@
         }
 
         /* ============================================
+           ABOUT
+           ============================================ */
+        .about-section {
+            background: var(--bg-primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--gray-800);
+        }
+
+        @media (max-width: 768px) {
+            .about-img-wrap {
+                background: var(--gray-200);
+            }
+        }
+
+        .about-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+        }
+
+        .about-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-big {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-desc {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ============================================
    IMPACT STAT - VERSIÓN LIMPIA Y PROFESIONAL
    ============================================ */
 .impact-stat {
@@ -713,7 +790,7 @@
     background: rgba(45, 138, 62, 0.06); /* Verde RIDM muy sutil */
     border: 1px solid rgba(45, 138, 62, 0.15); /* Borde fino y suave, no grueso */
     border-radius: 16px;
-    margin-top: 2.5rem;
+    margin-top: 4rem;
     transition: all 0.3s ease;
 }
 
@@ -768,7 +845,7 @@
     .impact-stat {
         padding: 1.5rem;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
     
     .impact-stat .impact-icon {
@@ -1677,8 +1754,8 @@
     position: relative;
     padding: 6rem 0;
     background: var(--bg-primary);
-    min-height: 100vh;
-    overflow: hidden;
+    min-height: auto;
+    overflow: visible;
 }
 
 /* Marca de agua RIDM */
@@ -1716,11 +1793,11 @@
 .editorial-sticky {
     position: sticky;
     top: 120px;
-    height: calc(100vh - 120px);
+    height: auto;
+    max-height: calc(100vh - 120px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
-
 .sticky-content {
     max-width: 500px;
 }
@@ -1931,7 +2008,9 @@
 /* LADO DERECHO: VENTANA CON SCROLL INTERNO */
 .editorial-window {
     position: relative;
-    height: calc(100vh - 120px);
+    height: auto;
+    max-height: calc(100vh - 120px);
+    min-height: 500px;
     display: flex;
     flex-direction: column;
 }
@@ -2115,8 +2194,10 @@
         height: auto;
     }
     
-    .editorial-window {
-        height: 600px;
+      .editorial-window {
+        height: auto;
+        max-height: 600px;
+        min-height: 400px;
     }
     
     .sticky-content {
@@ -2141,8 +2222,10 @@
         font-size: 3rem;
     }
     
-    .editorial-window {
-        height: 500px;
+      .editorial-window {
+        height: auto;
+        max-height: 500px;
+        min-height: 350px;
     }
     
     .material-entry {
@@ -3264,7 +3347,7 @@
 }
 
 .impact-stat {
-    margin-top: 1.5rem !important;
+    margin-top: 3rem !important;
     padding: 1.25rem !important;
 }
 
@@ -3638,50 +3721,6 @@
         margin-bottom: 2.5rem;
     }
 }
-        /* ============================================
-   FIX: BUG DE ESCALA EN PANTALLAS HP / WINDOWS
-   ============================================ */
-
-/* 1. Quitamos el 100vh y el overflow hidden que corta el contenido */
-.materials-editorial {
-    min-height: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-    padding: 6rem 2rem !important;
-}
-
-/* 2. Hacemos el sticky flexible para que no se rompa con el zoom/escala */
-.editorial-sticky {
-    position: sticky;
-    top: 100px;
-    height: auto !important;
-    max-height: none !important;
-    align-items: flex-start;
-}
-
-/* 3. La ventana de la derecha: le damos un máximo pero no fijo */
-.editorial-window {
-    height: auto !important;
-    max-height: 75vh !important; /* Límite suave en lugar de fijo */
-    min-height: 500px !important;
-}
-
-/* 4. Ajuste para cuando la escala de Windows es 125% o 150% */
-@media (min-resolution: 120dpi) {
-    .editorial-container {
-        grid-template-columns: 1fr !important; /* Apila en una columna si hay zoom de Windows */
-        gap: 2rem;
-    }
-    
-    .editorial-sticky {
-        position: relative !important;
-        top: 0 !important;
-    }
-    
-    .editorial-window {
-        max-height: 600px !important;
-    }
-}
     </style>
 </head>
 <body>
@@ -3776,7 +3815,7 @@
         <div class="hero-bg-img"></div>
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Soluciones Integrales en Gestion de Residuos</p>
+            <p class="hero-eyebrow"></p>
     
             <!-- Reemplaza el SVG del ícono de reciclaje por este camión -->
     
@@ -3791,11 +3830,11 @@
 
             <h1 class="hero-title">
                 <span class="word"><span>Recolectora</span></span><br>
-                <span class="word"><span class="accent">Integral</span></span>
+                <span class="word"><span class="accent">Integral </span></span>
             </h1>
             
             <p class="hero-sub">
-                Gestión responsable de residuos para empresas que construyen un futuro mejor.
+                Soluciones Integrales en Gestion de Residuos
             </p>
             
             <div class="hero-cta-group">
@@ -3811,26 +3850,23 @@
     <!-- MARQUEE -->
     <div class="marquee-section">
         <div class="marquee-row">
-            <span class="marquee-word">Recolección</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Reciclaje</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Gestión Integral</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Destrucción Fiscal</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">RPBI</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Residuos Peligrosos Biologicos Infecciosos (RPBI)</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">Recolección</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Reciclaje Industrial</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Gestión Integral</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Destrucción Fiscal</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">RPBI</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Residuos Peligrosos</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Capacitación</span><span class="marquee-word marquee-dot">●</span>
 
             <span class="marquee-word"> Recolección de Residuos de Aparatos Eléctricos y Electrónicos RAEE</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word"> Recolección de Residuos Orgánicos</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">Recolección de R. de jardinería y poda</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">R. de concreto</span><span class="marquee-word marquee-dot">●</span>
-            <span class="marquee-word">Desazolves de drenajes y fosas sépticas, hasta la limpieza profunda de cisternas y tanques</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Recolección de Residuos de jardinería y poda</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Residuos de concreto (RC)</span><span class="marquee-word marquee-dot">●</span>
+            <span class="marquee-word">Desazolves de drenajes y fosas séplos resi10ticas, hasta la limpieza profunda de cisternas y tanques</span><span class="marquee-word marquee-dot">●</span>
             
             <span class="marquee-word">Demoliciones y Desmantelamientos de naves industriales, bodegas, restaurantes, empresas etc</span><span class="marquee-word marquee-dot">●</span>
             <span class="marquee-word">Consultoría y Gestoria ambiental Alta permisos/ Planes de Manejo Integrales.-Evita MULTAS Y SANSIONES</span><span class="marquee-word marquee-dot">●</span>
@@ -3848,13 +3884,14 @@
                 <div class="about-text">
                     <div class="section-label">Nosotros</div>
                     <h2 class="section-heading">
-                        El futuro es <br><span class="thin">responsabilidad nuestra.</span>
+                       Construimos un futuro  <br><span class="thin">sostenible con soluciones ambientales integrales.</span>
                     </h2>
                     <p>
                         <strong>En Recolectora Integral de Desechos de México</strong> Nuestro compromiso es brindar soluciones integrales, eficientes, seguras y ambientalmente responsables que generan valor para la operación de nuestros clientes, garantizando el cumplimiento normativo y contribuyendo al cuidado del medio ambiente.
                     <p>
-                        Atendemos industrias, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
+                        Atendemos industrias manufactoreras, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
                     </p>
+                    
 <div class="impact-stat">
     <div class="impact-icon">
         <i class="fas fa-exclamation-circle"></i>
@@ -3894,7 +3931,7 @@
                         <i class="fas fa-route"></i>
                     </div>
                     <h4>Trazabilidad Total</h4>
-                    <p>GPS + reportes digitales del manejo de tus residuos.</p>
+                    <p>La informacion de un residuo desde su origen hasta su disposción final.</p>
                 </div>
             </div>
 
@@ -3995,14 +4032,14 @@
         </div>
         <div class="mascot-text-compact">
             <h4>Nuestra Mascota</h4>
-            <p>El corazón verde de RIDM</p>
+
         </div>
     </div>
 
     <!-- Clientes (Columna derecha) -->
     <div class="clients-compact">
         <div class="clients-header-compact">
-            <h4>Clientes que Confían</h4>
+            <h4>La Confianza de Nuestros Clientes Nos Respalda.</h4>
         </div>
         <div class="clients-logos-xl">
             <div class="client-logo-item-xl">
