@@ -497,7 +497,7 @@
 }
 
         .hero-title {
-            font-size: clamp(3rem, 10vw, 8rem);
+    font-size: clamp(4rem, 8vw, 5rem);
             font-weight: 800;
             line-height: 0.9;
             letter-spacing: -0.03em;
@@ -2741,32 +2741,28 @@
             margin-bottom: 5rem;
         }
 
-        .coverage-track {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 2rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
+.coverage-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth; /* Desplazamiento suave nativo */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 
-        .coverage-track::-webkit-scrollbar { display: none; }
+.coverage-track::-webkit-scrollbar { 
+    display: none; 
+}
 
-        .cov-card {
-            flex: 0 0 340px;
-            min-height: 420px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            display: flex; flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-            overflow: hidden;
-            scroll-snap-align: center;
-            transition: all 0.5s cubic-bezier(0.25, 0, 0, 1);
-        }
+/* Las tarjetas mantienen su comportamiento */
+.cov-card {
+    flex: 0 0 340px;
+    min-height: 420px;
+    /* ... resto de tus estilos ... */
+    scroll-snap-align: center;
+}
 
         .cov-card:hover {
             background: var(--green);
@@ -3826,16 +3822,23 @@
             <span class="drawer-text">Contacto</span>
         </a>
     </nav>
-    
-    <div class="drawer-footer">
-        <div class="drawer-socials">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+<div class="drawer-footer">
+    <div class="drawer-socials">
+        <a href="https://facebook.com/RecolectoraIntegral" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/recolectora_integral" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/company/recolectora-integral-desechos-mexico" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+    <!-- Resto del contenido del footer -->
+</div>
         <div class="drawer-contact-info">
-            <p>Lic. Karla Maturano Dotor</p>
-            <p>722 365 0238</p>
+            <p>Lic. Karla Maturano Dotor </p>
+            <p>/GERENTE DE DESAROLLO DE PROYECTOS Y NEGOCIOS\</p>
             <p>recolectoraintegraldedesechosd@gmail.com</p>
         </div>
     </div>
@@ -3861,11 +3864,11 @@
 
             <h1 class="hero-title">
                 <span class="word"><span>Recolectora</span></span><br>
-                <span class="word"><span class="accent">Integral </span></span>
+                <span class="word"><span class="accent">Integral  de Desechos de Mexico</span></span>
             </h1>
             
             <p class="hero-sub">
-                Soluciones Integrales en Gestion de Residuos
+                Transformamos los residuos industriales mediante una gestión integral, reciclaje y revalorización responsable."
             </p>
             
             <div class="hero-cta-group">
@@ -3910,7 +3913,7 @@
         <div class="section-inner">
             <div class="about-grid">
                 <div class="about-img-wrap">
-                    <img src="https://cdn.phototourl.com/free/2026-07-19-3cfcd2ce-9d4d-471b-b4bf-81efab07b59d.png" alt="Recolectora Integral">
+                    <img src="https://cdn.phototourl.com/free/2026-07-21-19f5c89f-252b-4e85-940e-a0ee2091eb40.png" alt="Recolectora Integral">
                 </div>
                 <div class="about-text">
                     <div class="section-label">Nosotros</div>
@@ -3920,7 +3923,7 @@
                     <p>
                         <strong>En Recolectora Integral de Desechos de México</strong> Nuestro compromiso es brindar soluciones integrales, eficientes, seguras y ambientalmente responsables que generan valor para la operación de nuestros clientes, garantizando el cumplimiento normativo y contribuyendo al cuidado del medio ambiente.
                     <p>
-                        Atendemos industrias manufactoreras, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
+                        Atendemos industrias manufactoreras, hospitales, laboratorios, empresas farmacéuticas, comercios y oficinas en toda la República Mexicana con soluciones integrales adaptadas a cada cliente.
                     </p>
 <div class="impact-stat">
     <div class="impact-icon">
@@ -3980,7 +3983,7 @@
 
             <div class="value-card-compact">
                 <div class="value-image-large">
-                    <img src="https://static.vecteezy.com/system/resources/previews/007/820/606/non_2x/certificate-icon-logo-design-template-vector.jpg" alt="Personal" class="value-img-large">
+                    <img src="https://plus.unsplash.com/premium_photo-1681989499796-df9ee5ec9853?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8" alt="Personal" class="value-img-large">
                 </div>
                 <div class="value-content-compact">
                     <div class="value-icon-small">
@@ -4025,7 +4028,7 @@
                     <div class="value-icon-small">
                         <i class="fas fa-file-contract"></i>
                     </div>
-                    <h4>Manifiestos Ambientales</h4>
+                    <h4>Manifiestos Ambientales Certificados</h4>
                     <p>Documentación completa y legal.</p>
                 </div>
             </div>
@@ -4048,7 +4051,7 @@
             </div>
             <div class="compliance-item-compact">
                 <i class="fas fa-file-signature"></i>
-                <span>Manifiestos</span>
+                <span>Manifiestos Certificados</span>
             </div>
         </div>
 
@@ -4062,14 +4065,13 @@
         </div>
         <div class="mascot-text-compact">
             <h4>Nuestra Mascota</h4>
-            <p>El corazón verde de RIDM</p>
         </div>
     </div>
 
     <!-- Clientes (Columna derecha) -->
     <div class="clients-compact">
         <div class="clients-header-compact">
-            <h4>Clientes que Confían</h4>
+            <h4>La Confianza de Nuestros Clientes Nos Respalda.</h4>
         </div>
         <div class="clients-logos-xl">
             <div class="client-logo-item-xl">
@@ -4145,8 +4147,7 @@
         <div class="services-grid-minimal" id="servicesGrid">
             
             <!-- CATEGORÍA: RECOLECCIÓN -->
-            <div class="service-minimal" data-category="recoleccion" data-service="1">
-                <div class="service-minimal-number">01</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
                 <div class="service-minimal-icon"><i class="fas fa-trash-alt"></i></div>
                 <h3 class="service-minimal-title">Recolección de Basura</h3>
                 <p class="service-minimal-desc">Recolección de residuos sólidos urbanos con planes semanales o personalizados.</p>
@@ -4159,8 +4160,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="2">
-                <div class="service-minimal-number">02</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-apple-alt"></i></div>
                 <h3 class="service-minimal-title">Residuos Orgánicos</h3>
                 <p class="service-minimal-desc">Recolección especializada de residuos orgánicos para compostaje y valorización.</p>
@@ -4173,8 +4174,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="3">
-                <div class="service-minimal-number">03</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-oil-can"></i></div>
                 <h3 class="service-minimal-title">Aceite Vegetal Usado</h3>
                 <p class="service-minimal-desc">Recolección certificada de aceite vegetal usado para biodiesel.</p>
@@ -4187,8 +4188,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="4">
-                <div class="service-minimal-number">04</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-laptop"></i></div>
                 <h3 class="service-minimal-title">RAEE</h3>
                 <p class="service-minimal-desc">Residuos de Aparatos Eléctricos y Electrónicos con manejo certificado.</p>
@@ -4201,8 +4202,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="5">
-                <div class="service-minimal-number">05</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-leaf"></i></div>
                 <h3 class="service-minimal-title">Jardinería y Poda</h3>
                 <p class="service-minimal-desc">Recolección de residuos verdes, poda y mantenimiento de áreas verdes.</p>
@@ -4215,8 +4216,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="6">
-                <div class="service-minimal-number">06</div>
+            <div class="service-minimal" data-category="recoleccion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-cubes"></i></div>
                 <h3 class="service-minimal-title">Residuos de Concreto</h3>
                 <p class="service-minimal-desc">Recolección y disposición de escombro y residuos de construcción.</p>
@@ -4230,8 +4231,8 @@
             </div>
 
             <!-- CATEGORÍA: ESPECIALIZADOS -->
-            <div class="service-minimal" data-category="especializados" data-service="7">
-                <div class="service-minimal-number">07</div>
+            <div class="service-minimal" data-category="especializados" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-radiation"></i></div>
                 <h3 class="service-minimal-title">Residuos Peligrosos</h3>
                 <p class="service-minimal-desc">Manejo especializado con protocolos certificados. NOM-052-SEMARNAT-2005.</p>
@@ -4244,8 +4245,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="especializados" data-service="8">
-                <div class="service-minimal-number">08</div>
+            <div class="service-minimal" data-category="especializados" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-biohazard"></i></div>
                 <h3 class="service-minimal-title">RPBI</h3>
                 <p class="service-minimal-desc">Residuos Peligrosos Biológico-Infecciosos. NOM-087-SEMARNAT-SSA1-2002.</p>
@@ -4258,9 +4259,9 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="especializados" data-service="9">
-                <div class="service-minimal-number">09</div>
-                <div class="service-minimal-icon"><i class="fas fa-user-secret"></i></div>
+            <div class="service-minimal" data-category="especializados" data-service="">
+                <div class="service-minimal-number"></div>
+                <div class="service-minimal-icon"><i class="fas fa-hammer"></i></div>
                 <h3 class="service-minimal-title">Destrucción Fiscal</h3>
                 <p class="service-minimal-desc">Eliminación segura de documentos confidenciales con certificado.</p>
                 <div class="service-expanded">
@@ -4273,8 +4274,8 @@
             </div>
 
             <!-- CATEGORÍA: PROYECTOS -->
-            <div class="service-minimal" data-category="proyectos" data-service="10">
-                <div class="service-minimal-number">10</div>
+            <div class="service-minimal" data-category="proyectos" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-water"></i></div>
                 <h3 class="service-minimal-title">Desazolves y Limpieza</h3>
                 <p class="service-minimal-desc">Desazolve de drenajes, fosas sépticas y limpieza profunda de cisternas.</p>
@@ -4287,9 +4288,9 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="proyectos" data-service="11">
-                <div class="service-minimal-number">11</div>
-                <div class="service-minimal-icon"><i class="fas fa-hammer"></i></div>
+            <div class="service-minimal" data-category="proyectos" data-service="">
+                <div class="service-minimal-number"></div>
+                <div class="service-minimal-icon"><i class="fa-solid fa-hard-hat3"></i></div>
                 <h3 class="service-minimal-title">Demoliciones</h3>
                 <p class="service-minimal-desc">Desmantelamiento de naves industriales, bodegas y empresas.</p>
                 <div class="service-expanded">
@@ -4301,8 +4302,8 @@
                 </div>
             </div>
                         <!-- CATEGORÍA: LOGÍSTICA -->
-<div class="service-minimal" data-category="logistica">
-    <div class="service-minimal-number">17</div>
+<div class="service-minimal" data-category="logistica" data-service="">
+    <div class="service-minimal-number"></div>
     <div class="service-minimal-icon"><i class="fas fa-truck-moving"></i></div>
     <h3 class="service-minimal-title">Fletes y Transporte</h3>
     <p class="service-minimal-desc">
@@ -4318,8 +4319,8 @@
 </div>
 
             <!-- CATEGORÍA: GESTIÓN -->
-            <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="12">
-                <div class="service-minimal-number">12</div>
+            <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-tasks"></i></div>
                 <h3 class="service-minimal-title">Gestión Integral</h3>
                 <p class="service-minimal-desc">Solución completa: diagnóstico, plan personalizado, monitoreo y reportes.</p>
@@ -4333,7 +4334,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="gestion" data-service="13">
+            <div class="service-minimal" data-category="gestion" data-service="">
                 <div class="service-minimal-number">13</div>
                 <div class="service-minimal-icon"><i class="fas fa-file-contract"></i></div>
                 <h3 class="service-minimal-title">Consultoría Ambiental</h3>
@@ -4347,8 +4348,8 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="gestion" data-service="14">
-                <div class="service-minimal-number">14</div>
+            <div class="service-minimal" data-category="gestion" data-service="">
+                <div class="service-minimal-number"></div>
                 <div class="service-minimal-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h3 class="service-minimal-title">Capacitación</h3>
                 <p class="service-minimal-desc">Formación empresarial sobre manejo de residuos y normatividad.</p>
@@ -4362,7 +4363,7 @@
             </div>
 
             <!-- CATEGORÍA: ECONOMÍA CIRCULAR -->
-            <div class="service-minimal" data-category="circular" data-service="15">
+            <div class="service-minimal" data-category="circular" data-service="">
                 <div class="service-minimal-number">15</div>
                 <div class="service-minimal-icon"><i class="fas fa-hand-holding-usd"></i></div>
                 <h3 class="service-minimal-title">Compra-Venta Reciclables</h3>
@@ -4376,7 +4377,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="circular" data-service="16">
+            <div class="service-minimal" data-category="circular" data-service="">
                 <div class="service-minimal-number">16</div>
                 <div class="service-minimal-icon"><i class="fas fa-users"></i></div>
                 <h3 class="service-minimal-title">Reciclatones</h3>
@@ -4446,7 +4447,7 @@
                         <p class="process-step-desc">Monitoreamos continuamente el servicio y generamos reportes de cumplimiento ambiental.</p>
                     </div>
                     <div class="process-step-image">
-                        <img src="https://media.istockphoto.com/id/2214748175/photo/17th-day-of-the-month-writing-text-follow-up-on-calendar-date-save-the-date-day-of-the-year.jpg?s=2048x2048&w=is&k=20&c=rYS0Uwb6Pwp5skd8A76WKoOw_0rqfq5JeXVZ7YsFzJE=" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="https://thumbs.dreamstime.com/b/pin-en-calendario-44554776.jpg" alt="Seguimiento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;">📈 Seguimiento</div>
                     </div>
                     <div class="process-step-number">04</div>
@@ -4589,7 +4590,7 @@
                      data-icon="fa-microchip" 
                      data-name="Electrónicos" 
                      data-desc="RAEE, baterías, acumuladores y equipos electrónicos."
-                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFVeos_VgDCAudDH8BTf2TcmL1pPF-jfrbypKikMCPhnTS8AijN0vQ6h0&s=10">
+                     data-image="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/14181900/BASURA-ELECTRONICA-8.jpg">
                     <div class="entry-number">05</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Electrónicos (RAEE)</h3>
@@ -4603,7 +4604,7 @@
                      data-icon="fa-battery-full" 
                      data-name="Baterías" 
                      data-desc="Baterías de auto, industriales y de dispositivos."
-                     data-image="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop">
+                     data-image="https://st1.uvnimg.com/75/5f/d79fc0e84350bcabadc76e24afe5/baterias.jpg">
                     <div class="entry-number">06</div>
                     <div class="entry-content">
                         <h3 class="entry-title">Baterías y Acumuladores</h3>
@@ -4642,20 +4643,6 @@
 
                 <div class="material-entry" 
                      data-index="9" 
-                     data-icon="fa-circle-notch" 
-                     data-name="Llantas" 
-                     data-desc="Llantas de auto, camión y motocicleta fuera de uso."
-                     data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4mwTYmVgzeEGVzgPCc7eES6GOvxkVdrKTdECPpaCJSK-_eq5FPBN7cM&s=10">
-                    <div class="entry-number">09</div>
-                    <div class="entry-content">
-                        <h3 class="entry-title">Llantas Fuera de Uso</h3>
-                        <p class="entry-subtitle">Llantas de auto, camión y motocicleta fuera de uso.</p>
-                    </div>
-                    <div class="entry-line"></div>
-                </div>
-
-                <div class="material-entry" 
-                     data-index="10" 
                      data-icon="fa-box" 
                      data-name="Tetra Pak" 
                      data-desc="Envases de leche, jugos y productos líquidos."
@@ -4669,7 +4656,7 @@
                 </div>
 
                 <div class="material-entry" 
-                     data-index="11" 
+                     data-index="10" 
                      data-icon="fa-tshirt" 
                      data-name="Textiles" 
                      data-desc="Ropa en buen estado y residuos textiles industriales."
@@ -4682,22 +4669,9 @@
                     <div class="entry-line"></div>
                 </div>
 
-                <div class="material-entry" 
-                     data-index="12" 
-                     data-icon="fa-hammer" 
-                     data-name="Construcción" 
-                     data-desc="Concreto, escombro y materiales de obra."
-                     data-image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop">
-                    <div class="entry-number">12</div>
-                    <div class="entry-content">
-                        <h3 class="entry-title">Residuos de Construcción</h3>
-                        <p class="entry-subtitle">Concreto, escombro y materiales de obra.</p>
-                    </div>
-                    <div class="entry-line"></div>
-                </div>
 
                 <div class="material-entry" 
-                     data-index="13" 
+                     data-index="11" 
                      data-icon="fa-recycle" 
                      data-name="Más materiales" 
                      data-desc="Consulta disponibilidad de otros materiales reciclables."
@@ -4771,6 +4745,7 @@
 </section>
 
 <!-- TIENDA SUSTENTABLE - ECOShop -->
+<!-- TIENDA SUSTENTABLE - ECOShop -->
 <section class="ecoshop-section" id="ecoshop">
     <div class="section-inner">
         <div class="ecoshop-header">
@@ -4783,28 +4758,33 @@
             </p>
         </div>
 
+        <!-- Filtros: Categorías específicas primero, "Todos" al final -->
         <div class="shop-categories">
-            <button class="shop-tab active" data-category="all">Todos</button>
-            <button class="shop-tab" data-category="rpbi">Insumos RPBI</button>
+            <button class="shop-tab active" data-category="rpbi">Insumos RPBI</button>
             <button class="shop-tab" data-category="sustentable">Artículos Sustentables</button>
+            <button class="shop-tab" data-category="contenedores">Contenedores</button>
+            <button class="shop-tab" data-category="arte">Arte</button>
+            <button class="shop-tab" data-category="inmobiliaria">Inmobiliaria Reciclada</button>
+            <button class="shop-tab" data-category="all">Todos</button>
         </div>
 
         <div class="shop-grid">
+            
+            <!-- ==========================================
+                 CATEGORÍA: INSUMOS RPBI
+                 ========================================== -->
             <!-- Producto 1 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <img src="https://thumbs.dreamstime.com/b/bolsas-rojas-de-riesgo-biol%C3%B3gico-en-la-acera-residuos-m%C3%A9dicos-peligro-contaminaci%C3%B3n-peligroso-por-propagaci%C3%B3n-virus-infecci%C3%B3n-385651607.jpg" 
-                         alt="Bolsa Roja para Residuos Sólidos" 
-                         class="product-img">
+                    <img src="https://thumbs.dreamstime.com/b/bolsas-rojas-de-riesgo-biol%C3%B3gico-en-la-acera-residuos-m%C3%A9dicos-peligro-contaminaci%C3%B3n-peligroso-por-propagaci%C3%B3n-virus-infecci%C3%B3n-385651607.jpg" alt="Bolsa Roja para Residuos Sólidos" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
                     <h3 class="product-title">Bolsa Roja para Residuos Sólidos</h3>
                     <p class="product-desc">Bolsa roja para residuos sólidos biológico-infecciosos. Cumple NOM-087.</p>
-                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Roja RPBI')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Roja para Residuos Sólidos')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4812,9 +4792,7 @@
             <!-- Producto 2 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <img src="https://inplastic.mx/wp-content/uploads/2023/05/rpbi.jpeg" 
-                         alt="Contenedor Hermético Rojo" 
-                         class="product-img">
+                    <img src="https://inplastic.mx/wp-content/uploads/2023/05/rpbi.jpeg" alt="Contenedor Hermético Rojo" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4822,8 +4800,7 @@
                     <h3 class="product-title">Contenedor Hermético Rojo</h3>
                     <p class="product-desc">Para residuos líquidos patológicos. Seguridad y cumplimiento garantizado.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Hermético Rojo')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4831,18 +4808,15 @@
             <!-- Producto 3 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <img src="https://contenur.mx/wp-content/uploads/2025/04/Bolsas-amarillas-RPBI-para-uso-clinicos.webp" 
-                         alt="Bolsa Amarilla Patológica" 
-                         class="product-img">
+                    <img src="https://contenur.mx/wp-content/uploads/2025/04/Bolsas-amarillas-RPBI-para-uso-clinicos.webp" alt="Bolsa Amarilla Patológica" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Insumo RPBI</div>
                     <h3 class="product-title">Bolsa Amarilla Patológica</h3>
                     <p class="product-desc">Para residuos patológicos sólidos. Material resistente y certificado.</p>
-                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Amarilla RPBI')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Amarilla Patológica')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4850,9 +4824,7 @@
             <!-- Producto 4 -->
             <div class="product-card" data-category="rpbi">
                 <div class="product-image">
-                    <img src="https://buckscontainers.com/wp-content/uploads/2024/02/60-lts-hp-cestos-y-contenedores-rpbi-medica-amarillo.jpg" 
-                         alt="Contenedor Hermético Amarillo" 
-                         class="product-img">
+                    <img src="https://buckscontainers.com/wp-content/uploads/2024/02/60-lts-hp-cestos-y-contenedores-rpbi-medica-amarillo.jpg" alt="Contenedor Hermético Amarillo" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4860,18 +4832,18 @@
                     <h3 class="product-title">Contenedor Hermético Amarillo</h3>
                     <p class="product-desc">Para líquidos patológicos. Cumplimiento total con normatividad.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Hermético Amarillo')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
 
+            <!-- ==========================================
+                 CATEGORÍA: ARTÍCULOS SUSTENTABLES
+                 ========================================== -->
             <!-- Producto 5 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <img src="https://cdn.phototourl.com/free/2026-07-19-f3e58e98-36b4-404d-a4db-9d1ce2387110.png" 
-                         alt="Termo Reutilizable" 
-                         class="product-img">
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-f3e58e98-36b4-404d-a4db-9d1ce2387110.png" alt="Termo Reutilizable" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4879,8 +4851,7 @@
                     <h3 class="product-title">Termo Reutilizable</h3>
                     <p class="product-desc">Reduce el uso de plásticos de un solo uso. Acero inoxidable de alta calidad.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Termo Reutilizable')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4888,9 +4859,7 @@
             <!-- Producto 6 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <img src="https://cdn.phototourl.com/free/2026-07-19-47b57358-6c3c-4565-b17e-642d025c19e3.png" 
-                         alt="Bolsa Reutilizable" 
-                         class="product-img">
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-47b57358-6c3c-4565-b17e-642d025c19e3.png" alt="Bolsa Reutilizable" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4898,8 +4867,7 @@
                     <h3 class="product-title">Bolsa Reutilizable</h3>
                     <p class="product-desc">Bolsa ecológica para compras. Material biodegradable y resistente.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Bolsa Reutilizable')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4907,9 +4875,7 @@
             <!-- Producto 7 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_613060-CBT113088024895_062026-O.webp" 
-                         alt="Kit Cubiertos Biodegradables" 
-                         class="product-img">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_613060-CBT113088024895_062026-O.webp" alt="Kit Cubiertos Biodegradables" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4917,8 +4883,7 @@
                     <h3 class="product-title">Kit Cubiertos Biodegradables</h3>
                     <p class="product-desc">Cubiertos de bambú o material compostable. Perfectos para eventos.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Kit Cubiertos Biodegradables')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -4926,9 +4891,7 @@
             <!-- Producto 8 -->
             <div class="product-card" data-category="sustentable">
                 <div class="product-image">
-                    <img src="https://cdn.phototourl.com/free/2026-07-19-e1773c52-f81b-4551-ae93-7e639faa2a6f.png" 
-                         alt="Productos Biodegradables" 
-                         class="product-img">
+                    <img src="https://cdn.phototourl.com/free/2026-07-19-e1773c52-f81b-4551-ae93-7e639faa2a6f.png" alt="Productos Biodegradables" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -4936,13 +4899,215 @@
                     <h3 class="product-title">Productos Biodegradables</h3>
                     <p class="product-desc">Línea completa de productos que se degradan naturalmente.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Productos Biodegradables')">
-                        Solicitar Cotización
-                        <i class="fas fa-arrow-right"></i>
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- ==========================================
+                 CATEGORÍA: CONTENEDORES (Uso General)
+                 ========================================== -->
+            <!-- Producto 9 -->
+            <div class="product-card" data-category="contenedores">
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/71QZ8vX9pYL._AC_SL1500_.jpg" alt="Contenedor de Cartón Corrugado" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Contenedor</div>
+                    <h3 class="product-title">Contenedor de Cartón Corrugado</h3>
+                    <p class="product-desc">Caja de cartón resistente para almacenamiento y transporte. 50x40x30 cm.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Contenedor de Cartón Corrugado')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 10 -->
+            <div class="product-card" data-category="contenedores">
+                <div class="product-image">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_966845-MLM67964208997_092022-O.jpg" alt="Contenedor de Plástico 60L" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Contenedor</div>
+                    <h3 class="product-title">Contenedor de Plástico 60L</h3>
+                    <p class="product-desc">Cubo de plástico resistente con tapa. Ideal para residuos orgánicos o reciclables.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Contenedor de Plástico 60L')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 11 -->
+            <div class="product-card" data-category="contenedores">
+                <div class="product-image">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_742520-MLM68077988877_092022-O.jpg" alt="Contenedor Metálico 100L" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Contenedor</div>
+                    <h3 class="product-title">Contenedor Metálico 100L</h3>
+                    <p class="product-desc">Bote de basura metálico con pedal. Alta durabilidad para uso industrial.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Metálico 100L')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 12 -->
+            <div class="product-card" data-category="contenedores">
+                <div class="product-image">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_613060-CBT113088024895_062026-O.webp" alt="Tarima de Madera Estándar" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Contenedor</div>
+                    <h3 class="product-title">Tarima de Madera Estándar</h3>
+                    <p class="product-desc">Tarima 120x100 cm para almacenamiento y transporte. Madera tratada.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 CATEGORÍA: ARTE RECICLADO
+                 ========================================== -->
+            <!-- Producto 13 -->
+            <div class="product-card" data-category="arte">
+                <div class="product-image">
+                    <img src="https://www.pipapaper.com/wp-content/uploads/2024/04/arte-con-materiales-reciclados-2.jpg" alt="Escultura Metálica Reciclada" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Arte Reciclado</div>
+                    <h3 class="product-title">Escultura Metálica Reciclada</h3>
+                    <p class="product-desc">Escultura artística hecha con chatarra y metales reciclados. Pieza única.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Escultura Metálica Reciclada')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 14 -->
+            <div class="product-card" data-category="arte">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj64p8BOYX7iGah9_6v9tjE-WbhvAWxP-xTPjZ2OkYyF0NSsPECzwJHgY&s=10" alt="Lámpara de Botellas Recicladas" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Arte Reciclado</div>
+                    <h3 class="product-title">Lámpara de Botellas Recicladas</h3>
+                    <p class="product-desc">Lámpara decorativa fabricada con botellas de vidrio recicladas. Diseño único.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Lámpara de Botellas Recicladas')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 15 -->
+            <div class="product-card" data-category="arte">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckHa6b0irYL67ClISdCZJFmtNtCqV5J9DfMK-kdBklrxr0dv22eQIWYw&s=10" alt="Cuadro con Plásticos Reciclados" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Arte Reciclado</div>
+                    <h3 class="product-title">Cuadro con Plásticos Reciclados</h3>
+                    <p class="product-desc">Arte mural hecho con plásticos de colores reciclados. 80x60 cm.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Cuadro con Plásticos Reciclados')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 16 -->
+            <div class="product-card" data-category="arte">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WBtqPuiIfS1W4BU1wD3bn1J-U1zwgRGzpfTZB3nAKGSVXwyKcIp5muE&s=10" alt="Maceta de Llanta Reciclada" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Arte Reciclado</div>
+                    <h3 class="product-title">Maceta de Llanta Reciclada</h3>
+                    <p class="product-desc">Maceta decorativa hecha con llanta reciclada. Pintura ecológica incluida.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Maceta de Llanta Reciclada')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 CATEGORÍA: INMOBILIARIA RECICLADA
+                 ========================================== -->
+            <!-- Producto 17 -->
+            <div class="product-card" data-category="inmobiliaria">
+                <div class="product-image">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_613060-CBT113088024895_062026-O.webp" alt="Mueble de Tarimas Recicladas" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Inmobiliaria Reciclada</div>
+                    <h3 class="product-title">Mueble de Tarimas Recicladas</h3>
+                    <p class="product-desc">Estantería o mueble hecho con tarimas de madera recicladas. Personalizable.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Mueble de Tarimas Recicladas')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 18 -->
+            <div class="product-card" data-category="inmobiliaria">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj64p8BOYX7iGah9_6v9tjE-WbhvAWxP-xTPjZ2OkYyF0NSsPECzwJHgY&s=10" alt="Escritorio de Madera Reciclada" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Inmobiliaria Reciclada</div>
+                    <h3 class="product-title">Escritorio de Madera Reciclada</h3>
+                    <p class="product-desc">Escritorio rústico fabricado con madera de demoliciones. 120x60 cm.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Escritorio de Madera Reciclada')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 19 -->
+            <div class="product-card" data-category="inmobiliaria">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckHa6b0irYL67ClISdCZJFmtNtCqV5J9DfMK-kdBklrxr0dv22eQIWYw&s=10" alt="Mesa de Centro con Contenedores" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Inmobiliaria Reciclada</div>
+                    <h3 class="product-title">Mesa de Centro con Contenedores</h3>
+                    <p class="product-desc">Mesa de centro hecha con contenedores metálicos reciclados. Diseño industrial.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Mesa de Centro con Contenedores')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Producto 20 -->
+            <div class="product-card" data-category="inmobiliaria">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WBtqPuiIfS1W4BU1wD3bn1J-U1zwgRGzpfTZB3nAKGSVXwyKcIp5muE&s=10" alt="Estantería de Contenedores Reciclados" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Inmobiliaria Reciclada</div>
+                    <h3 class="product-title">Estantería de Contenedores Reciclados</h3>
+                    <p class="product-desc">Sistema de estantería modular hecho con contenedores plásticos reciclados.</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Estantería de Contenedores Reciclados')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
         </div>
 
+        <!-- Nota informativa -->
         <div class="ecoshop-note">
             <i class="fas fa-info-circle"></i>
             <p>Todos nuestros insumos RPBI están fabricados para cumplir con los requisitos que nos marca la NOM-087-ECOL-SSA1-2002.</p>
@@ -4975,37 +5140,31 @@
     </div>
         <div class="coverage-track">
             <div class="cov-card">
-                <div class="cov-card-num">01</div>
                 <div class="cov-card-icon"><i class="fas fa-building"></i></div>
                 <div class="cov-card-name">CDMX</div>
                 <div class="cov-card-region">Ciudad de México</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num">02</div>
                 <div class="cov-card-icon"><i class="fas fa-industry"></i></div>
                 <div class="cov-card-name">Edo. Méx</div>
                 <div class="cov-card-region">Zona Metropolitana</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num">03</div>
                 <div class="cov-card-icon"><i class="fas fa-landmark"></i></div>
                 <div class="cov-card-name">Hidalgo</div>
                 <div class="cov-card-region">Todo el Estado</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num">04</div>
                 <div class="cov-card-icon"><i class="fas fa-mountain"></i></div>
                 <div class="cov-card-name">Morelos</div>
                 <div class="cov-card-region">Cobertura Total</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num">05</div>
                 <div class="cov-card-icon"><i class="fas fa-chess-rook"></i></div>
                 <div class="cov-card-name">Querétaro</div>
                 <div class="cov-card-region">Zona Industrial</div>
             </div>
             <div class="cov-card">
-                <div class="cov-card-num">06</div>
                 <div class="cov-card-icon"><i class="fas fa-globe-americas"></i></div>
                 <div class="cov-card-name">Nacional</div>
                 <div class="cov-card-region">Todo México</div>
@@ -5022,7 +5181,7 @@
                     <h2>Hablemos de tu <em>próximo paso para </em><em>Cotizar.</em></h2>
                     
                     <div class="c-detail">
-                        <div class="c-detail-label">Gerente de Desarrollo de Proyectos</div>
+                        <div class="c-detail-label">Gerente de Desarrollo de Proyectos y Negocios</div>
                         <div class="c-detail-val">Lic. Karla Maturano Dotor</div>
                     </div>
                     <div class="c-detail">
@@ -5506,52 +5665,82 @@ const artObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 artItems.forEach(item => artObserver.observe(item));
 
-// --- ECOShop: FILTROS Y COTIZACIÓN ---
+// ============================================
+// ECOShop: FILTROS, COTIZACIÓN Y ANIMACIONES
+// ============================================
 
-// Filtros de categorías
 const shopTabs = document.querySelectorAll('.shop-tab');
 const productCards = document.querySelectorAll('.product-card');
 
+// Función para filtrar productos
+function filterProducts(category) {
+    productCards.forEach(card => {
+        // Obtenemos todas las categorías del producto (separadas por espacio)
+        const cardCategories = card.dataset.category.split(' ');
+        
+        // Si es 'all' o la categoría seleccionada está en la lista del producto
+        if (category === 'all' || cardCategories.includes(category)) {
+            card.style.display = 'flex';
+            // Pequeño delay para que la animación CSS se ejecute correctamente
+            setTimeout(() => {
+                card.classList.add('animate-in');
+            }, 50);
+        } else {
+            card.style.display = 'none';
+            card.classList.remove('animate-in');
+        }
+    });
+}
+
+// Asignar eventos a los botones de filtro
 shopTabs.forEach(tab => {
     tab.addEventListener('click', () => {
+        // Quitar clase active de todos los tabs
         shopTabs.forEach(t => t.classList.remove('active'));
+        // Agregar clase active al tab clickeado
         tab.classList.add('active');
         
+        // Filtrar productos
         const category = tab.dataset.category;
-        
-        productCards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-                card.style.display = 'flex';
-                setTimeout(() => {
-                    card.classList.add('animate-in');
-                }, 50);
-            } else {
-                card.style.display = 'none';
-                card.classList.remove('animate-in');
-            }
-        });
+        filterProducts(category);
     });
 });
 
-// Función para cotizar producto
+// INICIALIZACIÓN: Forzar que inicie con "Insumos RPBI" activo al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const rpbiTab = document.querySelector('.shop-tab[data-category="rpbi"]');
+    if (rpbiTab) {
+        rpbiTab.click(); // Simula el clic para activar el filtro y la clase 'active'
+    }
+});
+
+// ============================================
+// FUNCIÓN DE COTIZACIÓN POR WHATSAPP
+// ============================================
 function cotizarProducto(nombreProducto) {
-    const mensaje = `Hola, me interesa cotizar el siguiente producto de la ECOShop by RIDM:\n\n*${nombreProducto}*\n\n¿Podrían enviarme información sobre precios y disponibilidad?`;
+    const mensaje = `Hola, me interesa cotizar el siguiente producto de la ECOShop by RIDM:\n\n*${nombreProducto}*\n\n¿Podrían enviarme información sobre precios, disponibilidad y formas de pago?`;
     const url = `https://wa.me/527223650238?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
 
-// Animación de entrada
+// ============================================
+// ANIMACIÓN DE ENTRADA AL HACER SCROLL
+// ============================================
 const productObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('animate-in');
-            }, index * 80);
+            // Solo animar si el producto es visible (no está oculto por el filtro)
+            if (entry.target.style.display !== 'none') {
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 80);
+            }
             productObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.1 });
 
+// Observar todas las tarjetas de producto
 productCards.forEach(card => productObserver.observe(card));
 
 // --- SISTEMA DE FILTROS DE SERVICIOS ---
@@ -5755,25 +5944,51 @@ Enviado desde el formulario web`;
 
 
 
-// --- COVERAGE SCROLL INDICATOR ---
+// --- COVERAGE: SCROLL CON RUEDA DEL MOUSE Y FLECHAS ---
 const coverageTrack = document.querySelector('.coverage-track');
 const dots = document.querySelectorAll('.scroll-hint-dots .dot');
+const prevBtn = document.querySelector('.scroll-hint-arrows i:first-child');
+const nextBtn = document.querySelector('.scroll-hint-arrows i:last-child');
 
-if (coverageTrack && dots.length > 0) {
-    let currentDot = 0;
+if (coverageTrack) {
     
-    coverageTrack.addEventListener('scroll', () => {
-        const scrollProgress = coverageTrack.scrollLeft / (coverageTrack.scrollWidth - coverageTrack.clientWidth);
-        const dotIndex = Math.min(Math.floor(scrollProgress * dots.length), dots.length - 1);
+    // 1. SCROLL HORIZONTAL CON LA RUEDA DEL MOUSE (Mucho más natural)
+    coverageTrack.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0) {
+            e.preventDefault(); // Evita que la página baje
+            coverageTrack.scrollLeft += e.deltaY; // Mueve el carrusel horizontalmente
+        }
+    }, { passive: false });
+
+    // 2. FLECHAS CLICKEABLES (Desplazan una tarjeta a la vez)
+    if (prevBtn && nextBtn) {
+        prevBtn.style.cursor = 'pointer';
+        nextBtn.style.cursor = 'pointer';
         
-        dots.forEach((dot, index) => {
-            if (index <= dotIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+        prevBtn.addEventListener('click', () => {
+            coverageTrack.scrollBy({ left: -360, behavior: 'smooth' }); // Ajusta 360 al ancho de tu tarjeta + gap
         });
-    });
+        
+        nextBtn.addEventListener('click', () => {
+            coverageTrack.scrollBy({ left: 360, behavior: 'smooth' });
+        });
+    }
+
+    // 3. INDICADOR DE PUNTOS (Dots) actualizado
+    if (dots.length > 0) {
+        coverageTrack.addEventListener('scroll', () => {
+            const scrollProgress = coverageTrack.scrollLeft / (coverageTrack.scrollWidth - coverageTrack.clientWidth);
+            const dotIndex = Math.min(Math.floor(scrollProgress * dots.length), dots.length - 1);
+            
+            dots.forEach((dot, index) => {
+                if (index <= dotIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+    }
 }
 
 
