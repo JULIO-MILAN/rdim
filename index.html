@@ -628,39 +628,40 @@
             50% { transform: rotate(45deg) translateY(8px); }
         }
 
-        /* ============================================
-           MARQUEE
-           ============================================ */
-        .marquee-section {
-            padding: 1.5rem 0;
-            background: var(--green);
-            overflow: hidden;
-        }
+/* ============================================
+   MARQUEE - CARRUSEL
+   ============================================ */
+.marquee-section {
+    padding: 2rem 0; /* Aumentado de 1.5rem */
+    background: var(--green);
+    overflow: hidden;
+    margin: 2rem 0; /* NUEVO: separación arriba y abajo */
+}
 
-        .marquee-row {
-            display: flex;
-            animation: marqueeScroll 25s linear infinite;
-            width: max-content;
-        }
+.marquee-row {
+    display: flex;
+    animation: marqueeScroll 25s linear infinite;
+    width: max-content;
+}
 
-        .marquee-word {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--white);
-            padding: 0 2rem;
-            white-space: nowrap;
-        }
+.marquee-word {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0 2rem;
+    white-space: nowrap;
+}
 
-        .marquee-dot {
-            color: rgba(255,255,255,0.4);
-            padding: 0;
-        }
+.marquee-dot {
+    color: rgba(255,255,255,0.4);
+    padding: 0;
+}
 
-        @keyframes marqueeScroll {
-            to { transform: translateX(-50%); }
-        }
+@keyframes marqueeScroll {
+    to { transform: translateX(-50%); }
+}
 
         /* ============================================
            SECTIONS
