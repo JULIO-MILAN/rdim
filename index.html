@@ -1840,25 +1840,7 @@
     background: var(--bg-primary);
     min-height: 100vh;
     overflow: hidden;
-}
-
-/* Marca de agua RIDM */
-.watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(15rem, 25vw, 30rem);
-    font-weight: 900;
-    letter-spacing: -0.05em;
-    color: var(--green-light);
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 0;
-    user-select: none;
-    white-space: nowrap;
-    font-family: 'Inter', sans-serif;
-    line-height: 1;
+    
 }
 
 .editorial-container {
@@ -1880,6 +1862,7 @@
     height: calc(100vh - 120px);
     display: flex;
     align-items: center;
+    
 }
 
 .sticky-content {
@@ -3397,6 +3380,7 @@
 .coverage-section,
 .contact-section,
 .process-section,
+.materials-editoria
 .sustainability-section,
 .ecoshop-section {
     padding: 4rem 2rem !important;
@@ -3408,6 +3392,7 @@
     .coverage-section,
     .contact-section,
     .process-section,
+    .materials-editoria
     .sustainability-section,
     .ecoshop-section {
         padding: 3rem 1.5rem !important;
@@ -3617,7 +3602,7 @@
    ============================================ */
 .sustainability-section {
     background: var(--bg-primary) !important;
-    padding: 4rem 2rem !important;
+    padding: 4rem 0rem !important;
 }
 
 .sustainability-header {
@@ -3832,42 +3817,7 @@
     }
 }
 
-        /* ============================================
-   AUMENTAR ESPACIO ENTRE SECCIONES
-   ============================================ */
 
-/* Aumentar el espacio inferior de la sección de materiales/editorial */
-.materials-editorial {
-    padding-bottom: 8rem !important; /* Aumentado de 6rem */
-    margin-bottom: 4rem !important; /* Nuevo: espacio adicional */
-}
-
-/* Aumentar el espacio superior de la sección de sostenibilidad */
-.sustainability-section {
-    padding-top: 6rem !important; /* Aumentado de 4rem */
-    margin-top: 0 !important;
-}
-
-/* Aumentar el margen del header de sostenibilidad */
-.sustainability-header {
-    margin-bottom: 3rem !important; /* Aumentado de 2rem */
-}
-
-/* Responsive - mantener separación en móvil */
-@media (max-width: 768px) {
-    .materials-editorial {
-        padding-bottom: 5rem !important;
-        margin-bottom: 3rem !important;
-    }
-    
-    .sustainability-section {
-        padding-top: 4rem !important;
-    }
-    
-    .sustainability-header {
-        margin-bottom: 2rem !important;
-    }
-}
     </style>
 </head>
 <body>
@@ -6311,4 +6261,3 @@ if (coverageTrack) {
     </script>
 </body>
 </html>
-
