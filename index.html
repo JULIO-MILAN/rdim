@@ -3351,466 +3351,34 @@
             border-radius: 12px;
         }
     }   
-
-        /* ============================================
-   COMPACTACIÓN GLOBAL - DESDE "NOSOTROS" HACIA ABAJO
-   ============================================ */
-
-/* 1. Padding general de todas las secciones */
-.section-full,
-.services-section-minimal,
-.coverage-section,
-.contact-section,
-.process-section,
-.materials-editoria,
-.sustainability-section,
-.ecoshop-section {
-    padding: 4rem 2rem !important;
-}
-
-@media (max-width: 768px) {
-    .section-full,
-    .services-section-minimal,
-    .coverage-section,
-    .contact-section,
-    .process-section,
-    .materials-editoria
-    .sustainability-section,
-    .ecoshop-section {
-        padding: 3rem 1.5rem !important;
-    }
-}
-
-/* 2. Títulos de sección más compactos */
-.section-heading {
-    font-size: clamp(2rem, 4vw, 3rem) !important;
-    margin-bottom: 1rem !important;
-}
-
-.section-label {
-    margin-bottom: 0.75rem !important;
-}
-
-/* 3. Descripciones/intros más pequeñas */
-.services-intro,
-.process-subtitle,
-.materials-intro,
-.sustainability-intro,
-.ecoshop-intro {
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 2rem !important;
-}
-
-/* 4. NOSOTROS - Compacto */
-.about-grid {
-    gap: 3rem !important;
-}
-
-.about-text h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin-bottom: 1.25rem !important;
-}
-
-.about-text p {
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 1rem !important;
-}
-
-.about-img-wrap {
-    max-height: 320px !important;
-    aspect-ratio: 16/10 !important;
-}
-
-.impact-stat {
-    margin-top: 5rem !important;
-    padding: 1.25rem !important;
-}
-
-.impact-text strong {
-    font-size: 1rem !important;
-}
-
-.impact-text {
-    font-size: 0.875rem !important;
-}
-
-/* 5. PROCESO (Cómo Trabajamos) - Compacto */
-.process-header {
-    margin-bottom: 2.5rem !important;
-}
-
-.process-step {
-    gap: 2rem !important;
-    margin-bottom: 2.5rem !important;
-}
-
-.process-step-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
-    margin-bottom: 0.5rem !important;
-}
-
-.process-step-desc {
-    font-size: 0.875rem !important;
-}
-
-.process-step-number {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1rem !important;
-}
-
-/* 6. SERVICIOS - Compacto */
-.services-header-minimal {
-    margin-bottom: 2.5rem !important;
-}
-
-.services-grid-minimal {
-    gap: 1.25rem !important;
-}
-
-.service-minimal {
-    padding: 1.5rem !important;
-}
-
-.service-minimal-icon {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 1.25rem !important;
-    margin-bottom: 1rem !important;
-}
-
-.service-minimal-title {
-    font-size: 1.125rem !important;
-    margin-bottom: 0.5rem !important;
-}
-
-.service-minimal-desc {
-    font-size: 0.875rem !important;
-}
-
-.service-tabs {
-    margin-bottom: 2rem !important;
-    gap: 0.5rem !important;
-}
-
-.service-tab {
-    padding: 0.5rem 1rem !important;
-    font-size: 0.8125rem !important;
-}
-
-/* 7. MATERIALES - Compacto */
-.editorial-title {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin: 0.75rem 0 !important;
-}
-
-.editorial-description {
-    font-size: 0.9375rem !important;
-    margin-bottom: 1.5rem !important;
-}
-
-.editorial-counter {
-    margin-bottom: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-}
-
-.counter-current {
-    font-size: 2.5rem !important;
-}
-
-.active-material-info {
-    margin-bottom: 1.5rem !important;
-    padding: 1.25rem !important;
-}
-
-.active-name {
-    font-size: 1.125rem !important;
-}
-
-.active-desc {
-    font-size: 0.8125rem !important;
-}
-
-.editorial-window {
-    height: 400px !important;
-}
-
-.material-entry {
-    padding: 1.25rem 0 !important;
-}
-
-.entry-title {
-    font-size: 1.125rem !important;
-}
-
-.entry-subtitle {
-    font-size: 0.8125rem !important;
-}
-
-/* 8. COBERTURA - Compacto */
-.coverage-header {
-    margin-bottom: 2rem !important;
-}
-
-.cov-card {
-    min-height: 280px !important;
-    padding: 1.75rem !important;
-}
-
-.cov-card-name {
-    font-size: 1.75rem !important;
-}
-
-/* 9. CONTACTO - Compacto */
-.contact-grid {
-    gap: 2.5rem !important;
-}
-
-.contact-left h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin-bottom: 1.5rem !important;
-}
-
-.c-detail {
-    padding: 1rem 0 !important;
-}
-
-/* 10. HERO - NO TOCAR (se mantiene igual) */
-
 /* ============================================
-   SOSTENIBILIDAD CREATIVA - EXACTAMENTE COMO LA CAPTURA
-   ============================================ */
-.sustainability-section {
-    background: var(--bg-primary) !important;
-    padding: 4rem 0rem !important;
-}
-
-.sustainability-header {
-    text-align: left !important;
-    margin-bottom: 2.5rem !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 2rem !important;
-    max-width: 1400px !important;
-    margin: 0 auto 2.5rem auto !important;
-}
-
-.sustainability-header .section-label {
-    text-align: left !important;
-    display: block !important;
-    margin-bottom: 1rem !important;
-}
-
-.sustainability-header .section-heading {
-    text-align: left !important;
-    font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
-    margin-bottom: 1rem !important;
-    line-height: 1.1 !important;
-}
-
-/* Título con parte en itálica */
-.sustainability-header .section-heading .thin {
-    font-family: 'Playfair Display', serif !important;
-    font-style: italic !important;
-    font-weight: 400 !important;
-    color: var(--text-secondary) !important;
-}
-
-.sustainability-intro {
-    text-align: left !important;
-    max-width: 600px !important;
-    margin: 0 !important;
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    color: var(--text-secondary) !important;
-}
-
-/* Galería: 4 imágenes en fila, pequeñas y cuadradas */
-.art-gallery {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1rem !important;
-    max-width: 1400px !important;
-    margin: 0 auto !important;
-    padding: 0 2rem !important;
-}
-
-.art-item {
-    position: relative !important;
-    aspect-ratio: 1/1 !important; /* Cuadradas */
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    cursor: pointer !important;
-    transition: transform 0.4s ease !important;
-}
-
-.art-item:hover {
-    transform: translateY(-5px) !important;
-}
-
-.art-item img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    transition: transform 0.6s ease !important;
-}
-
-.art-item:hover img {
-    transform: scale(1.08) !important;
-}
-
-.art-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%) !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    padding: 1rem !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-}
-
-.art-item:hover .art-overlay {
-    opacity: 1 !important;
-}
-
-.art-info h3 {
-    font-size: 0.9375rem !important;
-    font-weight: 600 !important;
-    color: white !important;
-    margin-bottom: 0.25rem !important;
-}
-
-.art-info p {
-    font-size: 0.75rem !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Ocultar CTA grande para mantenerlo compacto */
-.sustainability-cta {
-    display: none !important;
-}
-
-/* Responsive Sostenibilidad */
-@media (max-width: 1024px) {
-    .art-gallery {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .sustainability-section {
-        padding: 3rem 1.5rem !important;
-    }
-    
-    .sustainability-header {
-        padding: 0 !important;
-    }
-    
-    .sustainability-header .section-heading {
-        font-size: 2rem !important;
-    }
-    
-    .sustainability-intro {
-        font-size: 0.875rem !important;
-    }
-    
-    .art-gallery {
-        grid-template-columns: repeat(2, 1fr) !important;
-        padding: 0 !important;
-        gap: 0.75rem !important;
-    }
-}
-
-/* Animaciones de entrada */
-.art-item {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.art-item.animate-in {
-    animation: artReveal 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
-}
-
-@keyframes artReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ============================================
-   NORMALIZACIÓN DE ESPACIADO (VERTICAL RHYTHM)
+   FIX DEFINITIVO: ESCALA HP Y AMONTONAMIENTO
    ============================================ */
 
-/* 1. Unificar el padding de TODAS las secciones principales */
-.about-section,
-.why-ridm-compact,
-.services-section-minimal,
-.process-section {
-    padding: 6rem 2rem !important; /* Espacio uniforme arriba y abajo */
-}
-
-/* 2. Ajustar la clase .section-full para que no empuje demasiado */
-.section-full {
-    min-height: auto; /* Quitamos el 100vh forzado que estira todo */
-    padding: 6rem 2rem;
-}
-
-/* 3. Asegurar que la sección "Por Qué Elegirnos" tenga el padding correcto */
-.why-ridm-compact {
-    padding: 6rem 2rem;
+/* 1. ARREGLAR AMONTONAMIENTO EN MATERIALES (Economía Circular) */
+.materials-editorial {
+    position: relative;
+    padding: 6rem 0;
     background: var(--bg-primary);
+    min-height: auto !important; /* Elimina la altura fija de 100vh */
+    overflow: visible !important; /* Permite que el contenido fluya sin cortarse */
 }
 
-/* 4. Reducir márgenes inferiores de los últimos elementos de cada sección 
-   para que no se sumen al padding y creen huecos extra */
-.impact-stat {
-    margin-bottom: 0; /* Ya tiene margin-top, no necesitamos margen abajo */
+/* 2. SEPARAR SECCIONES PARA QUE NO SE PEGUEN */
+.sustainability-section {
+    margin-top: 4rem !important; /* Espacio seguro entre Materiales y Arte */
+    padding-top: 4rem !important;
 }
 
-.mascot-clients-row {
-    margin-bottom: 0;
-}
-
-.services-header-minimal {
-    margin-bottom: 3rem; /* Reducido de 4rem para acercar más al contenido */
-}
-
-.process-header {
-    margin-bottom: 3rem; /* Reducido de 3.5rem */
-}
-
-/* 5. Ajustes específicos para móvil (más compacto pero limpio) */
-@media (max-width: 768px) {
-    .about-section,
-    .why-ridm-compact,
-    .services-section-minimal,
-    .process-section,
-    .section-full {
-        padding: 4rem 1.5rem !important; /* 4rem en móvil es suficiente */
-    }
-    
-    .services-header-minimal,
-    .process-header {
-        margin-bottom: 2.5rem;
-    }
-}
-        /* ============================================
-   FIX GLOBAL: ESCALA DE WINDOWS (HP Y OTRAS)
-   ============================================ */
-
-/* Detectar escala de Windows al 125% o más */
+/* 3. FIX GLOBAL PARA PANTALLAS CON ESCALA DE WINDOWS (HP 125% - 150%) */
 @media screen and (min-resolution: 120dpi) {
     
-    /* Reducir tamaño de fuente global */
+    /* Reducir ligeramente la base para compensar el zoom del sistema */
     html {
-        font-size: 14px !important; /* Base más pequeña (normal es 16px) */
+        font-size: 15px !important; /* Normal es 16px, esto lo hace un 6% más pequeño */
     }
-    
-    /* Ajustar paddings de secciones */
+
+    /* Ajustar paddings de secciones para que no se vean exageradas */
     .section-full,
     .services-section-minimal,
     .coverage-section,
@@ -3821,90 +3389,51 @@
     .materials-editorial,
     .why-ridm-compact,
     .about-section {
-        padding: 4rem 1.5rem !important;
+        padding: 5rem 2rem !important;
     }
-    
-    /* Reducir títulos principales */
+
+    /* Reducir títulos principales para que quepan mejor */
     .section-heading,
     .hero-title {
-        font-size: clamp(2rem, 4vw, 3rem) !important;
+        font-size: clamp(2.2rem, 5vw, 4rem) !important;
     }
-    
-    /* Ajustar subtítulos */
-    .section-label {
-        font-size: 0.6875rem !important;
-    }
-    
-    /* Reducir texto de párrafos */
-    .about-text p,
-    .services-intro,
-    .ecoshop-intro,
-    .sustainability-intro {
-        font-size: 0.9375rem !important;
-    }
-    
-    /* Ajustar tarjetas de servicios */
-    .service-minimal {
-        padding: 1.5rem !important;
-    }
-    
-    .service-minimal-title {
-        font-size: 1.125rem !important;
-    }
-    
-    .service-minimal-desc {
-        font-size: 0.875rem !important;
-    }
-    
-    /* Ajustar productos de la tienda */
+
+    /* Ajustar tarjetas de servicios y productos */
+    .service-minimal,
     .product-card {
         padding: 1.5rem !important;
     }
-    
+
+    .service-minimal-title,
     .product-title {
         font-size: 1.125rem !important;
     }
-    
+
+    .service-minimal-desc,
     .product-desc {
         font-size: 0.875rem !important;
     }
-    
-    /* Reducir botones */
+
+    /* Ajustar botones para que no sean gigantes */
     .btn-apple,
     .btn-cotizar,
-    .editorial-cta {
-        padding: 0.75rem 1.5rem !important;
+    .editorial-cta,
+    .btn-sustainability {
+        padding: 0.875rem 1.75rem !important;
         font-size: 0.875rem !important;
     }
-    
+
     /* Ajustar el menú flotante */
     .menu-float-btn {
         font-size: 0.8125rem !important;
-        padding: 0.875rem 1.25rem !important;
-    }
-    
-    /* Reducir iconos */
-    .service-minimal-icon {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.25rem !important;
-    }
-    
-    /* Ajustar el drawer lateral */
-    .drawer-link {
-        font-size: 1.125rem !important;
-    }
-    
-    /* Reducir footer */
-    .footer-brand {
-        font-size: 0.75rem !important;
+        padding: 0.875rem 1.5rem !important;
     }
 }
 
-/* Para escala de Windows al 150% */
+/* 4. FIX ESPECÍFICO PARA ESCALA 150% (Algunas HP antiguas) */
 @media screen and (min-resolution: 144dpi) {
     html {
-        font-size: 13px !important; /* Aún más pequeño */
+        font-size: 14px !important;
     }
     
     .section-full,
@@ -3914,25 +3443,35 @@
     .process-section,
     .sustainability-section,
     .ecoshop-section,
-    .materials-editorial,
-    .why-ridm-compact,
-    .about-section {
-        padding: 3rem 1.25rem !important;
+    .materials-editorial {
+        padding: 4rem 1.5rem !important;
+    }
+}
+
+/* 5. ASEGURAR QUE EL BOTÓN DE CTA NO QUEDE TAPADO */
+.editorial-cta {
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    display: inline-flex !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* 6. RESPONSIVE MÓVIL (Mantener compacto) */
+@media (max-width: 768px) {
+    .materials-editorial {
+        padding: 4rem 0 !important;
     }
     
-    .section-heading,
-    .hero-title {
-        font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+    .sustainability-section {
+        margin-top: 2rem !important;
+        padding: 3rem 1.5rem !important;
+    }
+    
+    .editorial-container {
+        padding: 0 1.5rem;
     }
 }
-
-/* Para Chrome específicamente con zoom */
-@media screen and (-webkit-min-device-pixel-ratio: 1.25) {
-    body {
-        -webkit-font-smoothing: antialiased;
-    }
-}
-
 
     </style>
 </head>
