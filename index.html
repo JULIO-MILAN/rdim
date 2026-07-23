@@ -1030,7 +1030,7 @@
     padding: 1.5rem; /* Reducido de 2rem */
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 1px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Alineado arriba */
@@ -1042,7 +1042,7 @@
     width: 100%;
     max-width: 100%; /* Ocupa TODO el ancho disponible */
     height: 380px; /* AUMENTADO: era 200px */
-    margin: 0 0 1rem 0; /* Sin margen lateral, solo abajo */
+    margin: 0 0 0em 0; /* Sin margen lateral, solo abajo */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1073,7 +1073,7 @@
     gap: 1rem;
     color: rgba(76, 175, 80, 0.6);
     background: linear-gradient(135deg, rgba(45, 138, 62, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
-    border-radius: 16px;
+    border-radius: 16;
 }
 
 .mascot-placeholder-xl i {
@@ -1088,25 +1088,25 @@
 }
 
 .mascot-text-compact {
-    margin-top: auto; /* Empuja el texto hacia abajo */
+    margin-top: 0rem; /* Empuja el texto hacia abajo */
 }
 
 .mascot-text-compact h4 {
     font-size: 1.5rem; /* Más grande */
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .mascot-text-compact p {
-    font-size: 1rem;
+    font-size: 0rem;
     color: var(--text-secondary);
 }
 
 /* Ajuste del grid para balance */
 .mascot-clients-row {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* 33% - 67% */
+    grid-template-columns: 1fr 1r; /* 33% - 67% */
     gap: 2rem;
     align-items: stretch;
 }
@@ -4407,16 +4407,14 @@
     <!-- Nota de Huella de Carbono -->
 <div class="services-carbon-note">
     <div class="carbon-note-icon">
-        <i class="fas fa-leaf"></i>
+       <i class="fas fa-shoe-prints"></i>
     </div>
     <div class="carbon-note-content">
         <p class="carbon-note-title">
-            <strong>Compromiso con el Medio Ambiente</strong>
+            <strong>Huella de Carbono:</strong>
         </p>
         <p class="carbon-note-text">
-            Al finalizar todos los servicios, calculamos y compensamos nuestra 
-            <strong>huella de carbono</strong>. Por cada tonelada de residuos gestionados, 
-            plantamos árboles y apoyamos proyectos de energía renovable.
+            <strong>Cálculo, Reducción y Compensación de Emisiones</strong>
         </p>
     </div>
 </div>
@@ -5256,8 +5254,8 @@
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Inmobiliaria Reciclada</div>
-                    <h3 class="product-title">Banco Bob</h3>
-                    <p class="product-desc">Estantería o mueble hecho con tarimas de madera recicladas. Personalizable.</p>
+                    <h3 class="product-title">Banco para Barra</h3>
+                    <p class="product-desc">Debido a que nuestros productos son 100% reciclados, puede variar el color y la textura de nuestra gama de tonalidades.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Mueble de Tarimas Recicladas')">
                         Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
@@ -5267,13 +5265,13 @@
             <!-- Producto 18 -->
             <div class="product-card" data-category="inmobiliaria">
                 <div class="product-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj64p8BOYX7iGah9_6v9tjE-WbhvAWxP-xTPjZ2OkYyF0NSsPECzwJHgY&s=10" alt="Escritorio de Madera Reciclada" class="product-img">
+                    <img src="https://cdn.phototourl.com/free/2026-07-23-f6613396-922e-4840-864b-a9a038cbd2b6.png" alt="Escritorio de Madera Reciclada" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Inmobiliaria Reciclada</div>
-                    <h3 class="product-title">Escritorio de Madera Reciclada</h3>
-                    <p class="product-desc">Escritorio rústico fabricado con madera de demoliciones. 120x60 cm.</p>
+                    <h3 class="product-title">Silla</h3>
+                    <p class="product-desc">Debido a que nuestros productos son 100% reciclados, puede variar el color y la textura de nuestra gama de tonalidades.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Escritorio de Madera Reciclada')">
                         Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
@@ -5283,13 +5281,13 @@
             <!-- Producto 19 -->
             <div class="product-card" data-category="inmobiliaria">
                 <div class="product-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckHa6b0irYL67ClISdCZJFmtNtCqV5J9DfMK-kdBklrxr0dv22eQIWYw&s=10" alt="Mesa de Centro con Contenedores" class="product-img">
+                    <img src="https://www.teko.mx/components/com_jshopping/files/img_products/full_sunset_1_perspectiva.jpg" alt="Mesa de Centro con Contenedores" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
                     <div class="product-tag">Inmobiliaria Reciclada</div>
-                    <h3 class="product-title">Mesa de Centro con Contenedores</h3>
-                    <p class="product-desc">Mesa de centro hecha con contenedores metálicos reciclados. Diseño industrial.</p>
+                    <h3 class="product-title">Banca para Parque</h3>
+                    <p class="product-desc">Debido a que nuestros productos son 100% reciclados, puede variar el color y la textura de nuestra gama de tonalidades.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Mesa de Centro con Contenedores')">
                         Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
@@ -5299,7 +5297,7 @@
             <!-- Producto 20 -->
             <div class="product-card" data-category="inmobiliaria">
                 <div class="product-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WBtqPuiIfS1W4BU1wD3bn1J-U1zwgRGzpfTZB3nAKGSVXwyKcIp5muE&s=10" alt="Estantería de Contenedores Reciclados" class="product-img">
+                    <img src="https://www.teko.mx/components/com_jshopping/files/img_products/banca_mecano_persp.jpg" alt="Estantería de Contenedores Reciclados" class="product-img">
                     <div class="product-overlay"></div>
                 </div>
                 <div class="product-info">
@@ -5307,6 +5305,22 @@
                     <h3 class="product-title">Estantería de Contenedores Reciclados</h3>
                     <p class="product-desc">Sistema de estantería modular hecho con contenedores plásticos reciclados.</p>
                     <button class="btn-cotizar" onclick="cotizarProducto('Estantería de Contenedores Reciclados')">
+                        Solicitar Cotización <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+             <!-- Producto 20 -->
+            <div class="product-card" data-category="inmobiliaria">
+                <div class="product-image">
+                    <img src="https://cdn.phototourl.com/free/2026-07-23-8e6a04aa-0773-4540-9fc0-d6e40759b97b.png" alt="Estantería de Contenedores Reciclados" class="product-img">
+                    <div class="product-overlay"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-tag">Inmobiliaria Reciclada</div>
+                    <h3 class="product-title">Bote de Basura</h3>
+                    <p class="product-desc">Debido a que nuestros productos son 100% reciclados, puede variar el color y la textura de nuestra gama de tonalidades..</p>
+                    <button class="btn-cotizar" onclick="cotizarProducto('Bote de Basura')">
                         Solicitar Cotización <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
