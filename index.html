@@ -4314,13 +4314,18 @@ html {
 }
 
 /* ============================================
-   RESPONSIVE MÓVIL - AÚN MÁS COMPACTO
+   FIX ESPECÍFICO HP/WINDOWS - ESCALADO 125%+
    ============================================ */
-@media (max-width: 768px) {
+
+/* Solo aplicar cuando Windows tiene escalado 125% o más (típico en HP) */
+@media screen and (min-resolution: 120dpi) {
+    
+    /* Reducir ligeramente la base (de 16px a 14.5px = ~9% más pequeño) */
     html {
-        font-size: 12px !important;
+        font-size: 14.5px !important;
     }
     
+    /* Reducir paddings de secciones (de 6-8rem a 5rem) */
     .section-full,
     .services-section-minimal,
     .coverage-section,
@@ -4330,62 +4335,309 @@ html {
     .ecoshop-section,
     .materials-editorial,
     .why-ridm-compact,
-    .about-section {
-        padding: 2.5rem 1rem !important;
+    .about-section,
+    .hero {
+        padding: 5rem 2rem !important;
     }
     
+    /* Reducir títulos principales */
     .section-heading,
     .hero-title {
-        font-size: clamp(1.5rem, 3.5vw, 2.5rem) !important;
+        font-size: clamp(2.2rem, 5vw, 4rem) !important;
     }
     
     .editorial-title {
-        font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+        font-size: clamp(2.5rem, 5vw, 4rem) !important;
     }
     
-    .about-grid {
-        gap: 2rem !important;
+    /* ============================================
+       POR QUÉ ELEGIRNOS - REDUCIR TODO PROPORCIONALMENTE
+       ============================================ */
+    
+    /* Grid de valores - reducir gaps */
+    .why-values-grid {
+        gap: 1rem !important; /* De 1.25rem a 1rem */
+        margin-bottom: 2rem !important; /* De 2.5rem a 2rem */
     }
     
-    .about-img-wrap {
-        max-height: 200px !important;
+    /* Tarjetas de valores */
+    .value-card-compact {
+        border-radius: 14px !important;
     }
     
+    /* Imágenes más pequeñas */
     .value-image-large {
-        height: 100px !important;
+        height: 140px !important; /* De 180px a 140px */
+    }
+    
+    /* Contenido compacto */
+    .value-content-compact {
+        padding: 1rem !important; /* De 1.25rem a 1rem */
+    }
+    
+    /* Iconos más pequeños */
+    .value-icon-small {
+        width: 32px !important; /* De 36px a 32px */
+        height: 32px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    /* Textos */
+    .value-content-compact h4 {
+        font-size: 0.85rem !important; /* De 0.9375rem a 0.85rem */
+        margin-bottom: 0.4rem !important;
+    }
+    
+    .value-content-compact p {
+        font-size: 0.75rem !important; /* De 0.8125rem a 0.75rem */
+    }
+    
+    /* Barra de autorizaciones */
+    .compliance-bar-compact {
+        padding: 1rem !important; /* De 1.25rem a 1rem */
+        gap: 1.5rem !important; /* De 2rem a 1.5rem */
+        margin-bottom: 2rem !important; /* De 2.5rem a 2rem */
+    }
+    
+    .compliance-item-compact {
+        font-size: 0.8rem !important; /* De 0.875rem a 0.8rem */
+    }
+    
+    .compliance-item-compact i {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Fila Mascota + Clientes */
+    .mascot-clients-row {
+        gap: 1.5rem !important; /* De 2rem a 1.5rem */
+    }
+    
+    /* Mascota */
+    .mascot-compact {
+        padding: 1.25rem !important; /* De 1.5rem a 1.25rem */
     }
     
     .mascot-image-xl {
-        height: 150px !important;
+        height: 300px !important; /* De 380px a 300px */
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .mascot-text-compact h4 {
+        font-size: 1.25rem !important; /* De 1.5rem a 1.25rem */
+    }
+    
+    .mascot-text-compact p {
+        font-size: 0.9rem !important; /* De 1rem a 0.9rem */
+    }
+    
+    /* Clientes */
+    .clients-compact {
+        padding: 1.5rem !important; /* De 2rem a 1.5rem */
+    }
+    
+    .clients-header-compact h4 {
+        font-size: 1.25rem !important; /* De 1.5rem a 1.25rem */
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .clients-logos-xl {
+        gap: 1rem !important; /* De 1.25rem a 1rem */
     }
     
     .client-logo-item-xl {
-        min-height: 60px !important;
+        min-height: 120px !important; /* De 160px a 120px */
+        padding: 0.75rem !important; /* De 1rem a 0.75rem */
+    }
+    
+    /* ============================================
+       SERVICIOS - COMPACTO PROPORCIONAL
+       ============================================ */
+    
+    .services-header-minimal {
+        margin-bottom: 3rem !important;
+    }
+    
+    .service-tabs {
+        gap: 0.6rem !important;
+        margin-bottom: 3rem !important;
+    }
+    
+    .service-tab {
+        padding: 0.6rem 1.25rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .services-grid-minimal {
+        gap: 1.5rem !important;
     }
     
     .service-minimal {
-        padding: 1rem !important;
+        padding: 1.5rem !important;
     }
     
-    .product-image {
-        height: 120px !important;
+    .service-minimal-icon {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
     }
     
-    .cov-card {
-        flex: 0 0 240px !important;
-        min-height: 280px !important;
+    .service-minimal-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .service-minimal-desc {
+        font-size: 0.85rem !important;
+    }
+    
+    /* ============================================
+       PROCESO - COMPACTO
+       ============================================ */
+    
+    .process-header {
+        margin-bottom: 3rem !important;
+    }
+    
+    .process-step {
+        gap: 2rem !important;
+        margin-bottom: 3rem !important;
+    }
+    
+    .process-step-number {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1rem !important;
+    }
+    
+    .process-step-title {
+        font-size: 1.4rem !important;
+    }
+    
+    .process-step-desc {
+        font-size: 0.85rem !important;
     }
     
     .process-step-image {
-        max-width: 100% !important;
+        max-width: 320px !important;
     }
     
-    .art-gallery {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.5rem !important;
+    /* ============================================
+       MATERIALES - COMPACTO
+       ============================================ */
+    
+    .editorial-container {
+        gap: 3rem !important;
+    }
+    
+    .counter-current {
+        font-size: 3.5rem !important;
+    }
+    
+    .editorial-window {
+        max-height: 550px !important;
+    }
+    
+    .material-entry {
+        padding: 1.5rem 0 !important;
+    }
+    
+    .entry-title {
+        font-size: 1.3rem !important;
+    }
+    
+    /* ============================================
+       ECOShop - COMPACTO
+       ============================================ */
+    
+    .shop-grid {
+        gap: 1.5rem !important;
+    }
+    
+    .product-image {
+        height: 170px !important; /* De 200px a 170px */
+    }
+    
+    .product-info {
+        padding: 1.5rem !important;
+    }
+    
+    .product-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .product-desc {
+        font-size: 0.85rem !important;
+    }
+    
+    .product-attributes li {
+        font-size: 0.75rem !important;
+    }
+    
+    /* ============================================
+       COBERTURA - COMPACTO
+       ============================================ */
+    
+    .cov-card {
+        flex: 0 0 300px !important; /* De 340px a 300px */
+        min-height: 360px !important; /* De 420px a 360px */
+        padding: 2rem !important;
+    }
+    
+    .cov-card-name {
+        font-size: 2.2rem !important;
+    }
+    
+    /* ============================================
+       MENÚ Y ELEMENTOS FLOTANTES
+       ============================================ */
+    
+    .menu-float-btn {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* ============================================
+       ESCALADO 150% (HP antiguas o configuración extrema)
+       ============================================ */
+    
+    @media screen and (min-resolution: 144dpi) {
+        html {
+            font-size: 13.5px !important; /* Reducción mayor */
+        }
+        
+        .section-full,
+        .services-section-minimal,
+        .coverage-section,
+        .contact-section,
+        .process-section,
+        .sustainability-section,
+        .ecoshop-section,
+        .materials-editorial,
+        .why-ridm-compact,
+        .about-section {
+            padding: 4.5rem 1.75rem !important;
+        }
+        
+        /* Por Qué Elegirnos - aún más compacto */
+        .value-image-large {
+            height: 120px !important;
+        }
+        
+        .mascot-image-xl {
+            height: 260px !important;
+        }
+        
+        .client-logo-item-xl {
+            min-height: 100px !important;
+        }
+        
+        .cov-card {
+            flex: 0 0 280px !important;
+            min-height: 340px !important;
+        }
     }
 }
-
 
     </style>
 </head>
