@@ -1838,16 +1838,14 @@
     position: relative;
     padding: 6rem 0;
     background: var(--bg-primary);
-    min-height: 100vh;
-    overflow: hidden;
-    
+    min-height: auto; /* CAMBIADO: de 100vh a auto */
+    overflow: visible; /* CAMBIADO: de hidden a visible */
 }
-
 .editorial-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1400px;
-    margin: 5rem;
+    margin: 0 auto;
     padding: 0 2rem;
     gap: 4rem;
     align-items: start;
@@ -1859,14 +1857,15 @@
 .editorial-sticky {
     position: sticky;
     top: 120px;
-    height: calc(100vh - 120px);
+    height: auto; /* CAMBIADO: de calc(100vh - 120px) a auto */
+    max-height: calc(100vh - 120px);
     display: flex;
-    align-items: center;
-    
+    align-items: flex-start; /* CAMBIADO: de center a flex-start */
 }
 
 .sticky-content {
     max-width: 500px;
+    width: 100%;
 }
 
 .editorial-title {
@@ -1930,9 +1929,7 @@
     text-transform: uppercase;
 }
 
-/* ============================================
-   NUEVO: CONTENEDOR DE IMAGEN DEL MATERIAL
-   ============================================ */
+/* CONTENEDOR DE IMAGEN DEL MATERIAL */
 .active-material-image {
     margin-bottom: 3rem;
 }
@@ -2042,7 +2039,7 @@
     line-height: 1.5;
 }
 
-/* CTA */
+/* CTA - Botón Solicitar Recolección */
 .editorial-cta {
     display: inline-flex;
     align-items: center;
@@ -2056,6 +2053,7 @@
     font-weight: 600;
     font-size: 0.9375rem;
     transition: all 0.3s ease;
+    margin-top: 2rem; /* AGREGADO: espacio arriba del botón */
 }
 
 .editorial-cta:hover {
@@ -2075,7 +2073,9 @@
 /* LADO DERECHO: VENTANA CON SCROLL INTERNO */
 .editorial-window {
     position: relative;
-    height: calc(100vh - 120px);
+    height: auto; /* CAMBIADO: de calc(100vh - 120px) a auto */
+    max-height: calc(100vh - 120px);
+    min-height: 500px; /* AGREGADO: altura mínima */
     display: flex;
     flex-direction: column;
 }
@@ -2339,24 +2339,6 @@
         transform: translateX(0);
     }
 }
-
-/* ANIMACIONES DE ENTRADA */
-.material-entry {
-    opacity: 0;
-    transform: translateX(20px);
-}
-
-.material-entry.animate-in {
-    animation: entrySlideIn 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
-}
-
-@keyframes entrySlideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* ============================================
    SOSTENIBILIDAD ACTIVA - RECICLAJE ARTÍSTICO
    ============================================ */
