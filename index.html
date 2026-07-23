@@ -3386,391 +3386,67 @@
         }
     }   
 
-        /* ============================================
-   COMPACTACIÓN GLOBAL - DESDE "NOSOTROS" HACIA ABAJO
+      /* ============================================
+   ESPACIADO UNIFORME - SIN SOBREScribir
    ============================================ */
 
-/* 1. Padding general de todas las secciones */
-.section-full,
-.services-section-minimal,
-.coverage-section,
-.contact-section,
-.process-section,
-.sustainability-section,
-.ecoshop-section {
-    padding: 4rem 2rem !important;
+/* Solo ajustamos márgenes entre secciones, no paddings internos */
+.about-section {
+    margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-    .section-full,
-    .services-section-minimal,
-    .coverage-section,
-    .contact-section,
-    .process-section,
-    .sustainability-section,
-    .ecoshop-section {
-        padding: 3rem 1.5rem !important;
-    }
+.why-ridm-compact {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* 2. Títulos de sección más compactos */
-.section-heading {
-    font-size: clamp(2rem, 4vw, 3rem) !important;
-    margin-bottom: 1rem !important;
+.process-section {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.section-label {
-    margin-bottom: 5rem !important;
+.services-section-minimal {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* 3. Descripciones/intros más pequeñas */
-.services-intro,
-.process-subtitle,
-.materials-intro,
-.sustainability-intro,
-.ecoshop-intro {
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 2rem !important;
+.materials-editorial {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* 4. NOSOTROS - Compacto */
-.about-grid {
-    gap: 3rem !important;
-}
-
-.about-text h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin-bottom: 1.25rem !important;
-}
-
-.about-text p {
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 1rem !important;
-}
-
-.about-img-wrap {
-    max-height: 320px !important;
-    aspect-ratio: 16/10 !important;
-}
-
-.impact-stat {
-    margin-top: 5rem !important;
-    padding: 1.25rem !important;
-}
-
-.impact-text strong {
-    font-size: 1rem !important;
-}
-
-.impact-text {
-    font-size: 0.875rem !important;
-}
-
-/* 5. PROCESO (Cómo Trabajamos) - Compacto */
-.process-header {
-    margin-bottom: 2.5rem !important;
-}
-
-.process-step {
-    gap: 2rem !important;
-    margin-bottom: 2.5rem !important;
-}
-
-.process-step-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
-    margin-bottom: 0.5rem !important;
-}
-
-.process-step-desc {
-    font-size: 0.875rem !important;
-}
-
-.process-step-number {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1rem !important;
-}
-
-/* 6. SERVICIOS - Compacto */
-.services-header-minimal {
-    margin-bottom: 2.5rem !important;
-}
-
-.services-grid-minimal {
-    gap: 1.25rem !important;
-}
-
-.service-minimal {
-    padding: 1.5rem !important;
-}
-
-.service-minimal-icon {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 1.25rem !important;
-    margin-bottom: 1rem !important;
-}
-
-.service-minimal-title {
-    font-size: 1.125rem !important;
-    margin-bottom: 0.5rem !important;
-}
-
-.service-minimal-desc {
-    font-size: 0.875rem !important;
-}
-
-.service-tabs {
-    margin-bottom: 2rem !important;
-    gap: 0.5rem !important;
-}
-
-.service-tab {
-    padding: 0.5rem 1rem !important;
-    font-size: 0.8125rem !important;
-}
-
-/* 7. MATERIALES - Compacto */
-.editorial-title {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin: 0.75rem 0 !important;
-}
-
-.editorial-description {
-    font-size: 0.9375rem !important;
-    margin-bottom: 1.5rem !important;
-}
-
-.editorial-counter {
-    margin-bottom: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-}
-
-.counter-current {
-    font-size: 2.5rem !important;
-}
-
-.active-material-info {
-    margin-bottom: 1.5rem !important;
-    padding: 1.25rem !important;
-}
-
-.active-name {
-    font-size: 1.125rem !important;
-}
-
-.active-desc {
-    font-size: 0.8125rem !important;
-}
-
-.editorial-window {
-    height: 400px !important;
-}
-
-.material-entry {
-    padding: 1.25rem 0 !important;
-}
-
-.entry-title {
-    font-size: 1.125rem !important;
-}
-
-.entry-subtitle {
-    font-size: 0.8125rem !important;
-}
-
-/* 8. COBERTURA - Compacto */
-.coverage-header {
-    margin-bottom: 2rem !important;
-}
-
-.cov-card {
-    min-height: 280px !important;
-    padding: 1.75rem !important;
-}
-
-.cov-card-name {
-    font-size: 1.75rem !important;
-}
-
-/* 9. CONTACTO - Compacto */
-.contact-grid {
-    gap: 2.5rem !important;
-}
-
-.contact-left h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem) !important;
-    margin-bottom: 1.5rem !important;
-}
-
-.c-detail {
-    padding: 1rem 0 !important;
-}
-
-/* 10. HERO - NO TOCAR (se mantiene igual) */
-
-/* ============================================
-   SOSTENIBILIDAD CREATIVA - EXACTAMENTE COMO LA CAPTURA
-   ============================================ */
 .sustainability-section {
-    background: var(--bg-primary) !important;
-    padding: 4rem 2rem !important;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.sustainability-header {
-    text-align: left !important;
-    margin-bottom: 2.5rem !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 2rem !important;
-    max-width: 1400px !important;
-    margin: 0 auto 2.5rem auto !important;
+.ecoshop-section {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.sustainability-header .section-label {
-    text-align: left !important;
-    display: block !important;
-    margin-bottom: 4rem !important;
+.coverage-section {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.sustainability-header .section-heading {
-    text-align: left !important;
-    font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
-    margin-bottom: 1rem !important;
-    line-height: 1.1 !important;
+.contact-section {
+    margin-top: 0;
 }
 
-/* Título con parte en itálica */
-.sustainability-header .section-heading .thin {
-    font-family: 'Playfair Display', serif !important;
-    font-style: italic !important;
-    font-weight: 400 !important;
-    color: var(--text-secondary) !important;
-}
-
-.sustainability-intro {
-    text-align: left !important;
-    max-width: 600px !important;
-    margin: 0 !important;
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-    color: var(--text-secondary) !important;
-}
-
-/* Galería: 4 imágenes en fila, pequeñas y cuadradas */
-.art-gallery {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1rem !important;
-    max-width: 1400px !important;
-    margin: 0 auto !important;
-    padding: 0 2rem !important;
-}
-
-.art-item {
-    position: relative !important;
-    aspect-ratio: 1/1 !important; /* Cuadradas */
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    cursor: pointer !important;
-    transition: transform 0.4s ease !important;
-}
-
-.art-item:hover {
-    transform: translateY(-5px) !important;
-}
-
-.art-item img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    transition: transform 0.6s ease !important;
-}
-
-.art-item:hover img {
-    transform: scale(1.08) !important;
-}
-
-.art-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%) !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    padding: 1rem !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-}
-
-.art-item:hover .art-overlay {
-    opacity: 1 !important;
-}
-
-.art-info h3 {
-    font-size: 0.9375rem !important;
-    font-weight: 600 !important;
-    color: white !important;
-    margin-bottom: 0.25rem !important;
-}
-
-.art-info p {
-    font-size: 0.75rem !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Ocultar CTA grande para mantenerlo compacto */
-.sustainability-cta {
-    display: none !important;
-}
-
-/* Responsive Sostenibilidad */
-@media (max-width: 1024px) {
-    .art-gallery {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
+/* Responsive: mantener espaciado en móvil */
 @media (max-width: 768px) {
-    .sustainability-section {
-        padding: 3rem 1.5rem !important;
-    }
-    
-    .sustainability-header {
-        padding: 0 !important;
-    }
-    
-    .sustainability-header .section-heading {
-        font-size: 2rem !important;
-    }
-    
-    .sustainability-intro {
-        font-size: 0.875rem !important;
-    }
-    
-    .art-gallery {
-        grid-template-columns: repeat(2, 1fr) !important;
-        padding: 0 !important;
-        gap: 0.75rem !important;
-    }
-}
-
-/* Animaciones de entrada */
-.art-item {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.art-item.animate-in {
-    animation: artReveal 0.6s cubic-bezier(0.25, 0, 0, 1) forwards;
-}
-
-@keyframes artReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .about-section,
+    .why-ridm-compact,
+    .process-section,
+    .services-section-minimal,
+    .materials-editorial,
+    .sustainability-section,
+    .ecoshop-section,
+    .coverage-section,
+    .contact-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 /* ============================================
