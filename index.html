@@ -3798,6 +3798,140 @@
         margin-bottom: 2.5rem;
     }
 }
+        /* ============================================
+   FIX GLOBAL: ESCALA DE WINDOWS (HP Y OTRAS)
+   ============================================ */
+
+/* Detectar escala de Windows al 125% o más */
+@media screen and (min-resolution: 120dpi) {
+    
+    /* Reducir tamaño de fuente global */
+    html {
+        font-size: 14px !important; /* Base más pequeña (normal es 16px) */
+    }
+    
+    /* Ajustar paddings de secciones */
+    .section-full,
+    .services-section-minimal,
+    .coverage-section,
+    .contact-section,
+    .process-section,
+    .sustainability-section,
+    .ecoshop-section,
+    .materials-editorial,
+    .why-ridm-compact,
+    .about-section {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    /* Reducir títulos principales */
+    .section-heading,
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem) !important;
+    }
+    
+    /* Ajustar subtítulos */
+    .section-label {
+        font-size: 0.6875rem !important;
+    }
+    
+    /* Reducir texto de párrafos */
+    .about-text p,
+    .services-intro,
+    .ecoshop-intro,
+    .sustainability-intro {
+        font-size: 0.9375rem !important;
+    }
+    
+    /* Ajustar tarjetas de servicios */
+    .service-minimal {
+        padding: 1.5rem !important;
+    }
+    
+    .service-minimal-title {
+        font-size: 1.125rem !important;
+    }
+    
+    .service-minimal-desc {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Ajustar productos de la tienda */
+    .product-card {
+        padding: 1.5rem !important;
+    }
+    
+    .product-title {
+        font-size: 1.125rem !important;
+    }
+    
+    .product-desc {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Reducir botones */
+    .btn-apple,
+    .btn-cotizar,
+    .editorial-cta {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Ajustar el menú flotante */
+    .menu-float-btn {
+        font-size: 0.8125rem !important;
+        padding: 0.875rem 1.25rem !important;
+    }
+    
+    /* Reducir iconos */
+    .service-minimal-icon {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.25rem !important;
+    }
+    
+    /* Ajustar el drawer lateral */
+    .drawer-link {
+        font-size: 1.125rem !important;
+    }
+    
+    /* Reducir footer */
+    .footer-brand {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Para escala de Windows al 150% */
+@media screen and (min-resolution: 144dpi) {
+    html {
+        font-size: 13px !important; /* Aún más pequeño */
+    }
+    
+    .section-full,
+    .services-section-minimal,
+    .coverage-section,
+    .contact-section,
+    .process-section,
+    .sustainability-section,
+    .ecoshop-section,
+    .materials-editorial,
+    .why-ridm-compact,
+    .about-section {
+        padding: 3rem 1.25rem !important;
+    }
+    
+    .section-heading,
+    .hero-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+    }
+}
+
+/* Para Chrome específicamente con zoom */
+@media screen and (-webkit-min-device-pixel-ratio: 1.25) {
+    body {
+        -webkit-font-smoothing: antialiased;
+    }
+}
 
 
     </style>
