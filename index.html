@@ -3352,33 +3352,31 @@
         }
     }   
 /* ============================================
-   FIX DEFINITIVO: ESCALA HP Y AMONTONAMIENTO
+   FIX: ESPACIADO Y ESCALA CORRECTA
    ============================================ */
 
-/* 1. ARREGLAR AMONTONAMIENTO EN MATERIALES (Economía Circular) */
+/* 1. ARREGLAR EL AMONTONAMIENTO - DAR ESPACIO ENTRE MATERIALES Y ARTE */
 .materials-editorial {
-    position: relative;
-    padding: 6rem 0;
-    background: var(--bg-primary);
-    min-height: auto !important; /* Elimina la altura fija de 100vh */
-    overflow: visible !important; /* Permite que el contenido fluya sin cortarse */
+    padding-bottom: 6rem !important; /* Espacio abajo de materiales */
+    margin-bottom: 2rem !important;  /* Separación adicional */
+    min-height: auto !important;     /* Elimina altura fija de 100vh */
+    overflow: visible !important;    /* Permite que el contenido fluya */
 }
 
-/* 2. SEPARAR SECCIONES PARA QUE NO SE PEGUEN */
 .sustainability-section {
-    margin-top: 4rem !important; /* Espacio seguro entre Materiales y Arte */
-    padding-top: 4rem !important;
+    margin-top: 4rem !important;     /* Espacio arriba de arte */
+    padding-top: 5rem !important;    /* Padding interno */
 }
 
-/* 3. FIX GLOBAL PARA PANTALLAS CON ESCALA DE WINDOWS (HP 125% - 150%) */
+/* 2. DETECTAR ESCALA DE WINDOWS (HP 125%+) Y AJUSTAR TAMAÑOS */
 @media screen and (min-resolution: 120dpi) {
     
-    /* Reducir ligeramente la base para compensar el zoom del sistema */
+    /* Reducir tamaño base de fuente */
     html {
-        font-size: 15px !important; /* Normal es 16px, esto lo hace un 6% más pequeño */
+        font-size: 15px !important;
     }
-
-    /* Ajustar paddings de secciones para que no se vean exageradas */
+    
+    /* Reducir paddings de secciones */
     .section-full,
     .services-section-minimal,
     .coverage-section,
@@ -3391,46 +3389,38 @@
     .about-section {
         padding: 5rem 2rem !important;
     }
-
-    /* Reducir títulos principales para que quepan mejor */
+    
+    /* Reducir títulos */
     .section-heading,
     .hero-title {
         font-size: clamp(2.2rem, 5vw, 4rem) !important;
     }
-
-    /* Ajustar tarjetas de servicios y productos */
+    
+    .editorial-title {
+        font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    }
+    
+    /* Reducir tarjetas */
     .service-minimal,
     .product-card {
         padding: 1.5rem !important;
     }
-
+    
     .service-minimal-title,
     .product-title {
         font-size: 1.125rem !important;
     }
-
-    .service-minimal-desc,
-    .product-desc {
-        font-size: 0.875rem !important;
-    }
-
-    /* Ajustar botones para que no sean gigantes */
+    
+    /* Reducir botones */
     .btn-apple,
     .btn-cotizar,
-    .editorial-cta,
-    .btn-sustainability {
+    .editorial-cta {
         padding: 0.875rem 1.75rem !important;
         font-size: 0.875rem !important;
     }
-
-    /* Ajustar el menú flotante */
-    .menu-float-btn {
-        font-size: 0.8125rem !important;
-        padding: 0.875rem 1.5rem !important;
-    }
 }
 
-/* 4. FIX ESPECÍFICO PARA ESCALA 150% (Algunas HP antiguas) */
+/* 3. PARA ESCALA 150% (HP antiguas) */
 @media screen and (min-resolution: 144dpi) {
     html {
         font-size: 14px !important;
@@ -3448,28 +3438,15 @@
     }
 }
 
-/* 5. ASEGURAR QUE EL BOTÓN DE CTA NO QUEDE TAPADO */
-.editorial-cta {
-    margin-top: 2.5rem !important;
-    margin-bottom: 2.5rem !important;
-    display: inline-flex !important;
-    position: relative;
-    z-index: 10;
-}
-
-/* 6. RESPONSIVE MÓVIL (Mantener compacto) */
+/* 4. RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
     .materials-editorial {
-        padding: 4rem 0 !important;
+        padding-bottom: 4rem !important;
     }
     
     .sustainability-section {
         margin-top: 2rem !important;
-        padding: 3rem 1.5rem !important;
-    }
-    
-    .editorial-container {
-        padding: 0 1.5rem;
+        padding-top: 3rem !important;
     }
 }
 
