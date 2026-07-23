@@ -3760,6 +3760,183 @@
     }
 }
 
+/* ============================================
+   FIX HP/WINDOWS: REDUCIR ESCALA GENERAL
+   ============================================ */
+
+/* Detectar escalado de Windows 125% o más (típico en HP) */
+@media screen and (min-resolution: 120dpi) {
+    
+    /* Reducir tamaño base de fuente globalmente */
+    html {
+        font-size: 13px !important; /* Normal es 16px, esto reduce ~19% */
+    }
+    
+    /* Reducir TODOS los paddings de secciones */
+    .section-full,
+    .services-section-minimal,
+    .coverage-section,
+    .contact-section,
+    .process-section,
+    .sustainability-section,
+    .ecoshop-section,
+    .materials-editorial,
+    .why-ridm-compact,
+    .about-section,
+    .hero {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    /* Reducir títulos principales */
+    .section-heading,
+    .hero-title {
+        font-size: clamp(2rem, 4vw, 3.5rem) !important;
+    }
+    
+    .editorial-title {
+        font-size: clamp(2.2rem, 4vw, 3.5rem) !important;
+    }
+    
+    /* Reducir subtítulos y labels */
+    .section-label {
+        font-size: 0.65rem !important;
+    }
+    
+    /* Reducir texto de párrafos */
+    .about-text p,
+    .services-intro,
+    .ecoshop-intro,
+    .sustainability-intro,
+    .editorial-description {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Reducir tarjetas de servicios */
+    .service-minimal {
+        padding: 1.25rem !important;
+    }
+    
+    .service-minimal-title {
+        font-size: 1rem !important;
+    }
+    
+    .service-minimal-desc {
+        font-size: 0.8rem !important;
+    }
+    
+    .service-minimal-icon {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    /* Reducir productos ECOShop */
+    .product-card {
+        padding: 1.25rem !important;
+    }
+    
+    .product-title {
+        font-size: 1rem !important;
+    }
+    
+    .product-desc {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Reducir botones */
+    .btn-apple,
+    .btn-cotizar,
+    .editorial-cta,
+    .btn-sustainability,
+    .btn-submit {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Reducir menú flotante */
+    .menu-float-btn {
+        font-size: 0.75rem !important;
+        padding: 0.75rem 1.25rem !important;
+        top: 1.5rem !important;
+        right: 1.5rem !important;
+    }
+    
+    /* Reducir drawer menu */
+    .drawer-link {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Reducir contador de materiales */
+    .counter-current {
+        font-size: 3rem !important;
+    }
+    
+    /* Reducir galería de arte */
+    .art-gallery {
+        gap: 0.75rem !important;
+    }
+    
+    /* Reducir proceso timeline */
+    .process-step-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .process-step-desc {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Reducir cobertura cards */
+    .cov-card {
+        min-height: 320px !important;
+        padding: 1.5rem !important;
+    }
+    
+    .cov-card-name {
+        font-size: 2rem !important;
+    }
+    
+    /* Reducir footer */
+    .footer {
+        padding: 2rem 1.5rem !important;
+    }
+}
+
+/* Para escalado 150% (HP antiguas o configuraciones extremas) */
+@media screen and (min-resolution: 144dpi) {
+    html {
+        font-size: 12px !important; /* Reducción aún mayor */
+    }
+    
+    .section-full,
+    .services-section-minimal,
+    .coverage-section,
+    .contact-section,
+    .process-section,
+    .sustainability-section,
+    .ecoshop-section,
+    .materials-editorial,
+    .why-ridm-compact,
+    .about-section,
+    .hero {
+        padding: 3.5rem 1.25rem !important;
+    }
+    
+    .section-heading,
+    .hero-title {
+        font-size: clamp(1.75rem, 3.5vw, 3rem) !important;
+    }
+    
+    .editorial-title {
+        font-size: clamp(2rem, 3.5vw, 3rem) !important;
+    }
+}
+
+/* Asegurar que en móvil no se aplique la reducción extra */
+@media screen and (min-resolution: 120dpi) and (max-width: 768px) {
+    html {
+        font-size: 14px !important; /* Un poco más grande en móvil */
+    }
+}
 
 
     </style>
