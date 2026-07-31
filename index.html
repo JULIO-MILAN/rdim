@@ -4107,7 +4107,8 @@
 
 </div>
 </section>
-    <!-- SERVICES - SISTEMA DE CATEGORÍAS -->
+
+<!-- SERVICES - SISTEMA DE CATEGORÍAS -->
 <section class="services-section-minimal" id="servicios">
     <div class="section-inner">
         <div class="services-header-minimal">
@@ -4121,60 +4122,119 @@
         </div>
 
         <!-- Tabs de Categorías -->
-     <!-- Tabs de Categorías (Especializados primero) -->
-<div class="service-tabs">
-    <button class="service-tab active" data-category="especializados">
-        <i class="fas fa-exclamation-triangle"></i>
-        <span>Especializados</span>
-    </button>
-    <button class="service-tab" data-category="recoleccion">
-        <i class="fas fa-truck"></i>
-        <span>Recolección</span>
-    </button>
-    <button class="service-tab" data-category="proyectos">
-        <i class="fas fa-hard-hat"></i>
-        <span>Proyectos</span>
-    </button>
-    <button class="service-tab" data-category="logistica">
-        <i class="fas fa-truck-moving"></i>
-        <span>Logística</span>
-    </button>
-    <button class="service-tab" data-category="gestion">
-        <i class="fas fa-clipboard-list"></i>
-        <span>Gestión</span>
-    </button>
-    <button class="service-tab" data-category="circular">
-        <i class="fas fa-recycle"></i>
-        <span>Economía Circular</span>
-    </button>
-    <button class="service-tab" data-category="all">
-        <i class="fas fa-th-large"></i>
-        <span>Todos</span>
-    </button>
-</div>
+        <div class="service-tabs">
+            <button class="service-tab active" data-category="especializados">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Especializados</span>
+            </button>
+            <button class="service-tab" data-category="recoleccion">
+                <i class="fas fa-truck"></i>
+                <span>Recolección</span>
+            </button>
+            <button class="service-tab" data-category="proyectos">
+                <i class="fas fa-hard-hat"></i>
+                <span>Proyectos</span>
+            </button>
+            <button class="service-tab" data-category="logistica">
+                <i class="fas fa-truck-moving"></i>
+                <span>Logística</span>
+            </button>
+            <button class="service-tab" data-category="gestion">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Gestión</span>
+            </button>
+            <button class="service-tab" data-category="gestoria">
+                <i class="fas fa-file-signature"></i>
+                <span>Gestoría Ambiental</span>
+            </button>
+            <button class="service-tab" data-category="circular">
+                <i class="fas fa-recycle"></i>
+                <span>Economía Circular</span>
+            </button>
+            <button class="service-tab" data-category="all">
+                <i class="fas fa-th-large"></i>
+                <span>Todos</span>
+            </button>
+        </div>
 
         <!-- Grid de Servicios -->
         <div class="services-grid-minimal" id="servicesGrid">
-            
-            <!-- CATEGORÍA: RECOLECCIÓN -->
-            <div class="service-minimal" data-category="recoleccion" data-service="">
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: RECOLECCIÓN - RSU (5 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="recoleccion" data-service="rsu-recoleccion">
                 <div class="service-minimal-icon"><i class="fas fa-trash-alt"></i></div>
-                <h3 class="service-minimal-title">Recolección de Basura</h3>
-                <p class="service-minimal-desc">Recolección de residuos sólidos urbanos con planes semanales o personalizados.</p>
+                <h3 class="service-minimal-title">Recolección de RSU en Origen</h3>
+                <p class="service-minimal-desc">Recolección puntual de residuos sólidos urbanos directamente en tu instalación.</p>
                 <div class="service-expanded">
                     <ul>
-                        <li>Contenedores adecuados</li>
-                        <li>Recolección programada</li>
-                        <li>Disposición final correcta</li>
+                        <li>Contenedores adecuados a tu volumen</li>
+                        <li>Planes semanales o personalizados</li>
+                        <li>Recolección programada y puntual</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="recoleccion" data-service="rsu-transporte">
+                <div class="service-minimal-icon"><i class="fas fa-truck-loading"></i></div>
+                <h3 class="service-minimal-title">Transporte de RSU</h3>
+                <p class="service-minimal-desc">Transporte autorizado a centros de tratamiento y disposición final.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Unidades autorizadas y rastreadas</li>
+                        <li>Centros de tratamiento certificados</li>
+                        <li>Manifiestos de transporte</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="rsu-disposicion">
+                <div class="service-minimal-icon"><i class="fas fa-dumpster"></i></div>
+                <h3 class="service-minimal-title">Disposición Final de RSU</h3>
+                <p class="service-minimal-desc">Disposición controlada en rellenos sanitarios y vertederos autorizados.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Rellenos sanitarios autorizados</li>
+                        <li>Vertederos controlados</li>
+                        <li>Certificados de disposición final</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="rsu-asesoria">
+                <div class="service-minimal-icon"><i class="fas fa-comments"></i></div>
+                <h3 class="service-minimal-title">Asesoría en Gestión de RSU</h3>
+                <p class="service-minimal-desc">Consultoría especializada para optimizar tu manejo de residuos urbanos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Diagnóstico de generación</li>
+                        <li>Optimización de rutas y frecuencias</li>
+                        <li>Reducción de costos operativos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="recoleccion" data-service="rsu-capacitacion">
+                <div class="service-minimal-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3 class="service-minimal-title">Capacitación en Manejo de RSU</h3>
+                <p class="service-minimal-desc">Formación en buenas prácticas de separación y manejo de residuos urbanos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Buenas prácticas de separación</li>
+                        <li>Normatividad vigente</li>
+                        <li>Programas de reducción</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: RECOLECCIÓN - OTROS (5 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="recoleccion" data-service="organicos">
                 <div class="service-minimal-icon"><i class="fas fa-apple-alt"></i></div>
                 <h3 class="service-minimal-title">Residuos Orgánicos</h3>
-                <p class="service-minimal-desc">Recolección especializada de residuos orgánicos para compostaje y valorización.</p>
+                <p class="service-minimal-desc">Recolección especializada para compostaje y valorización.</p>
                 <div class="service-expanded">
                     <ul>
                         <li>Restos de alimentos</li>
@@ -4184,11 +4244,10 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="recoleccion" data-service="aceite">
                 <div class="service-minimal-icon"><i class="fas fa-oil-can"></i></div>
                 <h3 class="service-minimal-title">Aceite Vegetal Usado</h3>
-                <p class="service-minimal-desc">Recolección certificada de aceite vegetal usado para biodiesel.</p>
+                <p class="service-minimal-desc">Recolección certificada para transformación en biodiesel.</p>
                 <div class="service-expanded">
                     <ul>
                         <li>Restaurantes y comedores</li>
@@ -4198,8 +4257,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="recoleccion" data-service="raee">
                 <div class="service-minimal-icon"><i class="fas fa-laptop"></i></div>
                 <h3 class="service-minimal-title">RAEE</h3>
                 <p class="service-minimal-desc">Residuos de Aparatos Eléctricos y Electrónicos con manejo certificado.</p>
@@ -4210,14 +4268,12 @@
                         <li>Desmantelamiento seguro</li>
                     </ul>
                 </div>
-                
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="recoleccion" data-service="jardineria">
                 <div class="service-minimal-icon"><i class="fas fa-leaf"></i></div>
                 <h3 class="service-minimal-title">Jardinería y Poda</h3>
-                <p class="service-minimal-desc">Recolección de residuos verdes, poda y mantenimiento de áreas verdes.</p>
+                <p class="service-minimal-desc">Recolección de residuos verdes y mantenimiento de áreas verdes.</p>
                 <div class="service-expanded">
                     <ul>
                         <li>Ramas y hojas</li>
@@ -4227,8 +4283,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="recoleccion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="recoleccion" data-service="concreto">
                 <div class="service-minimal-icon"><i class="fas fa-cubes"></i></div>
                 <h3 class="service-minimal-title">Residuos de Concreto</h3>
                 <p class="service-minimal-desc">Recolección y disposición de escombro y residuos de construcción.</p>
@@ -4241,52 +4296,264 @@
                 </div>
             </div>
 
-            <!-- CATEGORÍA: ESPECIALIZADOS -->
-            <div class="service-minimal" data-category="especializados" data-service="">
-                <div class="service-minimal-number"></div>
-                <div class="service-minimal-icon"><i class="fas fa-radiation"></i></div>
-                <h3 class="service-minimal-title">Residuos Peligrosos</h3>
-                <p class="service-minimal-desc">Manejo especializado con protocolos certificados. NOM-052-SEMARNAT-2005.</p>
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: ESPECIALIZADOS - RP (10 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="especializados" data-service="rp-clasificacion">
+                <div class="service-minimal-icon"><i class="fas fa-search"></i></div>
+                <h3 class="service-minimal-title">Clasificación y Caracterización de RP</h3>
+                <p class="service-minimal-desc">Identificación y clasificación de residuos peligrosos según NOM-052.</p>
                 <div class="service-expanded">
                     <ul>
-                        <li>Solventes y pinturas</li>
-                        <li>Aceites industriales</li>
-                        <li>Químicos y reactivos</li>
+                        <li>Muestreo y análisis de laboratorio</li>
+                        <li>Clasificación CRETIB</li>
+                        <li>Informe de caracterización</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="especializados" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="especializados" data-service="rp-recoleccion">
+                <div class="service-minimal-icon"><i class="fas fa-radiation"></i></div>
+                <h3 class="service-minimal-title">Recolección de RP en Origen</h3>
+                <p class="service-minimal-desc">Recolección segura de residuos peligrosos directamente en tu instalación.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Contenedores certificados</li>
+                        <li>Personal capacitado</li>
+                        <li>Protocolos de seguridad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-transporte">
+                <div class="service-minimal-icon"><i class="fas fa-truck"></i></div>
+                <h3 class="service-minimal-title">Transporte de RP</h3>
+                <p class="service-minimal-desc">Transporte autorizado a centros de tratamiento y disposición final.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Unidades autorizadas por SEMARNAT</li>
+                        <li>Manifiestos de transporte</li>
+                        <li>Rastreo GPS en tiempo real</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-incineracion">
+                <div class="service-minimal-icon"><i class="fas fa-fire"></i></div>
+                <h3 class="service-minimal-title">Tratamiento de RP - Incineración</h3>
+                <p class="service-minimal-desc">Proceso térmico a altas temperaturas para eliminación de residuos peligrosos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Residuos sólidos urbanos e industriales</li>
+                        <li>Residuos peligrosos orgánicos</li>
+                        <li>Conversión a cenizas, gases y calor</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-neutralizacion">
+                <div class="service-minimal-icon"><i class="fas fa-flask"></i></div>
+                <h3 class="service-minimal-title">Tratamiento de RP - Neutralización</h3>
+                <p class="service-minimal-desc">Proceso químico para neutralizar ácidos y bases fuertes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Mezcla de sustancias ácidas y básicas</li>
+                        <li>Neutralización de efectos corrosivos</li>
+                        <li>Residuos con pH extremo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-estabilizacion">
+                <div class="service-minimal-icon"><i class="fas fa-cube"></i></div>
+                <h3 class="service-minimal-title">Tratamiento de RP - Estabilización</h3>
+                <p class="service-minimal-desc">Proceso físico-químico para reducir la peligrosidad de los residuos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Solidificación y encapsulación</li>
+                        <li>Inmovilización de contaminantes</li>
+                        <li>Reducción de lixiviados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-biodegradacion">
+                <div class="service-minimal-icon"><i class="fas fa-seedling"></i></div>
+                <h3 class="service-minimal-title">Tratamiento de RP - Biodegradación</h3>
+                <p class="service-minimal-desc">Proceso natural con microorganismos para descomposición de materia orgánica.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Residuos orgánicos peligrosos</li>
+                        <li>Residuos agrícolas</li>
+                        <li>Descomposición controlada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-disposicion">
+                <div class="service-minimal-icon"><i class="fas fa-warehouse"></i></div>
+                <h3 class="service-minimal-title">Disposición Final de RP</h3>
+                <p class="service-minimal-desc">Confinamiento controlado en vertederos autorizados para residuos peligrosos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Confinamientos autorizados</li>
+                        <li>Vertederos controlados</li>
+                        <li>Certificados de disposición final</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-asesoria">
+                <div class="service-minimal-icon"><i class="fas fa-user-tie"></i></div>
+                <h3 class="service-minimal-title">Asesoría en Gestión de RP</h3>
+                <p class="service-minimal-desc">Consultoría especializada en manejo integral de residuos peligrosos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Diagnóstico de generación</li>
+                        <li>Planes de manejo</li>
+                        <li>Cumplimiento NOM-052</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="rp-capacitacion">
+                <div class="service-minimal-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="service-minimal-title">Capacitación en Manejo de RP</h3>
+                <p class="service-minimal-desc">Formación en buenas prácticas para el manejo seguro de residuos peligrosos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Buenas prácticas de manejo</li>
+                        <li>Protocolos de emergencia</li>
+                        <li>Normatividad vigente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: ESPECIALIZADOS - RPBI (1 servicio) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="especializados" data-service="rpbi">
                 <div class="service-minimal-icon"><i class="fas fa-biohazard"></i></div>
                 <h3 class="service-minimal-title">RPBI</h3>
                 <p class="service-minimal-desc">Residuos Peligrosos Biológico-Infecciosos. NOM-087-SEMARNAT-SSA1-2002.</p>
                 <div class="service-expanded">
                     <ul>
-                        <li>Hospitales y clínicas</li>
-                        <li>Laboratorios</li>
+                        <li>Hospitales, clínicas y laboratorios</li>
+                        <li>Contenedores certificados</li>
                         <li>Tratamiento y disposición final</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="especializados" data-service="">
-                <div class="service-minimal-number"></div>
-                <div class="service-minimal-icon"><i class="fas fa-hammer"></i></div>
-                <h3 class="service-minimal-title">Destrucción Fiscal</h3>
-                <p class="service-minimal-desc">Eliminación segura de documentos confidenciales con certificado.</p>
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: ESPECIALIZADOS - DESTRUCCIÓN (5 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="especializados" data-service="destruccion-asesoria">
+                <div class="service-minimal-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3 class="service-minimal-title">Asesoría Legal y Fiscal en Destrucción</h3>
+                <p class="service-minimal-desc">Asesoría sobre obligaciones legales y fiscales para destrucción de bienes.</p>
                 <div class="service-expanded">
                     <ul>
-                        <li>Documentos fiscales y contables</li>
-                        <li>Certificado de destrucción</li>
-                        <li>Cumplimiento SAT</li>
+                        <li>Obligaciones legales y fiscales</li>
+                        <li>Regulaciones ambientales aplicables</li>
+                        <li>Cumplimiento ante SAT</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- CATEGORÍA: PROYECTOS -->
-            <div class="service-minimal" data-category="proyectos" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="especializados" data-service="destruccion-plan">
+                <div class="service-minimal-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h3 class="service-minimal-title">Plan de Destrucción Personalizado</h3>
+                <p class="service-minimal-desc">Diseño de plan a medida según material, regulaciones y necesidades.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Caracterización del material</li>
+                        <li>Regulaciones ambientales</li>
+                        <li>Necesidades específicas de tu empresa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="destruccion-transporte">
+                <div class="service-minimal-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="service-minimal-title">Recolección y Transporte Seguro</h3>
+                <p class="service-minimal-desc">Recolección y traslado seguro de materiales a destruir.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Vehículos adecuados y seguros</li>
+                        <li>Procedimientos de cadena de custodia</li>
+                        <li>Confidencialidad total</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="destruccion-certificada">
+                <div class="service-minimal-icon"><i class="fas fa-shredder"></i></div>
+                <h3 class="service-minimal-title">Destrucción Certificada</h3>
+                <p class="service-minimal-desc">Destrucción de materiales por incineración, trituración o desmantelamiento.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Incineración controlada</li>
+                        <li>Trituración mecánica</li>
+                        <li>Desmantelamiento seguro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="especializados" data-service="destruccion-certificado">
+                <div class="service-minimal-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="service-minimal-title">Emisión de Certificados de Destrucción</h3>
+                <p class="service-minimal-desc">Certificados oficiales que avalan el proceso para cumplimiento legal y fiscal.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Certificado de destrucción oficial</li>
+                        <li>Cumplimiento ante SAT</li>
+                        <li>Documentación para auditorías</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: PROYECTOS - DESMANTELAMIENTO (1 servicio) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="proyectos" data-service="desmantelamiento">
+                <div class="service-minimal-icon"><i class="fas fa-network-wired"></i></div>
+                <h3 class="service-minimal-title">Desmantelamiento de Redes</h3>
+                <p class="service-minimal-desc">Retiro sistemático de infraestructura de redes con seguridad y confidencialidad.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Redes de datos, eléctricas y telecomunicaciones</li>
+                        <li>Retiro de servidores, routers, switches y cables</li>
+                        <li>Eliminación de cableado estructurado y de alimentación</li>
+                        <li>Limpieza del área</li>
+                        <li>Actualizaciones, reubicaciones, cierres y reestructuración</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: PROYECTOS - DEMOLICIÓN (1 servicio) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="proyectos" data-service="demolicion">
+                <div class="service-minimal-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3 class="service-minimal-title">Demoliciones y Excavaciones</h3>
+                <p class="service-minimal-desc">Demoliciones industriales, comerciales y habitacionales con planeación específica.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Edificaciones industriales, comerciales y habitacionales</li>
+                        <li>Demoliciones mayores a 600 m² con valoración previa</li>
+                        <li>Retiro de cimentaciones y evaluación de material</li>
+                        <li>Extracción de suelo y manejo responsable de residuos</li>
+                        <li>Retiro de material sano y contaminado</li>
+                        <li>Excavaciones para cimentación y proyectos constructivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: PROYECTOS - DESAZOLVES (1 servicio) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="proyectos" data-service="desazolve">
                 <div class="service-minimal-icon"><i class="fas fa-water"></i></div>
                 <h3 class="service-minimal-title">Desazolves y Limpieza</h3>
                 <p class="service-minimal-desc">Desazolve de drenajes, fosas sépticas y limpieza profunda de cisternas.</p>
@@ -4299,39 +4566,146 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="proyectos" data-service="">
-                <div class="service-minimal-number"></div>
-                <div class="service-minimal-icon"><i class="fa-solid fa-hard-hat"></i></div>
-                <h3 class="service-minimal-title">Demoliciones</h3>
-                <p class="service-minimal-desc">Desmantelamiento de naves industriales, bodegas y empresas.</p>
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: PROYECTOS - TRATAMIENTO DE AGUAS (9 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-condicionamiento">
+                <div class="service-minimal-icon"><i class="fas fa-tint"></i></div>
+                <h3 class="service-minimal-title">Condicionamiento de Influentes</h3>
+                <p class="service-minimal-desc">Preparación y acondicionamiento de aguas residuales para tratamiento.</p>
                 <div class="service-expanded">
                     <ul>
-                        <li>Naves industriales</li>
-                        <li>Bodegas y restaurantes</li>
-                        <li>Manejo de escombro</li>
+                        <li>Ajuste de pH y temperatura</li>
+                        <li>Pre-tratamiento de influentes</li>
+                        <li>Optimización de procesos</li>
                     </ul>
                 </div>
             </div>
-                        <!-- CATEGORÍA: LOGÍSTICA -->
-<div class="service-minimal" data-category="logistica" data-service="">
-    <div class="service-minimal-number"></div>
-    <div class="service-minimal-icon"><i class="fas fa-truck-moving"></i></div>
-    <h3 class="service-minimal-title">Fletes y Transporte</h3>
-    <p class="service-minimal-desc">
-        Fletes económicos locales y foráneos, incluyendo personal operativo para carga y descarga.
-    </p>
-    <div class="service-expanded">
-        <ul>
-            <li>Transporte local y foráneo</li>
-            <li>Personal operativo incluido (carga y descarga)</li>
-            <li>Flota disponible para diversos volúmenes y necesidades</li>
-        </ul>
-    </div>
-</div>
 
-            <!-- CATEGORÍA: GESTIÓN -->
-            <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="">
-                <div class="service-minimal-number"></div>
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-floculacion">
+                <div class="service-minimal-icon"><i class="fas fa-snowflake"></i></div>
+                <h3 class="service-minimal-title">Floculación</h3>
+                <p class="service-minimal-desc">Agregación de partículas suspendidas para facilitar su separación.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Dosificación de floculantes</li>
+                        <li>Formación de flóculos</li>
+                        <li>Sedimentación eficiente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-coagulacion">
+                <div class="service-minimal-icon"><i class="fas fa-atom"></i></div>
+                <h3 class="service-minimal-title">Coagulación</h3>
+                <p class="service-minimal-desc">Desestabilización de partículas coloidales para su remoción.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Coagulantes químicos</li>
+                        <li>Desestabilización de coloides</li>
+                        <li>Mezcla rápida y lenta</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-olor">
+                <div class="service-minimal-icon"><i class="fas fa-wind"></i></div>
+                <h3 class="service-minimal-title">Eliminación de Olor</h3>
+                <p class="service-minimal-desc">Tratamiento para eliminación de olores en procesos de agua residual.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Carbón activado</li>
+                        <li>Oxidación química</li>
+                        <li>Biofiltración</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-filtracion">
+                <div class="service-minimal-icon"><i class="fas fa-filter"></i></div>
+                <h3 class="service-minimal-title">Filtración</h3>
+                <p class="service-minimal-desc">Sistemas de filtración para remoción de sólidos y contaminantes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Filtros de arena y multimedia</li>
+                        <li>Filtración de carbón activado</li>
+                        <li>Microfiltración</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-membranas">
+                <div class="service-minimal-icon"><i class="fas fa-layer-group"></i></div>
+                <h3 class="service-minimal-title">RO / MF / UF</h3>
+                <p class="service-minimal-desc">Ósmosis inversa, microfiltración y ultrafiltración de alta eficiencia.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Ósmosis Inversa (RO)</li>
+                        <li>Microfiltración (MF)</li>
+                        <li>Ultrafiltración (UF)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-proteccion">
+                <div class="service-minimal-icon"><i class="fas fa-shield-virus"></i></div>
+                <h3 class="service-minimal-title">Protección de Membranas</h3>
+                <p class="service-minimal-desc">Tratamientos preventivos para extender la vida útil de membranas.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Anti-incrustantes</li>
+                        <li>Pre-tratamiento de agua de alimentación</li>
+                        <li>Monitoreo de ensuciamiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-limpieza">
+                <div class="service-minimal-icon"><i class="fas fa-spray-can"></i></div>
+                <h3 class="service-minimal-title">Limpieza y Desinfección</h3>
+                <p class="service-minimal-desc">Limpieza profunda y desinfección de sistemas de tratamiento de agua.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Limpieza CIP de membranas</li>
+                        <li>Desinfección con cloro y UV</li>
+                        <li>Sanitización de tanques y tuberías</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="proyectos" data-service="aguas-intercambio">
+                <div class="service-minimal-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h3 class="service-minimal-title">Intercambio Iónico</h3>
+                <p class="service-minimal-desc">Remoción de iones disueltos mediante resinas de intercambio iónico.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Ablandamiento de agua</li>
+                        <li>Desmineralización</li>
+                        <li>Remoción de metales pesados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: LOGÍSTICA (1 servicio) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="logistica" data-service="fletes">
+                <div class="service-minimal-icon"><i class="fas fa-truck-moving"></i></div>
+                <h3 class="service-minimal-title">Fletes y Transporte</h3>
+                <p class="service-minimal-desc">Fletes económicos locales y foráneos con personal operativo.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Transporte local y foráneo</li>
+                        <li>Personal operativo incluido (carga y descarga)</li>
+                        <li>Flota disponible para diversos volúmenes y necesidades</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTIÓN (4 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal service-minimal-wide" data-category="gestion" data-service="gestion-integral">
                 <div class="service-minimal-icon"><i class="fas fa-tasks"></i></div>
                 <h3 class="service-minimal-title">Gestión Integral</h3>
                 <p class="service-minimal-desc">Solución completa: diagnóstico, plan personalizado, monitoreo y reportes.</p>
@@ -4345,8 +4719,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="gestion" data-service="">
-                <div class="service-minimal-number">13</div>
+            <div class="service-minimal" data-category="gestion" data-service="consultoria">
                 <div class="service-minimal-icon"><i class="fas fa-file-contract"></i></div>
                 <h3 class="service-minimal-title">Consultoría Ambiental</h3>
                 <p class="service-minimal-desc">Gestoría y alta de permisos. Evita multas y sanciones.</p>
@@ -4359,10 +4732,9 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="gestion" data-service="">
-                <div class="service-minimal-number"></div>
-                <div class="service-minimal-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3 class="service-minimal-title">Capacitación</h3>
+            <div class="service-minimal" data-category="gestion" data-service="capacitacion">
+                <div class="service-minimal-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3 class="service-minimal-title">Capacitación Ambiental</h3>
                 <p class="service-minimal-desc">Formación empresarial sobre manejo de residuos y normatividad.</p>
                 <div class="service-expanded">
                     <ul>
@@ -4373,11 +4745,644 @@
                 </div>
             </div>
 
-            <!-- CATEGORÍA: ECONOMÍA CIRCULAR -->
-            <div class="service-minimal" data-category="circular" data-service="">
-                <div class="service-minimal-number">15</div>
+            <div class="service-minimal" data-category="gestion" data-service="contable">
+                <div class="service-minimal-icon"><i class="fas fa-calculator"></i></div>
+                <h3 class="service-minimal-title">Asesoría Contable y Fiscal en Reciclaje</h3>
+                <p class="service-minimal-desc">Servicios contables y fiscales especializados en la industria del reciclaje.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Asesoría legal y fiscal</li>
+                        <li>Cumplimiento normativo</li>
+                        <li>Optimización de recursos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTORÍA - SEMARNAT FEDERAL (12 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-mia">
+                <div class="service-minimal-icon"><i class="fas fa-landmark"></i></div>
+                <h3 class="service-minimal-title">MIA Particular y Regional</h3>
+                <p class="service-minimal-desc">Manifestación de Impacto Ambiental ante SEMARNAT.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y presentación</li>
+                        <li>Seguimiento hasta resolución</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-riesgo">
+                <div class="service-minimal-icon"><i class="fas fa-exclamation-circle"></i></div>
+                <h3 class="service-minimal-title">Estudio de Riesgo Ambiental</h3>
+                <p class="service-minimal-desc">Evaluación de riesgos ambientales para instalaciones de alto impacto.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Identificación de escenarios de riesgo</li>
+                        <li>Medidas de prevención y mitigación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-etj">
+                <div class="service-minimal-icon"><i class="fas fa-file-alt"></i></div>
+                <h3 class="service-minimal-title">Estudio Técnico Justificativo (ETJ)</h3>
+                <p class="service-minimal-desc">Estudio técnico para justificación de proyectos ante SEMARNAT.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del ETJ</li>
+                        <li>Trámite y seguimiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-informe">
+                <div class="service-minimal-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3 class="service-minimal-title">Informe Preventivo</h3>
+                <p class="service-minimal-desc">Informe preventivo para proyectos de bajo impacto ambiental.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y presentación</li>
+                        <li>Proyectos de bajo impacto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-registro">
+                <div class="service-minimal-icon"><i class="fas fa-id-card"></i></div>
+                <h3 class="service-minimal-title">Registro como Generador de RP</h3>
+                <p class="service-minimal-desc">Alta como generador de residuos peligrosos ante SEMARNAT.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Registro de micro, pequeño o gran generador</li>
+                        <li>Actualización y renovación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-planes">
+                <div class="service-minimal-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h3 class="service-minimal-title">Planes de Manejo de RP</h3>
+                <p class="service-minimal-desc">Elaboración y registro de planes de manejo de residuos peligrosos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del plan</li>
+                        <li>Registro ante SEMARNAT</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-aguas">
+                <div class="service-minimal-icon"><i class="fas fa-water"></i></div>
+                <h3 class="service-minimal-title">Registro de Descarga de Aguas Residuales</h3>
+                <p class="service-minimal-desc">Trámite federal para descargas en cuerpos receptores o redes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Registro ante SEMARNAT</li>
+                        <li>Cumplimiento de límites máximos permisibles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-lau">
+                <div class="service-minimal-icon"><i class="fas fa-id-badge"></i></div>
+                <h3 class="service-minimal-title">Licencia Ambiental Única (LAU)</h3>
+                <p class="service-minimal-desc">Licenciamiento ambiental integral para fuentes fijas de jurisdicción federal.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y trámite</li>
+                        <li>Renovación y actualización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-coa">
+                <div class="service-minimal-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3 class="service-minimal-title">Cédula de Operación Anual (COA)</h3>
+                <p class="service-minimal-desc">Reporte anual obligatorio de emisiones y transferencia de contaminantes.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y presentación</li>
+                        <li>Cumplimiento de plazos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-sener">
+                <div class="service-minimal-icon"><i class="fas fa-solar-panel"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto Social (SENER)</h3>
+                <p class="service-minimal-desc">Evaluación de impacto social para proyectos del sector energético.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Evaluación ante SENER</li>
+                        <li>Proyectos energéticos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-asea">
+                <div class="service-minimal-icon"><i class="fas fa-gas-pump"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto Ambiental (ASEA)</h3>
+                <p class="service-minimal-desc">Evaluación ambiental para proyectos de hidrocarburos ante ASEA.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Evaluación ante ASEA</li>
+                        <li>Sector hidrocarburos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="semarnat-dtu">
+                <div class="service-minimal-icon"><i class="fas fa-tree"></i></div>
+                <h3 class="service-minimal-title">DTU Cambio de Uso de Suelo Forestal</h3>
+                <p class="service-minimal-desc">Documento Técnico Unificado para cambio de uso de suelo en terrenos forestales.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del DTU</li>
+                        <li>Trámite ante SEMARNAT</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTORÍA - ESTATAL EDOMEX (10 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-mia">
+                <div class="service-minimal-icon"><i class="fas fa-building"></i></div>
+                <h3 class="service-minimal-title">MIA Estatal (Edomex)</h3>
+                <p class="service-minimal-desc">Manifestación de Impacto Ambiental a nivel estatal.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y presentación</li>
+                        <li>Seguimiento ante autoridad estatal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-informe">
+                <div class="service-minimal-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3 class="service-minimal-title">Informe Previo de Impacto Ambiental</h3>
+                <p class="service-minimal-desc">Informe previo para proyectos en el Estado de México.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del informe</li>
+                        <li>Trámite estatal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-bajo">
+                <div class="service-minimal-icon"><i class="fas fa-seedling"></i></div>
+                <h3 class="service-minimal-title">Bajo Impacto Ambiental</h3>
+                <p class="service-minimal-desc">Trámite simplificado para proyectos de bajo impacto en Edomex.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Identificación de giro</li>
+                        <li>Presentación y seguimiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-riesgo">
+                <div class="service-minimal-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3 class="service-minimal-title">Estudio de Riesgo Ambiental (Edomex)</h3>
+                <p class="service-minimal-desc">Evaluación de riesgos para instalaciones en el Estado de México.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del estudio</li>
+                        <li>Trámite ante autoridad estatal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-ordenamiento">
+                <div class="service-minimal-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3 class="service-minimal-title">Dictamen de Ordenamiento Ecológico</h3>
+                <p class="service-minimal-desc">Dictamen técnico de ordenamiento ecológico del territorio.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Evaluación del predio</li>
+                        <li>Dictamen técnico oficial</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-condicionantes">
+                <div class="service-minimal-icon"><i class="fas fa-check-double"></i></div>
+                <h3 class="service-minimal-title">Cumplimiento de Condicionantes</h3>
+                <p class="service-minimal-desc">Seguimiento y cierre de condicionantes ambientales estatales.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Informes de cumplimiento</li>
+                        <li>Cierre de condicionantes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-anp">
+                <div class="service-minimal-icon"><i class="fas fa-mountain"></i></div>
+                <h3 class="service-minimal-title">Identificación de Predios en ANP</h3>
+                <p class="service-minimal-desc">Verificación de ubicación en Áreas Naturales Protegidas.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Georreferenciación del predio</li>
+                        <li>Informe de compatibilidad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-propaem">
+                <div class="service-minimal-icon"><i class="fas fa-gavel"></i></div>
+                <h3 class="service-minimal-title">Liberación de Procesos ante PROPAEM</h3>
+                <p class="service-minimal-desc">Regularización y liberación de procesos jurídico-ambientales.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Atención de requerimientos</li>
+                        <li>Liberación de procesos jurídicos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-rme-planes">
+                <div class="service-minimal-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h3 class="service-minimal-title">Planes de Manejo Integral de RME</h3>
+                <p class="service-minimal-desc">Planes de manejo para residuos de manejo especial en Edomex.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración del plan</li>
+                        <li>Registro estatal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="edomex-rme-registro">
+                <div class="service-minimal-icon"><i class="fas fa-registered"></i></div>
+                <h3 class="service-minimal-title">Registro Integral de RME</h3>
+                <p class="service-minimal-desc">Registro completo como generador, recolector, transportista y más.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Generador, Recolección y Traslado</li>
+                        <li>Tratamiento y Aprovechamiento</li>
+                        <li>Centro de Acopio y Disposición Final</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTORÍA - EVALUACIÓN DE IMPACTO ESTATAL (8 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-urbano">
+                <div class="service-minimal-icon"><i class="fas fa-city"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto Urbano</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia de desarrollo urbano.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Evaluación de uso de suelo</li>
+                        <li>Compatibilidad urbana</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-protcivil">
+                <div class="service-minimal-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto en Protección Civil</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia de protección civil.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Análisis de riesgos</li>
+                        <li>Medidas de seguridad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-vial">
+                <div class="service-minimal-icon"><i class="fas fa-road"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto Vial</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia de tránsito y vialidad.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Estudio de tráfico</li>
+                        <li>Accesos y salidas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-ambiental">
+                <div class="service-minimal-icon"><i class="fas fa-leaf"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto Ambiental</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia ambiental estatal.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Impacto en flora y fauna</li>
+                        <li>Emisiones y descargas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-forestal">
+                <div class="service-minimal-icon"><i class="fas fa-tree"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto en Transformación Forestal</h3>
+                <p class="service-minimal-desc">Evaluación técnica para cambio de uso de suelo forestal.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Inventario forestal</li>
+                        <li>Medidas de compensación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-agua">
+                <div class="service-minimal-icon"><i class="fas fa-tint"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto en Distribución de Agua</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia de recursos hídricos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Disponibilidad hídrica</li>
+                        <li>Infraestructura de distribución</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-movilidad">
+                <div class="service-minimal-icon"><i class="fas fa-bus"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto en Movilidad</h3>
+                <p class="service-minimal-desc">Evaluación técnica de impacto en materia de movilidad y transporte.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Estudio de movilidad</li>
+                        <li>Transporte público y privado</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="impacto-drenaje">
+                <div class="service-minimal-icon"><i class="fas fa-faucet"></i></div>
+                <h3 class="service-minimal-title">Evaluación de Impacto en Drenaje y Alcantarillado</h3>
+                <p class="service-minimal-desc">Evaluación técnica de infraestructura hidráulica y tratamiento.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Agua, drenaje y alcantarillado</li>
+                        <li>Tratamiento de aguas residuales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTORÍA - COPRISEM (8 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-dictamen">
+                <div class="service-minimal-icon"><i class="fas fa-stethoscope"></i></div>
+                <h3 class="service-minimal-title">Dictamen Sanitario</h3>
+                <p class="service-minimal-desc">Dictamen sanitario ante COPRISEM para tu establecimiento.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Inspección sanitaria</li>
+                        <li>Emisión del dictamen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-inicio">
+                <div class="service-minimal-icon"><i class="fas fa-hammer"></i></div>
+                <h3 class="service-minimal-title">Licencia Sanitaria de Inicio de Construcción</h3>
+                <p class="service-minimal-desc">Permiso sanitario para iniciar construcción de establecimientos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Revisión de proyecto</li>
+                        <li>Emisión de licencia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-ocupacion">
+                <div class="service-minimal-icon"><i class="fas fa-building"></i></div>
+                <h3 class="service-minimal-title">Licencia Sanitaria de Ocupación de Obra</h3>
+                <p class="service-minimal-desc">Permiso sanitario para ocupar y operar instalaciones terminadas.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Inspección final</li>
+                        <li>Emisión de licencia de ocupación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-factibilidad">
+                <div class="service-minimal-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h3 class="service-minimal-title">Dictamen Técnico de Factibilidad</h3>
+                <p class="service-minimal-desc">Solicitud de dictamen técnico de factibilidad de inicio de construcción.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Evaluación de factibilidad</li>
+                        <li>Para panteones y establecimientos especiales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-panteon-inicio">
+                <div class="service-minimal-icon"><i class="fas fa-monument"></i></div>
+                <h3 class="service-minimal-title">Autorización Sanitaria de Inicio (Panteones)</h3>
+                <p class="service-minimal-desc">Autorización sanitaria de inicio de construcción para panteones.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Requisitos sanitarios específicos</li>
+                        <li>Trámite ante COPRISEM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-panteon-ocupacion">
+                <div class="service-minimal-icon"><i class="fas fa-place-of-worship"></i></div>
+                <h3 class="service-minimal-title">Autorización Sanitaria de Ocupación (Panteones)</h3>
+                <p class="service-minimal-desc">Autorización sanitaria de ocupación de obra para panteones.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Inspección sanitaria final</li>
+                        <li>Autorización de operación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-aviso">
+                <div class="service-minimal-icon"><i class="fas fa-bell"></i></div>
+                <h3 class="service-minimal-title">Aviso de Funcionamiento</h3>
+                <p class="service-minimal-desc">Aviso de funcionamiento ante COPRISEM para establecimientos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Elaboración y presentación</li>
+                        <li>Seguimiento del trámite</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="coprisem-juridico">
+                <div class="service-minimal-icon"><i class="fas fa-gavel"></i></div>
+                <h3 class="service-minimal-title">Liberación de Procesos Jurídicos (COPRISEM)</h3>
+                <p class="service-minimal-desc">Regularización y cierre de expedientes sanitarios.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Atención de clausuras</li>
+                        <li>Liberación de procesos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: GESTORÍA - PROTECCIÓN CIVIL (12 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="gestoria" data-service="pc-vulnerabilidad">
+                <div class="service-minimal-icon"><i class="fas fa-exclamation-circle"></i></div>
+                <h3 class="service-minimal-title">Análisis de Vulnerabilidad y Riesgo</h3>
+                <p class="service-minimal-desc">Estudio de vulnerabilidad y análisis de riesgos para instalaciones.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Identificación de amenazas</li>
+                        <li>Matriz de riesgos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-geofisico">
+                <div class="service-minimal-icon"><i class="fas fa-wave-square"></i></div>
+                <h3 class="service-minimal-title">Estudio Geofísico</h3>
+                <p class="service-minimal-desc">Estudio geofísico del terreno para evaluación de riesgos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Georradar y resistividad</li>
+                        <li>Caracterización del subsuelo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-geologico">
+                <div class="service-minimal-icon"><i class="fas fa-mountain"></i></div>
+                <h3 class="service-minimal-title">Estudio de Riesgo Geológico</h3>
+                <p class="service-minimal-desc">Evaluación de riesgos geológicos del terreno y entorno.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Sismos y deslizamientos</li>
+                        <li>Hundimientos y grietas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-hidrologico">
+                <div class="service-minimal-icon"><i class="fas fa-water"></i></div>
+                <h3 class="service-minimal-title">Estudio Hidrológico</h3>
+                <p class="service-minimal-desc">Evaluación de riesgos hídricos e inundaciones.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Análisis de cuencas</li>
+                        <li>Riesgo de inundación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-suelos">
+                <div class="service-minimal-icon"><i class="fas fa-layer-group"></i></div>
+                <h3 class="service-minimal-title">Mecánica de Suelos</h3>
+                <p class="service-minimal-desc">Estudio de mecánica de suelos para cimentación y estabilidad.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Capacidad de carga</li>
+                        <li>Estabilidad del terreno</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-fenomenos">
+                <div class="service-minimal-icon"><i class="fas fa-bolt"></i></div>
+                <h3 class="service-minimal-title">Fenómenos Perturbadores</h3>
+                <p class="service-minimal-desc">Identificación y análisis de fenómenos perturbadores naturales y humanos.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Fenómenos naturales</li>
+                        <li>Fenómenos socio-organizativos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-programa">
+                <div class="service-minimal-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h3 class="service-minimal-title">Programa Específico de Protección Civil</h3>
+                <p class="service-minimal-desc">Elaboración y registro del programa interno de protección civil.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Programa interno</li>
+                        <li>Registro ante autoridad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-emergencia">
+                <div class="service-minimal-icon"><i class="fas fa-ambulance"></i></div>
+                <h3 class="service-minimal-title">Plan de Emergencia Giros de Bajo Impacto</h3>
+                <p class="service-minimal-desc">Plan de emergencia simplificado para giros de bajo impacto.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Protocolos de emergencia</li>
+                        <li>Rutas de evacuación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-visto">
+                <div class="service-minimal-icon"><i class="fas fa-check-circle"></i></div>
+                <h3 class="service-minimal-title">Visto Bueno de Seguridad y Operación</h3>
+                <p class="service-minimal-desc">Dictamen de cumplimiento de medidas de seguridad y operación.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Inspección de seguridad</li>
+                        <li>Emisión del visto bueno</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-carta">
+                <div class="service-minimal-icon"><i class="fas fa-file-signature"></i></div>
+                <h3 class="service-minimal-title">Carta Responsiva de DRO</h3>
+                <p class="service-minimal-desc">Carta responsiva de Director Responsable de Obra.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Firma de DRO certificado</li>
+                        <li>Responsiva estructural</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-capacitacion">
+                <div class="service-minimal-icon"><i class="fas fa-user-shield"></i></div>
+                <h3 class="service-minimal-title">Capacitación en Protección Civil</h3>
+                <p class="service-minimal-desc">Cursos certificados para brigadas y personal operativo.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Primeros Auxilios</li>
+                        <li>Simulacros</li>
+                        <li>Espacios Confinados</li>
+                        <li>Búsqueda y Rescate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-minimal" data-category="gestoria" data-service="pc-dictamenes">
+                <div class="service-minimal-icon"><i class="fas fa-file-contract"></i></div>
+                <h3 class="service-minimal-title">Dictámenes Estructurales, Eléctricos y de Gas</h3>
+                <p class="service-minimal-desc">Dictámenes de seguridad de instalaciones por unidades de verificación.</p>
+                <div class="service-expanded">
+                    <ul>
+                        <li>Dictamen Estructural</li>
+                        <li>Dictamen Eléctrico</li>
+                        <li>Dictamen de Gas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- CATEGORÍA: ECONOMÍA CIRCULAR (2 servicios) -->
+            <!-- ========================================== -->
+            <div class="service-minimal" data-category="circular" data-service="compraventa">
                 <div class="service-minimal-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                <h3 class="service-minimal-title">Compra-Venta Reciclables</h3>
+                <h3 class="service-minimal-title">Compra-Venta de Reciclables</h3>
                 <p class="service-minimal-desc">Adquisición de materiales para economía circular.</p>
                 <div class="service-expanded">
                     <ul>
@@ -4388,8 +5393,7 @@
                 </div>
             </div>
 
-            <div class="service-minimal" data-category="circular" data-service="">
-                <div class="service-minimal-number">16</div>
+            <div class="service-minimal" data-category="circular" data-service="reciclatones">
                 <div class="service-minimal-icon"><i class="fas fa-users"></i></div>
                 <h3 class="service-minimal-title">Reciclatones</h3>
                 <p class="service-minimal-desc">Organización de eventos de recolección masiva de reciclables.</p>
@@ -4404,20 +5408,21 @@
 
         </div>
     </div>
+
     <!-- Nota de Huella de Carbono -->
-<div class="services-carbon-note">
-    <div class="carbon-note-icon">
-       <i class="fas fa-leaf"></i>  
+    <div class="services-carbon-note">
+        <div class="carbon-note-icon">
+           <i class="fas fa-leaf"></i>  
+        </div>
+        <div class="carbon-note-content">
+            <p class="carbon-note-title">
+                <strong>Huella de Carbono:</strong>
+            </p>
+            <p class="carbon-note-text">
+                <strong>Cálculo, Reducción y Compensación de Emisiones</strong>
+            </p>
+        </div>
     </div>
-    <div class="carbon-note-content">
-        <p class="carbon-note-title">
-            <strong>Huella de Carbono:</strong>
-        </p>
-        <p class="carbon-note-text">
-            <strong>Cálculo, Reducción y Compensación de Emisiones</strong>
-        </p>
-    </div>
-</div>
 </section>
 
     <!-- CÓMO TRABAJAMOS -->
@@ -4948,7 +5953,7 @@
             <li><i class="fas fa-check"></i>65cm x 78cm x 102 cm</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 140L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Contenedor de Cartón Corrugado')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -4973,7 +5978,7 @@
             <li><i class="fas fa-check"></i>80cm x 98cm x 115 cm</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 240L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Contenedor de Plástico 60L')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -4998,7 +6003,7 @@
             <li><i class="fas fa-check"></i>135cm x 80cm x 132 cm</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 500L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Contenedor Metálico 100L')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -5022,7 +6027,7 @@
             <li><i class="fas fa-check"></i> Tapa abatible con tapita central.</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 1,500L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -5048,7 +6053,7 @@
             <li><i class="fas fa-check"></i>196cm x 110cm x 133 cm</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 1,800')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -5074,7 +6079,7 @@
             <li><i class="fas fa-check"></i>207cm x 110cm x 143 cm</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Basurero de 2,000L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -5098,7 +6103,7 @@
             <li><i class="fas fa-check"></i> Tapa despontable 50/50 (Opcional).</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Volquete de 500L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -5122,7 +6127,7 @@
             <li><i class="fas fa-check"></i> Tapa desmontable 50/50 (Opcional)</li>
         </ul>
         
-        <button class="btn-cotizar" onclick="cotizarProducto('Volquete de 1,000L')">
+        <button class="btn-cotizar" onclick="cotizarProducto('Tarima de Madera Estándar')">
             Solicitar Cotización <i class="fas fa-arrow-right"></i>
         </button>
     </div>
