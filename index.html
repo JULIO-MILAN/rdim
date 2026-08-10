@@ -895,11 +895,34 @@
 }
 
 /* Grid de Valores (3 columnas) */
+
 .why-values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
     margin-bottom: 2.5rem;
+}
+
+/* AGREGADO: Arreglo para Tablet y Móvil */
+@media (max-width: 1024px) {
+    .why-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .why-values-grid {
+        grid-template-columns: 1fr; /* Una sola columna en celular */
+        gap: 1.5rem;
+    }
+    
+    .value-image-large {
+        height: 160px; /* Un poco más pequeña en móvil para ahorrar espacio */
+    }
+    
+    .value-content-compact {
+        padding: 1rem;
+    }
 }
 
 .value-card-compact {
@@ -908,6 +931,9 @@
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s;
+    height: 100%; /* Permite que la tarjeta crezca según su contenido */
+    display: flex;
+    flex-direction: column;
 }
 
 .value-card-compact:hover {
