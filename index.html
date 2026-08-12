@@ -2729,6 +2729,7 @@
 }
 
 /* Nota informativa */
+/* Nota informativa */
 .ecoshop-note {
     display: flex;
     align-items: center;
@@ -2737,10 +2738,11 @@
     background: rgba(76, 175, 80, 0.05);
     border: 1px solid rgba(76, 175, 80, 0.2);
     border-radius: 12px;
+    width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    grid-column: 2 / -1;   /* 👈 ocupa TODO el espacio restante de la fila (col. 2 → final) */
+    margin: auto;          /* 👈 en grids, auto centra en horizontal Y vertical a la vez */
 }
-
 .ecoshop-note i {
     font-size: 1.5rem;
     color: var(--green-light);
@@ -4858,16 +4860,15 @@
                     </button>
                 </div>
             </div>
-            
-                     <div class="product-card" data-category="rpbi">
-                        <div class="ecoshop-note">
+         <div class="product-card" data-category="rpbi">
+                 <div class="ecoshop-note">
             <i class="fas fa-info-circle"></i>
             <p>Todos nuestros insumos RPBI están fabricados para cumplir con los requisitos que nos marca la NOM-087-ECOL-SSA1-2002.</p>
         </div>
-    </div>
             </div>
-            </div>
-            </div>
+             <!-- Nota informativa -->
+   
+
             <!-- ==========================================
                  CATEGORÍA: ARTÍCULOS SUSTENTABLES
                  ========================================== -->
@@ -5338,8 +5339,8 @@
 
         </div>
 
-        <!-- Nota informativa -->
-  
+       
+    </div>
 </section>
 
     <!-- COVERAGE -->
